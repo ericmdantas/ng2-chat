@@ -1,0 +1,22 @@
+{
+  "name": "ng2-tsc",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "author": "Eric Mendes Dantas",
+  "license": "ISC",
+  "devDependencies": {},
+  "dependencies": {
+    "angular2": "^2.0.0-alpha.36",
+    "es6-module-loader": "^0.17.5",
+    "express": "^4.13.3",
+    "reflect-metadata": "^0.1.0",
+    "socket.io": "^1.3.6",
+    "socket.io-client": "^1.3.6",
+    "systemjs": "^0.18.9",
+    "traceur": "0.0.91"
+  }
+}

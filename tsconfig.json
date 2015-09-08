@@ -1,0 +1,23 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "watch": true,
+        "target": "es5",
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true
+    },
+    "filesGlob": [
+        "client.ts",
+        "server.ts",
+        "app/**/*.ts"
+    ],
+    "files": [
+        "client.ts",
+        "server.ts",
+        "app/app_cmp.ts",
+        "app/chat/chat.ts",
+        "app/chat/chat_form/chat_form_cmp.ts",
+        "app/chat/chat_list/chat_list_cmp.ts",
+        "app/chat/services/chat_service.ts"
+    ]
+}

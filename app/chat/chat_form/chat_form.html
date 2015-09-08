@@ -1,0 +1,10 @@
+<div>
+  <form [ng-form-model]="chatForm"
+        onsubmit="return false;"
+        (submit)="sendMessage(chatForm.value.message)">
+          <input type="text"
+                 ng-control="message" />
+
+          <button type="submit">send</button>
+  </form>
+</div>
