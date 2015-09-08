@@ -16,8 +16,10 @@
         "server.ts",
         "app/app_cmp.ts",
         "app/chat/chat.ts",
+        "app/chat/chat_cmp.ts",
         "app/chat/chat_form/chat_form_cmp.ts",
         "app/chat/chat_list/chat_list_cmp.ts",
+        "app/chat/model/message_model.ts",
         "app/chat/services/chat_service.ts"
     ]
 }

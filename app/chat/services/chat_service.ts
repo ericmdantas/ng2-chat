@@ -1,6 +1,7 @@
 /// <reference path="../../../typings/tsd.d.ts" />
 
 import {EventEmitter} from 'angular2/angular2';
+import {MessageModel} from 'app/chat/model/message_model.js';
 
 export class ChatService {
   static MESSAGE: string = 'msg';
@@ -11,7 +12,7 @@ export class ChatService {
 
   listen():Rx.Observable<any> {
     this._socket.on(ChatService.MESSAGE, (info) => {
-      this._ee.next(info);
+      this._ee.next(new MessageModel(info));
     });
 
     return this._ee.toRx();

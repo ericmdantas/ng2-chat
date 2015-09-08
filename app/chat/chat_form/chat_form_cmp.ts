@@ -17,14 +17,20 @@ import {ChatService} from 'app/chat/services/chat_service.js';
 
 @Component({
   selector: 'chat-form-cmp',
-  lifecycle: [LifecycleEvent.onInit],
   bindings: [FormBuilder ,forwardRef(() => ChatService)]
 })
 @View({
   templateUrl: 'app/chat/chat_form/chat_form.html',
   stylesUrl: ['app/chat/chat.css'],
   encapsulation: ViewEncapsulation.NATIVE,
-  directives: [FORM_DIRECTIVES]
+  directives: [FORM_DIRECTIVES],
+  styles: [`
+    form {
+      position: fixed;
+      margin-top: 30px;
+      bottom: 10px;
+    }
+  `]
 })
 
 export class ChatFormCmp {
@@ -36,16 +42,8 @@ export class ChatFormCmp {
     });
   }
 
-  onInit() {
-    this._chatService
-        .listen()
-        .subscribe((message) => {
-          console.log(message);
-        });
-  }
-
   sendMessage(message: string):void {
-    this._chatService
-        .send(message);
+    this._chatService.send(message);
+    this.chatForm.controls.message.updateValue("");
   }
 }

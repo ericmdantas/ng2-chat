@@ -9,13 +9,15 @@ import {ChatCmp} from 'app/chat/chat.js';
 })
 @View({
   template: `
-    <chat-cmp></chat-cmp>
+    <main>
+      <chat-cmp></chat-cmp>
+    </main>
   `,
   directives: [ChatCmp]
 })
 
 export class AppCmp {
   onInit() {
-    
+
   }
 }

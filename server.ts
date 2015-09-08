@@ -21,7 +21,9 @@ app.get('/', (req, res) => {
 
 io.on('connection', (socket) => {
   socket.on(MESSAGE, (info) => {
-    socket.emit(MESSAGE, info);
+    let _message = {message: info, user: '_eric', sentAt: new Date().toString()};
+
+    socket.emit(MESSAGE, _message);
   });
 });
 

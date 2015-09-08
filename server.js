@@ -14,7 +14,8 @@ app.get('/', function (req, res) {
 });
 io.on('connection', function (socket) {
     socket.on(MESSAGE, function (info) {
-        socket.emit(MESSAGE, info);
+        var _message = { message: info, user: '_eric', sentAt: new Date().toString() };
+        socket.emit(MESSAGE, _message);
     });
 });
 console.log("listen port: " + PORT);

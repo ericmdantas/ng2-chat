@@ -3,8 +3,10 @@
         onsubmit="return false;"
         (submit)="sendMessage(chatForm.value.message)">
           <input type="text"
-                 ng-control="message" />
+                 ng-control="message"
+                 autofocus />
 
-          <button type="submit">send</button>
+          <button type="submit"
+                  [disabled]="!chatForm.valid">go</button>
   </form>
 </div>
