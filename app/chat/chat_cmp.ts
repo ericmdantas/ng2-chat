@@ -1,7 +1,6 @@
 /// <reference path="../,,/typings/tsd.d.ts" />
 
-import {Component, View, LifecycleEvent, bootstrap} from 'angular2/angular2';
-import {forwardRef} from 'angular2/di';
+import {Component, View, LifecycleEvent} from 'angular2/angular2';
 import {ChatListCmp} from 'app/chat/chat_list/chat_list_cmp.js';
 import {ChatFormCmp} from 'app/chat/chat_form/chat_form_cmp.js';
 

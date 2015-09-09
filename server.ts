@@ -7,9 +7,7 @@ import * as socketIo from 'socket.io';
 const PORT: number = 8080;
 const MESSAGE: string = 'msg';
 const _colors: string[] = ["red", "orange", "steelblue", "brown", "tomato"];
-
 const app = express();
-
 const server = app.listen(PORT);
 const io = socketIo(server);
 

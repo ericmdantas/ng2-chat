@@ -17,7 +17,7 @@ import {ChatService} from 'app/chat/services/chat_service.js';
 
 @Component({
   selector: 'chat-form-cmp',
-  bindings: [FormBuilder ,forwardRef(() => ChatService)]
+  bindings: [FormBuilder, forwardRef(() => ChatService)]
 })
 @View({
   templateUrl: 'app/chat/chat_form/chat_form.html',
