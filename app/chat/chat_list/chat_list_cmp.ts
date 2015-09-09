@@ -5,6 +5,7 @@ import {Inject} from 'angular2/di';
 import {ChatService} from 'app/chat/services/chat_service.js';
 import {MessageModel} from 'app/chat/model/message_model.js';
 import {ChatBlinkDirective} from 'app/chat/chat_list/chat_blink_directive.js';
+import {ChatScrollBottomDirective} from 'app/chat/chat_list/chat_scroll_bottom_directive.js';
 
 @Component({
   selector: 'chat-list-cmp',
@@ -14,7 +15,7 @@ import {ChatBlinkDirective} from 'app/chat/chat_list/chat_blink_directive.js';
 @View({
   templateUrl: 'app/chat/chat_list/chat_list.html',
   styleUrls: ['app/chat/chat_list/chat_list.css'],
-  directives: [CORE_DIRECTIVES, ChatBlinkDirective]
+  directives: [CORE_DIRECTIVES, ChatBlinkDirective, ChatScrollBottomDirective]
 })
 
 export class ChatListCmp {

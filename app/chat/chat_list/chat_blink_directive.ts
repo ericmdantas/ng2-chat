@@ -10,28 +10,29 @@ type dirType = {
 
 @Directive({
   selector: '[blink-message]',
-  lifecycle: [LifecycleEvent.onAllChangesDone]
+  lifecycle: [LifecycleEvent.onInit]
 })
 
 export class ChatBlinkDirective {
   static DEFAULT_COLORS: dirType = {bkg: 'transparent', fontColor: "#444"};
   static SHINY_COLORS: dirType = {bkg: 'orange', fontColor: "#fff"};
+  static TIME_TO_FADE: number = 777;
 
   constructor(@Inject(ElementRef) private _el: ElementRef) {
 
   }
 
-  onAllChangesDone() {
+  onInit() {
     this._blink();
   }
 
   private _blink():void {
-    this._el.nativeElement.style.backgroundColor = ChatBlinkDirective.DEFAULT_COLORS.bkg;
-    this._el.nativeElement.style.color = ChatBlinkDirective.DEFAULT_COLORS.fontColor;
+    this._el.nativeElement.style.backgroundColor = ChatBlinkDirective.SHINY_COLORS.bkg;
+    this._el.nativeElement.style.color = ChatBlinkDirective.SHINY_COLORS.fontColor;
 
     setTimeout(() => {
-      this._el.nativeElement.style.backgroundColor = ChatBlinkDirective.SHINY_COLORS.bkg;
-      this._el.nativeElement.style.color = ChatBlinkDirective.SHINY_COLORS.fontColor;
-    }, 999);
+      this._el.nativeElement.style.backgroundColor = ChatBlinkDirective.DEFAULT_COLORS.bkg;
+      this._el.nativeElement.style.color = ChatBlinkDirective.DEFAULT_COLORS.fontColor;
+    }, ChatBlinkDirective.TIME_TO_FADE);
   }
 }
