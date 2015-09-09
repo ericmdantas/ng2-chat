@@ -19,3 +19,7 @@
 .list-of-messages-container {
   margin-bottom: 30px;
 }
+
+[blink-message] {
+  transition: all .2s;
+}

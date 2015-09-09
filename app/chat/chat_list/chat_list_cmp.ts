@@ -1,9 +1,10 @@
 /// <reference path="../../../typings/tsd.d.ts" />
 
-import {Component, View, LifecycleEvent, NgFor} from 'angular2/angular2';
+import {Component, View, LifecycleEvent, CORE_DIRECTIVES} from 'angular2/angular2';
 import {Inject} from 'angular2/di';
 import {ChatService} from 'app/chat/services/chat_service.js';
 import {MessageModel} from 'app/chat/model/message_model.js';
+import {ChatBlinkDirective} from 'app/chat/chat_list/chat_blink_directive.js';
 
 @Component({
   selector: 'chat-list-cmp',
@@ -13,7 +14,7 @@ import {MessageModel} from 'app/chat/model/message_model.js';
 @View({
   templateUrl: 'app/chat/chat_list/chat_list.html',
   styleUrls: ['app/chat/chat_list/chat_list.css'],
-  directives: [NgFor]
+  directives: [CORE_DIRECTIVES, ChatBlinkDirective]
 })
 
 export class ChatListCmp {
