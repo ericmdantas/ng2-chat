@@ -1,0 +1,21 @@
+.user {
+  color: #777;
+}
+
+.info {
+  margin-left: 10px;
+  word-break: break-work;
+}
+
+.sent-time {
+  color: #aaa;
+}
+
+.message {
+  padding: 5px;
+  margin: 0;
+}
+
+.list-of-messages-container {
+  margin-bottom: 30px;
+}

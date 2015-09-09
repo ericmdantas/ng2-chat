@@ -1,9 +1,10 @@
-<div>
+<div class="form-container">
   <form [ng-form-model]="chatForm"
         onsubmit="return false;"
         (submit)="sendMessage(chatForm.value.message)">
           <input type="text"
                  ng-control="message"
+                 placeholder="say something :D"
                  autofocus />
 
           <button type="submit"

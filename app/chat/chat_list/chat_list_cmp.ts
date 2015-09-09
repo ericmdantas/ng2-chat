@@ -11,43 +11,8 @@ import {MessageModel} from 'app/chat/model/message_model.js';
   bindings: [ChatService]
 })
 @View({
-  template: `
-  <div class="list-of-messages-container">
-    <div *ng-for="#m of messages">
-      <p class="message">
-        <span class="user" [text-content]="m.user"></span>
-
-        <span class="sent-time">
-          (<span [text-content]="m.sentAt"></span>)
-        </span>
-
-        <span class="info" [text-content]="m.message"></span>
-      </p>
-    </div>
-  </div>
-  `,
-  styles: [`
-    .user {
-      color: #777;
-    }
-
-    .info {
-      margin-left: 10px;
-    }
-
-    .sent-time {
-      color: #aaa;
-    }
-
-    .message {
-      padding: 5px;
-      margin: 0;
-    }
-
-    .list-of-messages-container {
-      margin-bottom: 30px;
-    }
-  `],
+  templateUrl: 'app/chat/chat_list/chat_list.html',
+  styleUrls: ['app/chat/chat_list/chat_list.css'],
   directives: [NgFor]
 })
 

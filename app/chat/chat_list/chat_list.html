@@ -1,0 +1,17 @@
+<div class="list-of-messages-container">
+  <div *ng-for="#m of messages">
+    <p class="message">
+      <span class="user" [text-content]="m.user"></span>
+
+      <span class="sent-time">
+        (<span [text-content]="m.sentAt"></span>)
+      </span>
+
+      <span class="info" [text-content]="m.message"></span>
+    </p>
+  </div>
+
+  <div [hidden]="messages.length">
+    <h2 style="color: #777;">no messages yet</h2>
+  </div>
+</div>

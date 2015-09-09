@@ -21,16 +21,9 @@ import {ChatService} from 'app/chat/services/chat_service.js';
 })
 @View({
   templateUrl: 'app/chat/chat_form/chat_form.html',
-  stylesUrl: ['app/chat/chat.css'],
+  styleUrls: ['app/chat/chat_form/chat_form.css'],
   encapsulation: ViewEncapsulation.NATIVE,
   directives: [FORM_DIRECTIVES],
-  styles: [`
-    form {
-      position: fixed;
-      margin-top: 30px;
-      bottom: 10px;
-    }
-  `]
 })
 
 export class ChatFormCmp {

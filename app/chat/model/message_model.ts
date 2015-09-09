@@ -2,11 +2,13 @@ export class MessageModel {
   private _message: string;
   private _user: string;
   private _sentAt: string;
+  private _color: string;
 
-  constructor({message, user, sentAt}: {message?: string, user?:string, sentAt?:string} = {}) {
+  constructor({message, user, sentAt, color}: {message?: string, user?:string, sentAt?:string, color?:string} = {}) {
     this.message = message;
     this.user = user;
     this.sentAt = sentAt.substring(16, 24);
+    this.color = this.color;
   }
 
   set message(m: string) {
@@ -25,11 +27,19 @@ export class MessageModel {
     return this._user;
   }
 
-  set timeSent(sa: string) {
+  set sentAt(sa: string) {
     this._sentAt = sa;
   }
 
-  get timeSent():string {
+  get sentAt():string {
     return this._sentAt;
+  }
+
+  set color(c: string) {
+    this._color = c;
+  }
+
+  get color():string {
+    return this._color;
   }
 }

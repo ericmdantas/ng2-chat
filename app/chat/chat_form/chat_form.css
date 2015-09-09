@@ -1,0 +1,48 @@
+.form-container {
+  position: relative;
+}
+
+form {
+  position: fixed;
+  margin-top: 30px;
+  bottom: 10px;
+  width: 500px;
+}
+
+form input {
+  border: none;
+  border-bottom: 2px solid steelblue;
+  outline: none;
+  font-size: 17px;
+  width: 100%;
+  color: #444;
+}
+
+form button[type=submit] {
+  position: absolute;
+  top: -10px;
+  right: -40px;
+  border: none;
+  background-color: steelblue;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 100%;
+  padding: 10px;
+  transition: all .2s;
+  cursor: pointer;
+}
+
+form button[type=submit]:active {
+  background-color: #fff;
+  color: steelblue;
+  outline: none;
+}
+
+form button[type=submit]:disabled {
+  opacity: .5;
+  cursor: not-allowed;
+}
+
+form input:focus {
+  outline:none;
+}
