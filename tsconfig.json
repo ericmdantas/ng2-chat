@@ -22,6 +22,8 @@
         "app/chat/chat_list/chat_list_cmp.ts",
         "app/chat/chat_list/chat_scroll_bottom_directive.ts",
         "app/chat/model/message_model.ts",
-        "app/chat/services/chat_service.ts"
+        "app/chat/services/chat_service.ts",
+        "app/stats/stats_cmp.ts",
+        "app/stats/stats_socket_listener_service.ts"
     ]
 }

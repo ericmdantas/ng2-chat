@@ -2,6 +2,7 @@
 
 import {Component, View, LifecycleEvent} from 'angular2/angular2';
 import {ChatCmp} from 'app/chat/chat.js';
+import {StatsCmp} from 'app/stats/stats_cmp.js';
 
 @Component({
   selector: 'app',
@@ -10,10 +11,11 @@ import {ChatCmp} from 'app/chat/chat.js';
 @View({
   template: `
     <main>
+      <stats></stats>
       <chat-cmp></chat-cmp>
     </main>
   `,
-  directives: [ChatCmp]
+  directives: [ChatCmp, StatsCmp]
 })
 
 export class AppCmp {

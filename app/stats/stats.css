@@ -1,0 +1,15 @@
+.stats-container {
+  position: fixed;
+  top: 0;
+  right: 20px;
+}
+
+.stat-info {
+  border-bottom: 2px solid rgb(255, 215, 0);
+  color: rgb(255, 255, 255);
+  background-color: rgb(70, 130, 180);
+  margin: 0;
+  padding: 15px;
+  text-transform: uppercase;
+  text-align: center;
+}
