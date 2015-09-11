@@ -26,7 +26,7 @@ import {ChatService} from 'app/chat/services/chat_service.js';
   directives: [FORM_DIRECTIVES],
 })
 
-export class ChatFormCmp implements OnInit {
+export class ChatFormCmp {
   chatForm: ControlGroup;
 
   constructor(@Inject(forwardRef(() => ChatService)) private _chatService: ChatService, @Inject(FormBuilder) fb: FormBuilder) {
