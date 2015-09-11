@@ -4,7 +4,7 @@ import {
   Component,
   View,
   ViewEncapsulation,
-  LifecycleEvent,
+  OnInit,
   FormBuilder,
   FORM_DIRECTIVES,
   Validators,
@@ -22,11 +22,11 @@ import {ChatService} from 'app/chat/services/chat_service.js';
 @View({
   templateUrl: 'app/chat/chat_form/chat_form.html',
   styleUrls: ['app/chat/chat_form/chat_form.css'],
-  encapsulation: ViewEncapsulation.NATIVE,
+  encapsulation: ViewEncapsulation.Native,
   directives: [FORM_DIRECTIVES],
 })
 
-export class ChatFormCmp {
+export class ChatFormCmp implements OnInit {
   chatForm: ControlGroup;
 
   constructor(@Inject(forwardRef(() => ChatService)) private _chatService: ChatService, @Inject(FormBuilder) fb: FormBuilder) {

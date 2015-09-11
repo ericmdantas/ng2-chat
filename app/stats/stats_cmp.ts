@@ -1,20 +1,19 @@
 /// <reference path="../../typings/tsd.d.ts" />
 
-import {Component, View, ViewEncapsulation, LifecycleEvent} from 'angular2/angular2';
+import {Component, View, ViewEncapsulation, OnInit} from 'angular2/angular2';
 import {Inject} from 'angular2/di';
 import {StatsSocketListenerService} from 'app/stats/stats_socket_listener_service.js';
 
 @Component({
   selector: 'stats',
-  bindings: [StatsSocketListenerService],
-  lifecycle: [LifecycleEvent.onInit]
+  bindings: [StatsSocketListenerService]
 })
 @View({
   templateUrl: 'app/stats/stats.html',
   styleUrls: ['app/stats/stats.css']
 })
 
-export class StatsCmp {
+export class StatsCmp implements OnInit {
   public msgCount: number = 0;
   public peopleOnline: number = 0;
 

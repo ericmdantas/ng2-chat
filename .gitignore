@@ -2,4 +2,5 @@
 server.js
 client.js
 node_modules
+*.log
 app/**/*.js

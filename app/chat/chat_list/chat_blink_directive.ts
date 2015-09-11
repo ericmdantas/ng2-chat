@@ -1,6 +1,6 @@
 /// <reference path="../../../typings/tsd.d.ts" />
 
-import {Directive, ElementRef, LifecycleEvent, EventEmitter} from 'angular2/angular2';
+import {Directive, ElementRef, OnInit, EventEmitter} from 'angular2/angular2';
 import {Inject} from 'angular2/di';
 
 type dirType = {
@@ -9,11 +9,10 @@ type dirType = {
 }
 
 @Directive({
-  selector: '[blink-message]',
-  lifecycle: [LifecycleEvent.onInit]
+  selector: '[blink-message]'
 })
 
-export class ChatBlinkDirective {
+export class ChatBlinkDirective implements OnInit {
   static DEFAULT_COLORS: dirType = {bkg: 'transparent', fontColor: "#444"};
   static SHINY_COLORS: dirType = {bkg: 'orange', fontColor: "#fff"};
   static TIME_TO_FADE: number = 777;

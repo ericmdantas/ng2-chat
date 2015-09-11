@@ -25,7 +25,7 @@ app.get('/', (req, res) => {
 
 io.on('connection', (socket) => {
   let _rand: number = Math.floor(Math.random() * 100000);
-  let _color: string = COLORS[Math.random() * _colors.length];
+  let _color: string = COLORS[Math.random() * COLORS.length];
 
   _peopleOnline++;
 
