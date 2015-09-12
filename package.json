@@ -17,6 +17,7 @@
     "socket.io": "^1.3.6",
     "socket.io-client": "^1.3.6",
     "systemjs": "^0.18.9",
-    "traceur": "0.0.91"
+    "traceur": "0.0.91",
+    "xtorage": "0.0.4"
   }
 }
