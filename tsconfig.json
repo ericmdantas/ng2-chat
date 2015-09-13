@@ -24,6 +24,7 @@
         "app/chat/model/message_model.ts",
         "app/chat/services/chat_service.ts",
         "app/login/login_cmp.ts",
+        "app/modal_login/modal_login_cmp.ts",
         "app/stats/stats_cmp.ts",
         "app/stats/stats_socket_listener_service.ts",
         "app/storage/storage_service.ts",

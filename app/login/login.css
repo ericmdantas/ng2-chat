@@ -1,0 +1,29 @@
+.btn {
+  border-radius: 5px;
+  padding: 7px 9px;
+  font-weight: bold;
+  color: #fff;
+  border: none;
+  background-color: steelblue;
+  float: right;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.btn:disabled {
+  opacity: .5;
+}
+
+.login-input {
+  border: none;
+  border-bottom: 2px solid steelblue;
+  width: 100%;
+  outline: 0;
+  font-size: 17px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.login-input:focus {
+  outline: 0;
+}

@@ -1,0 +1,16 @@
+<div>
+  <form [ng-form-model]="loginForm"
+        (submit)="signIn(loginForm.value.name)">
+
+    <input type="text"
+           class="login-input"
+           ng-control="name"
+           placeholder="username goes here"
+           maxlength="20"
+           autofocus />
+
+    <button type="submit"
+            class="btn"
+            [disabled]="!loginForm.valid">sign in</button>
+  </form>
+</div>
