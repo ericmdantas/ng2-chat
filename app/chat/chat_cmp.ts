@@ -26,7 +26,7 @@ export class ChatCmp implements OnInit {
       console.log('chat-cmp init');
     }
 
-    chatTrashedHandler(status:boolen):void {
+    chatTrashedHandler(status:boolean):void {
       this._chatList.first.messages.length = 0;
     }
 }
