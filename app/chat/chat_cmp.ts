@@ -27,6 +27,6 @@ export class ChatCmp implements OnInit {
     }
 
     chatTrashedHandler(status:boolean):void {
-      this._chatList.first.messages.length = 0;
+      this._chatList.first.clearMessages();
     }
 }

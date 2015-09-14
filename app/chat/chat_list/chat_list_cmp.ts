@@ -29,4 +29,8 @@ export class ChatListCmp implements OnInit {
           this.messages.push(message);
         });
   }
+
+  clearMessages():void {
+    this.messages.length = 0;
+  }
 }
