@@ -18,7 +18,7 @@ export class ChatService {
     return this._ee.toRx();
   }
 
-  send(msg: any):void {
-    return this._socket.emit(ChatService.MESSAGE, msg);
+  send(info: string, user: string):void {
+    return this._socket.emit(ChatService.MESSAGE, {info, user});
   }
 }

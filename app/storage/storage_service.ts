@@ -12,7 +12,10 @@ export class StorageService {
   }
 
   getUser():UserModel {
-    return new UserModel(this._xtorage.get(StorageService.KEY_USER_ONLINE));
+    let _user = new UserModel();
+    _user.name = this._xtorage.get(StorageService.KEY_USER_ONLINE);
+
+    return _user;
   }
 
   saveUser(user: UserModel):void {

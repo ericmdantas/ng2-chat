@@ -4,8 +4,7 @@
       <span class="user" [text-content]="m.user"></span>
 
       <span class="sent-time">
-        (<span [text-content]="m.sentAt"></span>)
-        said:
+        (<span [text-content]="m.sentAt"></span>):
       </span>
 
       <span class="info" [text-content]="m.message"></span>
@@ -13,6 +12,6 @@
   </div>
 
   <div [hidden]="messages.length">
-    <h2 style="color: #777;">no messages yet</h2>
+    <h2 style="color: #777; text-align: center;">no messages yet</h2>
   </div>
 </div>

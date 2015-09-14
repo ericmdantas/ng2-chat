@@ -16,6 +16,7 @@ import {StatsSocketListenerService} from 'app/stats/stats_socket_listener_servic
 export class StatsCmp implements OnInit {
   public msgCount: number = 0;
   public peopleOnline: number = 0;
+  public moreThanOne: boolean = false;
 
   constructor(@Inject(StatsSocketListenerService) private _ssls: StatsSocketListenerService) {
 
@@ -31,6 +32,7 @@ export class StatsCmp implements OnInit {
         .listenPeopleOnline()
         .subscribe((num) => {
           this.peopleOnline = num;
+          this.moreThanOne = (this.peopleOnline > 1);
         });
   }
 

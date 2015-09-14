@@ -1,5 +1,5 @@
 .user {
-  color: #777;
+  color: #666;
 }
 
 .info {
@@ -14,6 +14,7 @@
 .message {
   padding: 5px;
   margin: 0;
+  color: #666;
 }
 
 .list-of-messages-container {

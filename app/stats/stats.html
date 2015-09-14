@@ -1,4 +1,13 @@
 <div class="stats-container">
-  <p class="stat-info"><span [text-content]="peopleOnline"></span> users</p>
-  <p class="stat-info"><span [text-content]="msgCount"></span> msgs</p>
+  <p class="stat-info">
+    <span [text-content]="peopleOnline"></span>
+    <span [hidden]="moreThanOne">user</span>
+    <span [hidden]="!moreThanOne">users</span>
+  </p>
+
+  <p class="stat-info">
+    <span [text-content]="msgCount"></span>
+    <span>msgs</span>
+  </p>
+
 </div>

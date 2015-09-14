@@ -14,7 +14,7 @@ type dirType = {
 
 export class ChatBlinkDirective implements OnInit {
   static DEFAULT_COLORS: dirType = {bkg: 'transparent', fontColor: "#444"};
-  static SHINY_COLORS: dirType = {bkg: 'orange', fontColor: "#fff"};
+  static SHINY_COLORS: dirType = {bkg: 'gold', fontColor: "#fff"};
   static TIME_TO_FADE: number = 777;
 
   constructor(@Inject(ElementRef) private _el: ElementRef) {

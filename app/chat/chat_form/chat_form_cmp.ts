@@ -14,10 +14,11 @@ import {
 import {Inject, forwardRef} from 'angular2/di';
 
 import {ChatService} from 'app/chat/services/chat_service.js';
+import {StorageService} from 'app/storage/storage_service.js';
 
 @Component({
   selector: 'chat-form-cmp',
-  bindings: [FormBuilder, forwardRef(() => ChatService)]
+  bindings: [FormBuilder, forwardRef(() => ChatService), StorageService]
 })
 @View({
   templateUrl: 'app/chat/chat_form/chat_form.html',
@@ -29,14 +30,19 @@ import {ChatService} from 'app/chat/services/chat_service.js';
 export class ChatFormCmp {
   chatForm: ControlGroup;
 
-  constructor(@Inject(forwardRef(() => ChatService)) private _chatService: ChatService, @Inject(FormBuilder) fb: FormBuilder) {
+  constructor(@Inject(forwardRef(() => ChatService)) private _chatService: ChatService,
+              @Inject(FormBuilder) fb: FormBuilder,
+              @Inject(StorageService) private _storage: StorageService) {
+
     this.chatForm = fb.group({
       "message": ["", Validators.required]
     });
   }
 
   sendMessage(message: string):void {
-    this._chatService.send(message);
+    let _username: string = this._storage.getUser().name;
+
+    this._chatService.send(message, _username);
     this.chatForm.controls.message.updateValue("");
   }
 }

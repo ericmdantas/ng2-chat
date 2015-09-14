@@ -8,7 +8,6 @@ const PORT: number = 8080;
 const MESSAGE: string = 'msg';
 const MESSAGE_COUNT: string = 'msg_count';
 const PEOPLE_ONLINE: string = 'people_online';
-const COLORS: string[] = ["red", "orange", "steelblue", "brown", "tomato"];
 const app = express();
 const server = app.listen(PORT);
 const io = socketIo(server);
@@ -24,18 +23,15 @@ app.get('/', (req, res) => {
 });
 
 io.on('connection', (socket) => {
-  let _rand: number = Math.floor(Math.random() * 100000);
-  let _color: string = COLORS[Math.random() * COLORS.length];
-
   _peopleOnline++;
 
   io.emit(PEOPLE_ONLINE, _peopleOnline)
 
-  socket.on(MESSAGE, (info) => {
+  socket.on(MESSAGE, (data: {info: string, user: string}) => {
 
     _messageCount ++;
 
-    let _message = {message: info, user: 'u' + _rand, sentAt: new Date().toString(), color: _color};
+    let _message = {message: data.info, user: data.user, sentAt: new Date().toString(), color: undefined};
 
     io.emit(MESSAGE, _message);
     io.emit(MESSAGE_COUNT, _messageCount);
@@ -47,7 +43,5 @@ io.on('connection', (socket) => {
     io.emit(PEOPLE_ONLINE, _peopleOnline);
   });
 });
-
-
 
 console.log(`listen port: ${PORT}`);
