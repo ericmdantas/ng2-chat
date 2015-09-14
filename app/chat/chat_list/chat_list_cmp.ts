@@ -1,7 +1,6 @@
 /// <reference path="../../../typings/tsd.d.ts" />
 
-import {Component, View, OnInit, CORE_DIRECTIVES} from 'angular2/angular2';
-import {Inject} from 'angular2/di';
+import {Component, View, OnInit, CORE_DIRECTIVES, Inject} from 'angular2/angular2';
 import {ChatService} from 'app/chat/services/chat_service.js';
 import {MessageModel} from 'app/chat/model/message_model.js';
 import {ChatBlinkDirective} from 'app/chat/chat_list/chat_blink_directive.js';
@@ -16,7 +15,6 @@ import {ChatScrollBottomDirective} from 'app/chat/chat_list/chat_scroll_bottom_d
   styleUrls: ['app/chat/chat_list/chat_list.css'],
   directives: [CORE_DIRECTIVES, ChatBlinkDirective, ChatScrollBottomDirective]
 })
-
 export class ChatListCmp implements OnInit {
   public messages: MessageModel[] = [];
 

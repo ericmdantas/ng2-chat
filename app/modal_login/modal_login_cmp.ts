@@ -14,7 +14,6 @@ import {StorageService} from 'app/storage/storage_service.js';
   styleUrls: ['app/modal_login/modal_login.css'],
   directives: [LoginCmp]
 })
-
 export class ModalLoginCmp implements OnInit {
   public static BLANKET: string = 'blanket';
   public static MODAL_LOGIN: string = 'modal-login';
@@ -30,11 +29,11 @@ export class ModalLoginCmp implements OnInit {
     }
   }
 
-  loginHandler(ev: any):void {
+  loginOkHandler(ev: any):void {
     this._allowUser();
   }
 
-  private _allowUser() {
+  private _allowUser():void {
     this._el.nativeElement.getElementsByClassName(ModalLoginCmp.BLANKET)[0].style.display = 'none';
     this._el.nativeElement.getElementsByClassName(ModalLoginCmp.MODAL_LOGIN)[0].style.display = 'none';
   }

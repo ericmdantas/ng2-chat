@@ -12,7 +12,6 @@ import {StatsSocketListenerService} from 'app/stats/stats_socket_listener_servic
   templateUrl: 'app/stats/stats.html',
   styleUrls: ['app/stats/stats.css']
 })
-
 export class StatsCmp implements OnInit {
   public msgCount: number = 0;
   public peopleOnline: number = 0;

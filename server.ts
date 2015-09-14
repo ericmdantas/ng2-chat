@@ -4,7 +4,7 @@ import * as express from 'express';
 import * as fs from 'fs';
 import * as socketIo from 'socket.io';
 
-const PORT: number = 8080;
+const PORT: number = 9999;
 const MESSAGE: string = 'msg';
 const MESSAGE_COUNT: string = 'msg_count';
 const PEOPLE_ONLINE: string = 'people_online';

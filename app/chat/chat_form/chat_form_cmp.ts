@@ -26,7 +26,6 @@ import {StorageService} from 'app/storage/storage_service.js';
   encapsulation: ViewEncapsulation.Native,
   directives: [FORM_DIRECTIVES],
 })
-
 export class ChatFormCmp {
   chatForm: ControlGroup;
 

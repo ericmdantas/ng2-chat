@@ -11,7 +11,6 @@ type dirType = {
 @Directive({
   selector: '[blink-message]'
 })
-
 export class ChatBlinkDirective implements OnInit {
   static DEFAULT_COLORS: dirType = {bkg: 'transparent', fontColor: "#444"};
   static SHINY_COLORS: dirType = {bkg: 'gold', fontColor: "#fff"};
