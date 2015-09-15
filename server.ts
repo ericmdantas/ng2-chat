@@ -51,7 +51,8 @@ io.on(events.CONNECTION, (socket) => {
     io.emit(events.PEOPLE_ONLINE, _peopleOnline);
   });
 
-  _bot.scheduleTalk(io, events.MESSAGE);
 });
+
+_bot.scheduleTalk(io, events.MESSAGE);
 
 console.log(`listenining on port: ${PORT}`);
