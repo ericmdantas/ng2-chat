@@ -3,25 +3,25 @@ import {MessageModel} from './message_model.js';
 const BOT_MESSAGES: string[] = [
   "JULIANA?!",
   "Bruno? Embaixo da ponte?",
-  "nego é foda",
+  "faz isso comigo não, velho",
   "aeHOOOOOOOOOOOOOOOOOOOOOOO",
-  "pera",
-  "rafinha bombom",
+  "gente, quantos anos eu tenho?",
+  "rafinha bombom :B",
   "felipe!",
   "smith!",
   "16 18",
   "JARBAS?!",
+  "Meu braço ta branco, velho!",
   "Guarapari, Búzios minha arte",
   "Romero Britto?!",
   "meu braço, véio! Vai quebrar! O meu braço!",
-  "to com fome",
   "samu?",
   "arquitetura?",
   "mata o papai"
 ]
 
 export class BotTalk {
-  private static TALK_TIME: number = 1000 * 60 * 5; // 5 minutos
+  private static TALK_TIME: number = 1000 * 60 * 30; // meia hora
 
   public scheduleTalk(io: SocketIOStatic, m: string):void {
     setInterval(() => {
