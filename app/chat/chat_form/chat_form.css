@@ -1,12 +1,13 @@
 .form-container {
   position: relative;
+  width: 100%;
 }
 
 form {
   position: fixed;
   margin-top: 30px;
   bottom: 10px;
-  width: 700px;
+  width: 80%;
 }
 
 form input {
@@ -46,4 +47,14 @@ form button[type=submit]:disabled {
 
 form input:focus {
   outline:none;
+}
+
+@media(min-width: 40em) {
+  .form-container {
+    width: 700px;
+  }
+
+  form {
+    width: 700px;
+  }
 }

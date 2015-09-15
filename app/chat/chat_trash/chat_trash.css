@@ -4,8 +4,8 @@
   right: 10px;
   border: none;
   text-transform: uppercase;
-  color: #C31E1E;
-  background-color: #fff;
+  color: #fff;
+  background-color: #C31E1E;
   transition: all .3s;
   cursor: pointer;
   font-weight: bold;
@@ -16,4 +16,17 @@
 .trash:hover {
   background-color: #C31E1E;
   color: #fff;
+}
+
+@media(min-width: 40em) {
+  .trash {
+    background-color: #fff;
+    color: #C31E1E;
+  }
+
+  .trash:hover {
+    background-color: #C31E1E;
+    color: #fff;
+  }
+
 }

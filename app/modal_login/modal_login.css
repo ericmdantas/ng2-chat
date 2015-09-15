@@ -2,12 +2,12 @@
   position: fixed;
   width: 20%;
   position: fixed;
-  left: 50%;
+  left: 25%;
   margin-left: -10%;
   min-width: 300px;
   z-index: 2;
   padding: 10px 12px;
-  overlow: hidden;
+  overflow: hidden;
   box-shadow: 0 -1px 0 #e5e5e5,0 0 2px rgba(0,0,0,.12),
               0 2px 4px rgba(0,0,0,.24);
 }
@@ -28,4 +28,10 @@
   background-color: #fff;
   opacity: .85;
   z-index: 1;
+}
+
+@media(min-width: 40em) {
+  .modal-login {
+    left: 50%;
+  }
 }
