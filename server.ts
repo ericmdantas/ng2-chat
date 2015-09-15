@@ -55,4 +55,4 @@ io.on(events.CONNECTION, (socket) => {
 
 _bot.scheduleTalk(io, events.MESSAGE);
 
-console.log(`listenining on port: ${PORT}`);
+console.log(`listening on port: ${PORT}`);

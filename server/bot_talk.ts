@@ -24,9 +24,17 @@ export class BotTalk {
   private static TALK_TIME: number = 1000 * 60 * 30; // meia hora
 
   public scheduleTalk(io: SocketIOStatic, m: string):void {
-    setInterval(() => {
+    this._scheduleTalk(io, m, 1000);
+  }
+
+  private _scheduleTalk(io, m: string, t: number) {
+    let _id = setTimeout(() => {
       io.emit(m, this._talk());
-    }, BotTalk.TALK_TIME);
+
+      clearTimeout(_id);
+
+      this._scheduleTalk(io, m, Math.floor(Math.random() * BotTalk.TALK_TIME));
+    }, t);
   }
 
   private _talk():MessageModel {
