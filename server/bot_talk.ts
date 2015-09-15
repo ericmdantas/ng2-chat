@@ -6,19 +6,19 @@ const BOT_MESSAGES: string[] = [
   "aeHOOOOOOOOOOOOOOOOOOOOOOO",
   "pera",
   "rafinha bombom",
-  "felipe...",
-  "...smith",
+  "felipe!",
+  "smith!",
   "16 18",
   "JARBAS?!",
   "Guarapari, Búzios minha arte",
   "Romero Britto?!",
   "meu braço, véio! Vai quebrar! O meu braço!",
   "to com fome",
-  "hahahaha.. ai ai"
+  "samu?"
 ]
 
 export class BotTalk {
-  private static TALK_TIME: number = 1000 * 60 * 5; // 5 minutos
+  private static TALK_TIME: number = 1000 * 60 * 10; // 10 minutos
 
   public scheduleTalk(io: SocketIOStatic, m: string):void {
     setInterval(() => {
@@ -27,10 +27,14 @@ export class BotTalk {
   }
 
   private _talk():MessageModel {
+    let _msg = BOT_MESSAGES[Math.floor(Math.random() * BOT_MESSAGES.length)];
+    let _user = "felipe.smith";
+    let _date = new Date().toString();
+
     return new MessageModel()
-            .withUser("brot")
-            .withMessage(BOT_MESSAGES[Math.floor(Math.random() * BOT_MESSAGES.length)])
-            .withSentAt(new Date().toString())
+            .withUser(_user)
+            .withMessage(_msg)
+            .withSentAt(_date)
             .isBot(true);
   }
 }

@@ -6,12 +6,13 @@ import {Directive, OnInit} from 'angular2/angular2';
   selector: '[notifications-new-messages]'
 })
 export class NotificationNewMessagesDirective implements OnInit {
-  public static DEFAULT_TITLE: string = '.';
-  public static WARNING_TITLE: string[] = ['.', '!'];
+  public static DEFAULT_TITLE: string = '.......';
+  public static WARNING_TITLE: string[] = ['.......', '!!!!!!!'];
 
   private _doc: Document = document;
 
   onInit() {
+    console.log('notifications-new-messages init');
     this._doc.title = NotificationNewMessagesDirective.DEFAULT_TITLE;
   }
 
