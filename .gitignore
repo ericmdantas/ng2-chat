@@ -1,6 +1,5 @@
-.idea
+node_modules
+app/**/*.js
+server/*.js
 server.js
 client.js
-node_modules
-*.log
-app/**/*.js

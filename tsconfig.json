@@ -8,11 +8,16 @@
     "filesGlob": [
         "client.ts",
         "server.ts",
+        "server/*.ts",
         "app/**/*.ts"
     ],
     "files": [
         "client.ts",
         "server.ts",
+        "server/bot_talk.ts",
+        "server/events.ts",
+        "server/interfaces.ts",
+        "server/message_model.ts",
         "app/app_cmp.ts",
         "app/chat/chat.ts",
         "app/chat/chat_cmp.ts",
@@ -27,7 +32,7 @@
         "app/message_bus/interfaces.ts",
         "app/message_bus/user_status_bus.ts",
         "app/modal_login/modal_login_cmp.ts",
-        "app/notifications/notifications_directive.ts",
+        "app/notifications/notifications_new_messages_directive.ts",
         "app/stats/stats_cmp.ts",
         "app/stats/stats_socket_listener_service.ts",
         "app/storage/storage_service.ts",

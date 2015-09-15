@@ -2,13 +2,13 @@ export class MessageModel {
   private _message: string;
   private _user: string;
   private _sentAt: string;
-  private _color: string;
+  private _bot: boolean;
 
-  constructor({message, user, sentAt, color}: {message?: string, user?:string, sentAt?:string, color?:string} = {}) {
+  constructor({message, user, sentAt, bot}: {message?: string, user?:string, sentAt?:string, bot?:boolean} = {}) {
     this.message = message;
     this.user = user;
     this.sentAt = sentAt.substring(16, 24);
-    this.color = this.color;
+    this.bot = bot;
   }
 
   set message(m: string) {
@@ -35,11 +35,11 @@ export class MessageModel {
     return this._sentAt;
   }
 
-  set color(c: string) {
-    this._color = c;
+  set bot(b: boolean) {
+    this._bot = b;
   }
 
-  get color():string {
-    return this._color;
+  get bot():boolean {
+    return this._bot;
   }
 }

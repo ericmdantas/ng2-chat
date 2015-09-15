@@ -4,16 +4,20 @@ import * as express from 'express';
 import * as fs from 'fs';
 import * as socketIo from 'socket.io';
 
+import {MessageModel} from './server/message_model.js';
+import {BotTalk} from './server/bot_talk.js';
+import {events} from './server/events.js';
+
 const PORT: number = 9999;
-const MESSAGE: string = 'msg';
-const MESSAGE_COUNT: string = 'msg_count';
-const PEOPLE_ONLINE: string = 'people_online';
+
 const app = express();
 const server = app.listen(PORT);
 const io = socketIo(server);
 
 let _peopleOnline: number = 0;
 let _messageCount: number = 0;
+
+let _bot = new BotTalk();
 
 app.use(express.static('./'));
 
@@ -22,26 +26,32 @@ app.get('/', (req, res) => {
     .pipe(res);
 });
 
-io.on('connection', (socket) => {
+io.on(events.CONNECTION, (socket) => {
   _peopleOnline++;
 
-  io.emit(PEOPLE_ONLINE, _peopleOnline)
+  io.emit(events.PEOPLE_ONLINE, _peopleOnline)
 
-  socket.on(MESSAGE, (data: {info: string, user: string}) => {
+  socket.on(events.MESSAGE, (data: {info: string, user: string}) => {
 
-    _messageCount ++;
+    _messageCount++;
 
-    let _message = {message: data.info, user: data.user, sentAt: new Date().toString(), color: undefined};
+    let _message = new MessageModel()
+                      .withMessage(data.info)
+                      .withUser(data.user)
+                      .withSentAt(new Date().toString())
+                      .isBot(false);
 
-    io.emit(MESSAGE, _message);
-    io.emit(MESSAGE_COUNT, _messageCount);
+    io.emit(events.MESSAGE, _message);
+    io.emit(events.MESSAGE_COUNT, _messageCount);
   });
 
-  socket.on('disconnect', (socket) => {
+  socket.on(events.DISCONNECT, (socket) => {
     _peopleOnline--;
 
-    io.emit(PEOPLE_ONLINE, _peopleOnline);
+    io.emit(events.PEOPLE_ONLINE, _peopleOnline);
   });
+
+  _bot.scheduleTalk(io, events.MESSAGE);
 });
 
-console.log(`listen port: ${PORT}`);
+console.log(`listenining on port: ${PORT}`);
