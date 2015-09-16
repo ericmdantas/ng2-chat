@@ -6,9 +6,10 @@ import {Directive, OnInit} from 'angular2/angular2';
   selector: '[notifications-new-messages]'
 })
 export class NotificationNewMessagesDirective implements OnInit {
-  public static DEFAULT_TITLE: string = '.......';
-  public static WARNING_TITLE: string[] = ['.......', '!!!!!!!'];
-
+  public static DEFAULT_TITLE: string = '_';
+  public static WARNING_TITLE: string[] = [NotificationNewMessagesDirective.DEFAULT_TITLE, '!'];
+  public static REPEATER: number = 555;
+  
   private _doc: Document = document;
 
   onInit() {
@@ -26,10 +27,11 @@ export class NotificationNewMessagesDirective implements OnInit {
                                                                                                 : NotificationNewMessagesDirective.WARNING_TITLE[0];
 
       if (this._doc.hasFocus()) {
-        this._doc.title = NotificationNewMessagesDirective.WARNING_TITLE[0];
-        clearInterval(_idInterval);
+          this._doc.title = NotificationNewMessagesDirective.WARNING_TITLE[0];
+
+          clearInterval(_idInterval);
       }
 
-    }, 1000);
+    }, NotificationNewMessagesDirective.REPEATER);
   }
 }

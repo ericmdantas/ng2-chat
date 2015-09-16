@@ -15,7 +15,7 @@ const server = app.listen(PORT);
 const io = socketIo(server);
 
 let _peopleOnline: number = 0;
-let _messageCount: number = 0;
+let _messageCount: {num: number} = {num: 0}; // reference
 
 let _bot = new BotTalk();
 
@@ -33,7 +33,7 @@ io.on(events.CONNECTION, (socket) => {
 
   socket.on(events.MESSAGE, (data: {info: string, user: string}) => {
 
-    _messageCount++;
+    _messageCount.num++;
 
     let _message = new MessageModel()
                       .withMessage(data.info)
@@ -42,7 +42,7 @@ io.on(events.CONNECTION, (socket) => {
                       .isBot(false);
 
     io.emit(events.MESSAGE, _message);
-    io.emit(events.MESSAGE_COUNT, _messageCount);
+    io.emit(events.MESSAGE_COUNT, _messageCount.num);
   });
 
   socket.on(events.DISCONNECT, (socket) => {
@@ -53,6 +53,6 @@ io.on(events.CONNECTION, (socket) => {
 
 });
 
-_bot.scheduleTalk(io, events.MESSAGE);
+_bot.scheduleTalk(io, _messageCount);
 
 console.log(`listening on port: ${PORT}`);

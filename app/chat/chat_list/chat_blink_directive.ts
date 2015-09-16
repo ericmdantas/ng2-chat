@@ -3,18 +3,12 @@
 import {Directive, ElementRef, OnInit, EventEmitter} from 'angular2/angular2';
 import {Inject} from 'angular2/di';
 
-type dirType = {
-  fontColor: string;
-  bkg: string;
-}
-
 @Directive({
   selector: '[blink-message]'
 })
 export class ChatBlinkDirective implements OnInit {
-  static DEFAULT_COLORS: dirType = {bkg: 'transparent', fontColor: "#444"};
-  static SHINY_COLORS: dirType = {bkg: 'gold', fontColor: "#fff"};
-  static TIME_TO_FADE: number = 777;
+  static MARGIN: {init: string, end: string} = {init: '-50px', end: '0'};
+  static TIME_TO_REPEAT: number = 9;
 
   constructor(@Inject(ElementRef) private _el: ElementRef) {
 
@@ -25,12 +19,11 @@ export class ChatBlinkDirective implements OnInit {
   }
 
   private _blink():void {
-    this._el.nativeElement.style.backgroundColor = ChatBlinkDirective.SHINY_COLORS.bkg;
-    this._el.nativeElement.style.color = ChatBlinkDirective.SHINY_COLORS.fontColor;
+    this._el.nativeElement.style.marginLeft = ChatBlinkDirective.MARGIN.init;
 
     setTimeout(() => {
-      this._el.nativeElement.style.backgroundColor = ChatBlinkDirective.DEFAULT_COLORS.bkg;
-      this._el.nativeElement.style.color = ChatBlinkDirective.DEFAULT_COLORS.fontColor;
-    }, ChatBlinkDirective.TIME_TO_FADE);
+      this._el.nativeElement.style.marginLeft = ChatBlinkDirective.MARGIN.end;
+
+    }, ChatBlinkDirective.TIME_TO_REPEAT);
   }
 }

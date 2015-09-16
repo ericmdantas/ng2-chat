@@ -2,13 +2,10 @@
   color: #666;
 }
 
-.bot {
-  color: #DA2020;
-}
-
 .info {
   margin-left: 10px;
   word-break: break-work;
+  display: block;
 }
 
 .sent-time {
@@ -21,10 +18,54 @@
   color: #666;
 }
 
+.user-online-message,
+.not-user-online-message,
+.bot-message {
+  position: relative;
+}
+
+.user-online-message:before {
+  content: ">";
+  position: absolute;
+  left: -25px;
+  font-weight: bold;
+  color: steelblue;
+  transition: all .1s;
+}
+
+.not-user-online-message:before {
+  content: ">";
+  position: absolute;
+  left: -25px;
+  font-weight: bold;
+  color: rgb(231, 121, 67);
+  transition: all .1s;
+}
+
+.bot-message:before {
+  content: "_";
+  position: absolute;
+  left: -25px;
+  font-weight: bold;
+  color: #C0261C;
+  transition: all .1s;
+}
+
+.message:hover .user-online-message:before,
+.message:hover .not-user-online-message:before {
+  left: -15px;
+}
+
 .list-of-messages-container {
   margin-bottom: 50px;
 }
 
 [blink-message] {
-  transition: all .2s;
+  transition: all .5s;
+}
+
+@media(min-width: 30em) {
+  .info {
+    display: inline-block;
+  }
 }

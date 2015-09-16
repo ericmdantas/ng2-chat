@@ -7,7 +7,7 @@ form {
   position: fixed;
   margin-top: 30px;
   bottom: 10px;
-  width: 80%;
+  width: 70%;
 }
 
 form input {
@@ -17,6 +17,7 @@ form input {
   font-size: 17px;
   width: 100%;
   color: #444;
+  padding: 5px;
 }
 
 form button[type=submit] {
@@ -50,11 +51,7 @@ form input:focus {
 }
 
 @media(min-width: 40em) {
-  .form-container {
-    width: 700px;
-  }
-
-  form {
-    width: 700px;
+  .form-container, form {
+    max-width: 700px;
   }
 }
