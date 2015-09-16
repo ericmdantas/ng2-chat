@@ -31,6 +31,9 @@ const BOT_MESSAGES: string[] = [
   "meu braço, véio! Vai quebrar! O meu braço!",
   "samu?",
   "arquitetura?",
+  "( ͡° ͜ʖ ͡°)",
+  "ᕦ( ͡° ͜ʖ ͡°)ᕤ",
+  "arquitetura?",
   "mata o papai"
 ]
 
