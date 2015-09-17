@@ -1,23 +1,24 @@
 /// <reference path="../../../typings/tsd.d.ts" />
 
-import {Directive, Inject, OnInit} from 'angular2/angular2';
 import {MessageModel} from 'app/chat/model/message_model.js';
-import {ChatService} from 'app/chat/services/chat_service.js';
+import {StorageService} from 'app/storage/storage_service.js';
 
-@Directive({
-  selector: '[mention]',
-  bindings: [ChatService]
-})
-export class MentionService implements OnInit {
-  constructor(@Inject(ChatService) private _chatService: ChatService) {
+export class MentionService {
+  private _storageService: StorageService = new StorageService();
+  private static MENTION: string = '@';
+  private static EVERYBODY: string = 'all';
 
-  }
+  constructor() {
 
-  onInit() {
-    console.log('mention-directive init');
   }
 
   makeMention(m: MessageModel):void {
-    console.log(m);
+      let _name: string = this._storageService.getUser().name;
+      let _youWereMentioned: boolean = m.message.indexOf(MentionService.MENTION + _name) > -1;
+      let _everybodyWasMentioned: boolean = m.message.indexOf(MentionService.MENTION + MentionService.EVERYBODY) > -1;
+
+      if (_youWereMentioned || _everybodyWasMentioned) {
+          m.mentioned = true;
+      }
   }
 }

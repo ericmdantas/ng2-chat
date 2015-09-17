@@ -1,7 +1,7 @@
-.trash {
+.logout {
   position: fixed;
   top: 5px;
-  right: 10px;
+  left: 10px;
   border: none;
   text-transform: uppercase;
   color: #fff;
@@ -13,18 +13,21 @@
   border-radius: 5px;
 }
 
-.trash:hover {
+.logout:hover {
   background-color: #C31E1E;
   color: #fff;
 }
 
 @media(min-width: 40em) {
-  .trash {
+  .logout {
     background-color: #fff;
     color: #C31E1E;
+    left: auto;
+    right: 10px;
+    top: 50px;
   }
 
-  .trash:hover {
+  .logout:hover {
     background-color: #C31E1E;
     color: #fff;
   }

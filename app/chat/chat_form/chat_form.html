@@ -3,8 +3,9 @@
         onsubmit="return false;"
         (submit)="sendMessage(chatForm.value.message)">
           <input type="text"
+                 id="main-input-chat"
                  ng-control="message"
-                 placeholder="hello there"
+                 placeholder="use @some.name.here or @all to mention"
                  autofocus />
 
           <button type="submit"

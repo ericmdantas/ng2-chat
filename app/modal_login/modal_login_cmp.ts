@@ -17,6 +17,7 @@ import {StorageService} from 'app/storage/storage_service.js';
 export class ModalLoginCmp implements OnInit {
   public static BLANKET: string = 'blanket';
   public static MODAL_LOGIN: string = 'modal-login';
+  private _doc: Document = document;
 
   constructor(@Inject(ElementRef) private _el: ElementRef,
               @Inject(StorageService) private _storage: StorageService) {

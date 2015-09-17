@@ -14,7 +14,7 @@
 
 .message {
   padding: 5px;
-  margin: 0;
+  margin: 0 0 5px 0;
   color: #666;
 }
 
@@ -31,6 +31,7 @@
   font-weight: bold;
   color: steelblue;
   transition: all .1s;
+  top: -1px;
 }
 
 .not-user-online-message:before {
@@ -40,6 +41,7 @@
   font-weight: bold;
   color: rgb(231, 121, 67);
   transition: all .1s;
+  top: -1px;
 }
 
 .bot-message:before {
@@ -60,12 +62,18 @@
   margin-bottom: 50px;
 }
 
+.mentioned {
+  background-color: rgba(255, 215, 0, 0.22);
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
 [blink-message] {
   transition: all .5s;
 }
 
 @media(min-width: 30em) {
   .info {
-    display: inline-block;
+    display: inline;
   }
 }

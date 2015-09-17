@@ -4,6 +4,7 @@ import {Component, View, ViewQuery, QueryList, OnInit} from 'angular2/angular2';
 import {ChatListCmp} from 'app/chat/chat_list/chat_list_cmp.js';
 import {ChatFormCmp} from 'app/chat/chat_form/chat_form_cmp.js';
 import {ChatTrashCmp} from 'app/chat/chat_trash/chat_trash_cmp.js';
+import {ChatLogoutCmp} from 'app/chat/chat_logout/chat_logout_cmp.js';
 
 @Component({
   selector: 'chat-cmp'
@@ -13,8 +14,9 @@ import {ChatTrashCmp} from 'app/chat/chat_trash/chat_trash_cmp.js';
     <chat-list-cmp></chat-list-cmp>
     <chat-form-cmp></chat-form-cmp>
     <chat-trash-cmp (chat-trashed)="chatTrashedHandler($event)"></chat-trash-cmp>
+    <chat-logout-cmp></chat-logout-cmp>
   `,
-  directives: [ChatListCmp, ChatFormCmp, ChatTrashCmp]
+  directives: [ChatListCmp, ChatFormCmp, ChatTrashCmp, ChatLogoutCmp]
 })
 
 export class ChatCmp implements OnInit {

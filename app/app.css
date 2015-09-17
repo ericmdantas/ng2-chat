@@ -5,7 +5,7 @@ body {
 main {
   max-width: 700px;
   margin: 50px auto 0;
-  padding: 0 20px;
+  padding: 0 30px;
 }
 
 @media(min-width: 40em) {

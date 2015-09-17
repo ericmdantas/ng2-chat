@@ -32,10 +32,11 @@ export class ChatListCmp implements OnInit {
     this._chatService
         .listen()
         .subscribe((message) => {
-            this.messages.push(message);
             this._userOnlineMessageService.markMessage(message);
             this._notificationNewMessageService.toggleTitle();
             this._mentionService.makeMention(message);
+
+            this.messages.push(message);
         });
   }
 
