@@ -38,7 +38,7 @@
         "app/notifications/notifications_new_messages_service.ts",
         "app/stats/stats_cmp.ts",
         "app/stats/stats_socket_listener_service.ts",
-        "app/storage/storage_service.ts",
-        "app/user/user_model.ts"
+        "app/user/user_model.ts",
+        "app/user_storage/user_storage_service.ts"
     ]
 }

@@ -3,11 +3,11 @@
 import {Component, View, ElementRef, OnInit} from 'angular2/angular2';
 import {Inject} from 'angular2/di';
 import {LoginCmp} from 'app/login/login_cmp.js';
-import {StorageService} from 'app/storage/storage_service.js';
+import {UserStorageService} from 'app/user_storage/user_storage_service.js';
 
 @Component({
   selector: 'modal-login-cmp',
-  bindings: [StorageService]
+  bindings: [UserStorageService]
 })
 @View({
   templateUrl: 'app/modal_login/modal_login.html',
@@ -20,12 +20,12 @@ export class ModalLoginCmp implements OnInit {
   private _doc: Document = document;
 
   constructor(@Inject(ElementRef) private _el: ElementRef,
-              @Inject(StorageService) private _storage: StorageService) {
+              @Inject(UserStorageService) private _userStorageService: UserStorageService) {
 
   }
 
   onInit() {
-    if (this._storage.isOnline()) {
+    if (this._userStorageService.isOnline()) {
       this._allowUser();
     }
   }

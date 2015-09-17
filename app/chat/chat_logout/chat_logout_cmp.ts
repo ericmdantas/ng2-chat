@@ -1,11 +1,11 @@
 /// <reference path="../../../typings/tsd.d.ts" />
 
 import {Component, View, Inject, OnInit} from 'angular2/angular2';
-import {StorageService} from 'app/storage/storage_service.js';
+import {UserStorageService} from 'app/user_storage/user_storage_service.js';
 
 @Component({
   selector: 'chat-logout-cmp',
-  bindings: [StorageService]
+  bindings: [UserStorageService]
 })
 @View({
   templateUrl: 'app/chat/chat_logout/chat_logout.html',
@@ -14,7 +14,7 @@ import {StorageService} from 'app/storage/storage_service.js';
 export class ChatLogoutCmp implements OnInit {
   _w: Window = window;
 
-  constructor(@Inject(StorageService) private _storageService: StorageService) {
+  constructor(@Inject(UserStorageService) private _userStorageService: UserStorageService) {
 
   }
 
@@ -23,7 +23,7 @@ export class ChatLogoutCmp implements OnInit {
   }
 
   logoutHandler():void {
-    this._storageService.removeUser();
+    this._userStorageService.removeUser();
     this._w.location.replace('/');
   }
 }

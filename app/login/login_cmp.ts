@@ -2,12 +2,12 @@
 
 import {Component, View, FormBuilder, FORM_DIRECTIVES, ControlGroup, Validators, EventEmitter, OnInit} from 'angular2/angular2';
 import {Inject} from 'angular2/di';
-import {StorageService} from 'app/storage/storage_service.js';
+import {UserStorageService} from 'app/user_storage/user_storage_service.js';
 import {UserModel} from 'app/user/user_model.js';
 
 @Component({
   selector: 'login-cmp',
-  bindings: [FormBuilder, UserModel, StorageService],
+  bindings: [FormBuilder, UserModel, UserStorageService],
   events: ['loginOk']
 })
 @View({
@@ -20,7 +20,7 @@ export class LoginCmp implements OnInit {
   loginOk: EventEmitter = new EventEmitter();
 
   constructor(@Inject(UserModel) private _user: UserModel,
-              @Inject(StorageService) private _storageService: StorageService,
+              @Inject(UserStorageService) private _userStorageService: UserStorageService,
               @Inject(FormBuilder) fb: FormBuilder) {
 
     this.loginForm = fb.group({
@@ -33,7 +33,7 @@ export class LoginCmp implements OnInit {
   }
 
   signIn(name: string):void {
-    this._storageService.saveUser(name);
+    this._userStorageService.saveUser(name);
     this.loginForm.controls.name.updateValue("");
 
     this.loginOk.next('login-ok!');
