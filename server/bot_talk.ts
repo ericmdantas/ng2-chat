@@ -37,7 +37,7 @@ const BOT_MESSAGES: string[] = [
 ]
 
 export class BotTalk {
-  private static TALK_TIME: number = 1000 * 60 * 15; // 15 minutos
+  private static TALK_TIME: number = 1000 * 60 * 30; // meia hora
 
   public scheduleTalk(io: SocketIOStatic, mCount: {num: number}):void {
     this._scheduleTalk(io, mCount, 1000);
