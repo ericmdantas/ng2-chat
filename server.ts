@@ -54,6 +54,5 @@ io.on(events.CONNECTION, (socket) => {
 });
 
 _bot.scheduleTalk(io, _messageCount);
-_bot.scheduleTalk(io, _messageCount);
 
 console.log(`listening on port: ${PORT}`);
