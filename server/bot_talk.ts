@@ -23,7 +23,6 @@ const BOT_MESSAGES: string[] = [
   "Cristiano Ronaldo?",
   "Minha arte PC Gusmão",
   "Milton Nascimento, velho",
-  "seu cu",
   "O MEU PAI?!",
   "Sai dae, doido! Cê é mó playboy!",
   "É óbvio, velho!",

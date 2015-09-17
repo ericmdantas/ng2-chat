@@ -5,24 +5,26 @@ import {ChatService} from 'app/chat/services/chat_service.js';
 import {MessageModel} from 'app/chat/model/message_model.js';
 import {ChatBlinkDirective} from 'app/chat/chat_list/chat_blink_directive.js';
 import {ChatScrollBottomDirective} from 'app/chat/chat_list/chat_scroll_bottom_directive.js';
-import {NotificationNewMessagesDirective} from 'app/notifications/notifications_new_messages_directive.js';
-import {UserOnlineMessageDirective} from 'app/chat/chat_list/chat_user_online_message.js';
+import {NotificationNewMessagesService} from 'app/notifications/notifications_new_messages_service.js';
+import {UserOnlineMessageService} from 'app/chat/chat_list/chat_user_online_message_service.js';
+import {MentionService} from 'app/chat/chat_list/mention_service.js';
 
 @Component({
   selector: 'chat-list-cmp',
-  bindings: [ChatService]
+  bindings: [ChatService, UserOnlineMessageService, NotificationNewMessagesService, MentionService]
 })
 @View({
   templateUrl: 'app/chat/chat_list/chat_list.html',
   styleUrls: ['app/chat/chat_list/chat_list.css'],
-  directives: [CORE_DIRECTIVES, ChatBlinkDirective, ChatScrollBottomDirective, NotificationNewMessagesDirective, UserOnlineMessageDirective]
+  directives: [CORE_DIRECTIVES, ChatBlinkDirective, ChatScrollBottomDirective]
 })
 export class ChatListCmp implements OnInit {
   public messages: MessageModel[] = [];
 
   constructor(@Inject(ChatService) private _chatService: ChatService,
-              @ViewQuery(NotificationNewMessagesDirective) private _notifications: QueryList<NotificationNewMessagesDirective>,
-              @ViewQuery(UserOnlineMessageDirective) private _userOnlineMessage: QueryList<UserOnlineMessageDirective>) {
+              @Inject(UserOnlineMessageService) private _userOnlineMessageService: UserOnlineMessageService,
+              @Inject(MentionService) private _mentionService: MentionService,
+              @Inject(NotificationNewMessagesService) private _notificationNewMessageService: NotificationNewMessagesService) {
 
   }
 
@@ -30,9 +32,10 @@ export class ChatListCmp implements OnInit {
     this._chatService
         .listen()
         .subscribe((message) => {
-          this.messages.push(message);
-          this._notifications.first.notifyNewMessage();
-          this._userOnlineMessage.first.markMessage(message);
+            this.messages.push(message);
+            this._userOnlineMessageService.markMessage(message);
+            this._notificationNewMessageService.toggleTitle();
+            this._mentionService.makeMention(message);
         });
   }
 

@@ -1,15 +1,14 @@
 /// <reference path="../../../typings/tsd.d.ts" />
 
-import {Directive, Inject} from 'angular2/angular2';
 import {StorageService} from 'app/storage/storage_service.js';
 import {MessageModel} from 'app/chat/model/message_model.js';
+import {ChatService} from 'app/chat/services/chat_service.js'
+import {ChatListCmp} from 'app/chat/chat_list/chat_list_cmp.js';
 
-@Directive({
-  selector: '[user-online-message]',
-  bindings: [StorageService]
-})
-export class UserOnlineMessageDirective {
-  constructor(@Inject(StorageService) private _storageService: StorageService) {
+export class UserOnlineMessageService {
+  private _storageService: StorageService = new StorageService();
+
+  constructor() {
 
   }
 

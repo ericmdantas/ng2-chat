@@ -25,35 +25,35 @@
 }
 
 .user-online-message:before {
-  content: ">";
+  content: "✔";
   position: absolute;
-  left: -25px;
+  left: -35px;
   font-weight: bold;
   color: steelblue;
   transition: all .1s;
 }
 
 .not-user-online-message:before {
-  content: ">";
+  content: "✔";
   position: absolute;
-  left: -25px;
+  left: -35px;
   font-weight: bold;
   color: rgb(231, 121, 67);
   transition: all .1s;
 }
 
 .bot-message:before {
-  content: "_";
+  content: "//";
   position: absolute;
-  left: -25px;
+  left: -35px;
   font-weight: bold;
-  color: #C0261C;
+  color: #666;
   transition: all .1s;
 }
 
 .message:hover .user-online-message:before,
 .message:hover .not-user-online-message:before {
-  left: -15px;
+  left: -30px;
 }
 
 .list-of-messages-container {
