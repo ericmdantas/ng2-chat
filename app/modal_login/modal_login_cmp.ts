@@ -3,7 +3,7 @@
 import {Component, View, ElementRef, OnInit} from 'angular2/angular2';
 import {Inject} from 'angular2/di';
 import {LoginCmp} from 'app/login/login_cmp.js';
-import {UserStorageService} from 'app/user_storage/user_storage_service.js';
+import {UserStorageService} from 'app/user/user_storage_service.js';
 
 @Component({
   selector: 'modal-login-cmp',

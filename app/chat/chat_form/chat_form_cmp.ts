@@ -14,7 +14,9 @@ import {
 import {Inject, forwardRef} from 'angular2/di';
 
 import {ChatService} from 'app/chat/services/chat_service.js';
-import {UserStorageService} from 'app/user_storage/user_storage_service.js';
+import {UserStorageService} from 'app/user/user_storage_service.js';
+import {MessageModel} from 'app/chat/model/message_model.js';
+import {MentionService} from 'app/chat/chat_list/mention_service.js';
 
 @Component({
   selector: 'chat-form-cmp',
@@ -43,5 +45,22 @@ export class ChatFormCmp {
 
     this._chatService.send(message, _username);
     this.chatForm.controls.message.updateValue("");
+  }
+
+  mentionHandler(m: MessageModel):void {
+    let _bot = m.bot;
+    let _you = this._storage.getUserName() === m.user;
+
+    if (!_bot && !_you) {
+      this._mentionForm(m.user);
+    }
+  }
+
+  private _mentionForm(n: string):void {
+    let _mention = MentionService.MENTION + n;
+    let _oldValue = this.chatForm.controls.message.value;
+    let _newValue = _oldValue.indexOf(_mention) === -1 ? `${_mention} ${_oldValue}` : _oldValue;
+
+    this.chatForm.controls.message.updateValue(_newValue);
   }
 }

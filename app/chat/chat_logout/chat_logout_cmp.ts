@@ -1,7 +1,7 @@
 /// <reference path="../../../typings/tsd.d.ts" />
 
 import {Component, View, Inject, OnInit} from 'angular2/angular2';
-import {UserStorageService} from 'app/user_storage/user_storage_service.js';
+import {UserStorageService} from 'app/user/user_storage_service.js';
 
 @Component({
   selector: 'chat-logout-cmp',

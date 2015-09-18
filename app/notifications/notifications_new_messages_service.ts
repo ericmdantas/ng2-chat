@@ -1,23 +1,31 @@
 /// <reference path="../../typings/tsd.d.ts" />
 
+import {Injectable} from 'angular2/angular2';
+import {UserStorageService} from 'app/user/user_storage_service.js';
+import {MessageModel} from 'app/chat/model/message_model.js';
+import {MentionService} from 'app/chat/chat_list/mention_service.js';
+
 export class NotificationNewMessagesService {
   public static DEFAULT_TITLE: string = '_';
-  public static WARNING_TITLE: string[] = [NotificationNewMessagesService.DEFAULT_TITLE, '!'];
   public static REPEATER: number = 555;
 
   private _doc: Document = document;
+  private _userStorageService: UserStorageService = new UserStorageService();
+  private _mentionService: MentionService = new MentionService();
 
   constructor() {
     this._doc.title = NotificationNewMessagesService.DEFAULT_TITLE;
   }
 
-  toggleTitle() {
+  toggleTitle(m: MessageModel):void {
     let _idInterval = setInterval(() => {
-      this._doc.title = (this._doc.title === NotificationNewMessagesService.WARNING_TITLE[0]) ? NotificationNewMessagesService.WARNING_TITLE[1]
-                                                                                                : NotificationNewMessagesService.WARNING_TITLE[0];
+
+      let _warning = (this._mentionService.wasUserOnlineMentioned(m)) ? '@' : '!';
+
+      this._doc.title = (this._doc.title === _warning) ? NotificationNewMessagesService.DEFAULT_TITLE : _warning;
 
       if (this._doc.hasFocus()) {
-          this._doc.title = NotificationNewMessagesService.WARNING_TITLE[0];
+          this._doc.title = NotificationNewMessagesService.DEFAULT_TITLE;
 
           clearInterval(_idInterval);
       }

@@ -5,7 +5,8 @@
                          [class.not-user-online-message]="!m.userOnline"
                          [class.bot-message]="m.bot"
                          [text-content]="m.user"
-                         [class.bot]="m.bot"></span>
+                         [class.bot]="m.bot"
+                         (click)="mentionClickHandler(m)"></span>
 
       <span class="sent-time">
         <small>(<span [text-content]="m.sentAt"></span>)</small>:

@@ -24,6 +24,11 @@
   position: relative;
 }
 
+.message .not-user-online-message,
+.not-user-online-message:before {
+  cursor: pointer;
+}
+
 .user-online-message:before {
   content: "✔";
   position: absolute;
@@ -56,6 +61,10 @@
 .message:hover .user-online-message:before,
 .message:hover .not-user-online-message:before {
   left: -30px;
+}
+
+.message:hover :not(.bot-message).not-user-online-message:before {
+  content: "@";
 }
 
 .list-of-messages-container {

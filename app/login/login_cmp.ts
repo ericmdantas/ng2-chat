@@ -2,7 +2,7 @@
 
 import {Component, View, FormBuilder, FORM_DIRECTIVES, ControlGroup, Validators, EventEmitter, OnInit} from 'angular2/angular2';
 import {Inject} from 'angular2/di';
-import {UserStorageService} from 'app/user_storage/user_storage_service.js';
+import {UserStorageService} from 'app/user/user_storage_service.js';
 import {UserModel} from 'app/user/user_model.js';
 
 @Component({

@@ -11,6 +11,10 @@ export class UserStorageService {
     return !!this._xtorage.get(UserStorageService.KEY_USER_ONLINE);
   }
 
+  getUserName():string {
+    return this.getUser().name;
+  }
+
   getUser():UserModel {
     let _user = new UserModel();
     _user.name = this._xtorage.get(UserStorageService.KEY_USER_ONLINE);

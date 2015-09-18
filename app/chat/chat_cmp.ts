@@ -11,8 +11,8 @@ import {ChatLogoutCmp} from 'app/chat/chat_logout/chat_logout_cmp.js';
 })
 @View({
   template: `
-    <chat-list-cmp></chat-list-cmp>
-    <chat-form-cmp></chat-form-cmp>
+    <chat-list-cmp #clist (click-mention)="cform.mentionHandler($event)"></chat-list-cmp>
+    <chat-form-cmp #cform></chat-form-cmp>
     <chat-trash-cmp (chat-trashed)="chatTrashedHandler($event)"></chat-trash-cmp>
     <chat-logout-cmp></chat-logout-cmp>
   `,

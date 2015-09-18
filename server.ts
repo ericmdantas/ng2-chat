@@ -29,8 +29,6 @@ app.get('/', (req, res) => {
 io.on(events.CONNECTION, (socket) => {
   _peopleOnline++;
 
-  io.emit(events.PEOPLE_ONLINE, _peopleOnline)
-
   socket.on(events.MESSAGE, (data: {info: string, user: string}) => {
 
     _messageCount.num++;
@@ -50,6 +48,8 @@ io.on(events.CONNECTION, (socket) => {
 
     io.emit(events.PEOPLE_ONLINE, _peopleOnline);
   });
+
+  io.emit(events.PEOPLE_ONLINE, _peopleOnline);
 
 });
 
