@@ -2,18 +2,13 @@ import {IMessage} from './interfaces.js';
 
 export class MessageModel implements IMessage {
   user: string;
-  sentAt: string;
+  sentAt: string = new Date().toString();
   message: string;
   bot: boolean;
 
   withUser(u:string):MessageModel {
     this.user = u;
 
-    return this;
-  }
-
-  withSentAt(sa:string):MessageModel {
-    this.sentAt = sa;
     return this;
   }
 

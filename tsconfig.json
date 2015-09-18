@@ -14,10 +14,12 @@
     "files": [
         "client.ts",
         "server.ts",
-        "server/bot_talk.ts",
+        "server/bot_factory.ts",
         "server/events.ts",
+        "server/felipe_smith_bot.ts",
         "server/interfaces.ts",
         "server/message_model.ts",
+        "server/x9_bot.ts",
         "app/app_cmp.ts",
         "app/chat/chat.ts",
         "app/chat/chat_cmp.ts",
