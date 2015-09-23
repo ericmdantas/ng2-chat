@@ -32,8 +32,6 @@ io.on(events.CONNECTION, (socket) => {
 
   socket.on(events.MESSAGE, (data: {info: string, user: string}) => {
 
-    _messageCount.num++;
-
     _connections[data.user] = socket;
 
     let _message = new MessageModel()
@@ -42,7 +40,14 @@ io.on(events.CONNECTION, (socket) => {
                       .isBot(false);
 
     io.emit(events.MESSAGE, _message);
-    io.emit(events.MESSAGE_COUNT, _messageCount.num);
+    io.emit(events.MESSAGE_COUNT, _messageCount.num++);
+
+    if ((data.info.indexOf("felipe") > -1) || (data.info.indexOf("smith") > -1)) {
+      setTimeout(() => {
+        io.emit(events.MESSAGE, BotFactory.create("felipe.smith").respond());
+        io.emit(events.MESSAGE_COUNT, _messageCount.num++);
+      }, 333);
+    }
   });
 
   socket.on(events.DISCONNECT, () => {

@@ -38,13 +38,33 @@ export class FelipeSmithBot {
     "mata o papai"
   ];
 
+  private static BOT_MESSAGES_RESPONSE: string[] = [
+    'e daí?',
+    'se eu to chamando?',
+    'brigado',
+    'hahahah ah ah.. não',
+    'ᕦ( ͡° ͜ʖ ͡°)ᕤ',
+    'é óbvio, velho!',
+    'culpa da dilma',
+    'podia ser pior...',
+    'rs',
+    'viaja não',
+    'dólar ta 7 reais, velho!',
+    'oi oi',
+    'não entendi o que ele falou',
+    'não',
+    'sim',
+    'depende.. ( ͡° ͜ʖ ͡°)',
+    '25 reais é 25 reais..'
+  ]
+
   public scheduleTalk(io: SocketIOStatic, mCount: {num: number}):void {
     this._scheduleTalk(io, mCount, 1000);
   }
 
   private _scheduleTalk(io, mCount, t: number) {
     let _id = setTimeout(() => {
-      io.emit(events.MESSAGE, this._talk());
+      io.emit(events.MESSAGE, this.talk());
       io.emit(events.MESSAGE_COUNT, mCount.num++);
 
       clearTimeout(_id);
@@ -53,8 +73,18 @@ export class FelipeSmithBot {
     }, t);
   }
 
-  private _talk():MessageModel {
+  public talk():MessageModel {
     let _msg = FelipeSmithBot.BOT_MESSAGES[Math.floor(Math.random() * FelipeSmithBot.BOT_MESSAGES.length)];
+    let _date = new Date().toString();
+
+    return new MessageModel()
+            .withUser("felipe.smith")
+            .withMessage(_msg)
+            .isBot(true);
+  }
+
+  public respond():MessageModel {
+    let _msg = FelipeSmithBot.BOT_MESSAGES_RESPONSE[Math.floor(Math.random() * FelipeSmithBot.BOT_MESSAGES_RESPONSE.length)];
     let _date = new Date().toString();
 
     return new MessageModel()
