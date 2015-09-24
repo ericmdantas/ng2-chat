@@ -1,5 +1,6 @@
 /// <reference path="../../../typings/tsd.d.ts" />
 
+import * as _ from 'lodash.js';
 import {Component, View, EventEmitter, OnInit, CORE_DIRECTIVES, Inject, ViewQuery, QueryList} from 'angular2/angular2';
 import {ChatService} from 'app/chat/services/chat_service.js';
 import {MessageModel} from 'app/chat/model/message_model.js';
@@ -8,10 +9,12 @@ import {ChatScrollBottomDirective} from 'app/chat/chat_list/chat_scroll_bottom_d
 import {NotificationNewMessagesService} from 'app/notifications/notifications_new_messages_service.js';
 import {UserOnlineMessageService} from 'app/chat/chat_list/chat_user_online_message_service.js';
 import {MentionService} from 'app/chat/chat_list/mention_service.js';
+import {DeleteMessageService} from 'app/chat/chat_list/delete_message_service.js';
 
 @Component({
   selector: 'chat-list-cmp',
-  bindings: [ChatService, UserOnlineMessageService, NotificationNewMessagesService, MentionService],
+  bindings: [ChatService, UserOnlineMessageService, NotificationNewMessagesService,
+             MentionService, DeleteMessageService],
   events: ['clickMention']
 })
 @View({
@@ -26,6 +29,7 @@ export class ChatListCmp implements OnInit {
   constructor(@Inject(ChatService) private _chatService: ChatService,
               @Inject(UserOnlineMessageService) private _userOnlineMessageService: UserOnlineMessageService,
               @Inject(MentionService) private _mentionService: MentionService,
+              @Inject(DeleteMessageService) private _deleteMessageService: DeleteMessageService,
               @Inject(NotificationNewMessagesService) private _notificationNewMessageService: NotificationNewMessagesService) {
 
   }
@@ -37,9 +41,12 @@ export class ChatListCmp implements OnInit {
             this._userOnlineMessageService.markMessage(message);
             this._notificationNewMessageService.toggleTitle(message);
             this._mentionService.makeMention(message);
-
-            this.messages.push(message);
+            this._pushMessage(message);
         });
+  }
+
+  private _pushMessage(message: MessageModel) {
+    this.messages.push(message);
   }
 
   mentionClickHandler(m: MessageModel):void {

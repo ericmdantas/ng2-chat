@@ -21,4 +21,8 @@ export class ChatService {
   send(info: string, user: string):void {
     return this._socket.emit(ChatService.MESSAGE, {info, user});
   }
+
+  sendEvent(ev:string, info:any):void {    
+    return this._socket.emit(ev, info);
+  }
 }

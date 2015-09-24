@@ -17,6 +17,7 @@ import {ChatService} from 'app/chat/services/chat_service.js';
 import {UserStorageService} from 'app/user/user_storage_service.js';
 import {MessageModel} from 'app/chat/model/message_model.js';
 import {MentionService} from 'app/chat/chat_list/mention_service.js';
+import {UserTypingDirective} from 'app/chat/chat_form/user_typing_directive.js';
 
 @Component({
   selector: 'chat-form-cmp',
@@ -26,7 +27,7 @@ import {MentionService} from 'app/chat/chat_list/mention_service.js';
   templateUrl: 'app/chat/chat_form/chat_form.html',
   styleUrls: ['app/chat/chat_form/chat_form.css'],
   encapsulation: ViewEncapsulation.Native,
-  directives: [FORM_DIRECTIVES],
+  directives: [FORM_DIRECTIVES, UserTypingDirective]
 })
 export class ChatFormCmp {
   chatForm: ControlGroup;

@@ -4,10 +4,11 @@ import {Component, View, ElementRef, OnInit} from 'angular2/angular2';
 import {Inject} from 'angular2/di';
 import {LoginCmp} from 'app/login/login_cmp.js';
 import {UserStorageService} from 'app/user/user_storage_service.js';
+import {ChatService} from 'app/chat/services/chat_service.js';
 
 @Component({
   selector: 'modal-login-cmp',
-  bindings: [UserStorageService]
+  bindings: [UserStorageService, ChatService]
 })
 @View({
   templateUrl: 'app/modal_login/modal_login.html',
@@ -20,7 +21,8 @@ export class ModalLoginCmp implements OnInit {
   private _doc: Document = document;
 
   constructor(@Inject(ElementRef) private _el: ElementRef,
-              @Inject(UserStorageService) private _userStorageService: UserStorageService) {
+              @Inject(UserStorageService) private _userStorageService: UserStorageService,
+              @Inject(ChatService) private _chatService: ChatService) {
 
   }
 
@@ -37,5 +39,7 @@ export class ModalLoginCmp implements OnInit {
   private _allowUser():void {
     this._el.nativeElement.getElementsByClassName(ModalLoginCmp.BLANKET)[0].style.display = 'none';
     this._el.nativeElement.getElementsByClassName(ModalLoginCmp.MODAL_LOGIN)[0].style.display = 'none';
+
+    this._chatService.sendEvent('login', {user: this._userStorageService.getUserName()});
   }
 }

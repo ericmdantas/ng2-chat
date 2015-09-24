@@ -3,6 +3,7 @@ export var events = {
   DISCONNECT: 'disconnect',
   MESSAGE: 'msg',
   LOGIN: 'login',
+  TYPING: 'typing',
   MESSAGE_COUNT: 'msg_count',
   USER_CONNECTED: 'user_connected',
   USER_DISCONNECTED: 'user_disconnected',

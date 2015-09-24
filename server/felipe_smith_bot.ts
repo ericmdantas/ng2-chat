@@ -2,6 +2,7 @@ import {MessageModel} from './message_model.js';
 import {events} from './events.js';
 
 export class FelipeSmithBot {
+  public static NAME: string = 'felipe.smith';
   private static TALK_TIME: number = 1000 * 60 * 30; // meia hora
 
   private static BOT_MESSAGES: string[] = [
@@ -42,21 +43,26 @@ export class FelipeSmithBot {
     'e daí?',
     'se eu to chamando?',
     'brigado',
-    'hahahah ah ah.. não',
+    'hahahah.. não',
+    "samu?",
     'ᕦ( ͡° ͜ʖ ͡°)ᕤ',
     'é óbvio, velho!',
     'culpa da dilma',
     'podia ser pior...',
     'rs',
+    'pera',
     'viaja não',
     'dólar ta 7 reais, velho!',
-    'oi oi',
-    'não entendi o que ele falou',
+    'sei lá',
+    'não sei',
+    'que?',
+    'eae',
+    'oi',
     'não',
     'sim',
     'depende.. ( ͡° ͜ʖ ͡°)',
-    '25 reais é 25 reais..'
-  ]
+    '25 reais é 25 reais.. ( ͡° ͜ʖ ͡°)'
+  ];
 
   public scheduleTalk(io: SocketIOStatic, mCount: {num: number}):void {
     this._scheduleTalk(io, mCount, 1000);
@@ -78,7 +84,7 @@ export class FelipeSmithBot {
     let _date = new Date().toString();
 
     return new MessageModel()
-            .withUser("felipe.smith")
+            .withUser(FelipeSmithBot.NAME)
             .withMessage(_msg)
             .isBot(true);
   }
@@ -88,9 +94,13 @@ export class FelipeSmithBot {
     let _date = new Date().toString();
 
     return new MessageModel()
-            .withUser("felipe.smith")
+            .withUser(FelipeSmithBot.NAME)
             .withMessage(_msg)
             .isBot(true);
+  }
+
+  public wasMentioned(data: {info: string, user: string}):boolean {
+    return (data.info.indexOf("felipe") > -1) || (data.info.indexOf("smith") > -1);
   }
 
   static build():FelipeSmithBot {
