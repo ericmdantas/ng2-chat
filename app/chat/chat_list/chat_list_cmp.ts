@@ -1,8 +1,9 @@
 /// <reference path="../../../typings/tsd.d.ts" />
 
 import * as _ from 'lodash.js';
-import {Component, View, EventEmitter, OnInit, CORE_DIRECTIVES, Inject, ViewQuery, QueryList} from 'angular2/angular2';
+import {Component, View, EventEmitter, OnInit, CORE_DIRECTIVES, Inject, ViewQuery, QueryList, forwardRef} from 'angular2/angular2';
 import {ChatService} from 'app/chat/services/chat_service.js';
+import {ChatTypingService} from 'app/chat/services/chat_typing_service.js';
 import {MessageModel} from 'app/chat/model/message_model.js';
 import {ChatBlinkDirective} from 'app/chat/chat_list/chat_blink_directive.js';
 import {ChatScrollBottomDirective} from 'app/chat/chat_list/chat_scroll_bottom_directive.js';
@@ -14,7 +15,7 @@ import {DeleteMessageService} from 'app/chat/chat_list/delete_message_service.js
 @Component({
   selector: 'chat-list-cmp',
   bindings: [ChatService, UserOnlineMessageService, NotificationNewMessagesService,
-             MentionService, DeleteMessageService],
+             ChatTypingService, MentionService, DeleteMessageService],
   events: ['clickMention']
 })
 @View({
@@ -24,9 +25,11 @@ import {DeleteMessageService} from 'app/chat/chat_list/delete_message_service.js
 })
 export class ChatListCmp implements OnInit {
   public messages: MessageModel[] = [];
+  //public typingMessage: MessageModel = new MessageModel();
   clickMention: EventEmitter = new EventEmitter();
 
   constructor(@Inject(ChatService) private _chatService: ChatService,
+              @Inject(ChatTypingService) private _chatTypingService: ChatTypingService,
               @Inject(UserOnlineMessageService) private _userOnlineMessageService: UserOnlineMessageService,
               @Inject(MentionService) private _mentionService: MentionService,
               @Inject(DeleteMessageService) private _deleteMessageService: DeleteMessageService,
@@ -41,12 +44,15 @@ export class ChatListCmp implements OnInit {
             this._userOnlineMessageService.markMessage(message);
             this._notificationNewMessageService.toggleTitle(message);
             this._mentionService.makeMention(message);
-            this._pushMessage(message);
+            this.messages.push(message);
         });
-  }
 
-  private _pushMessage(message: MessageModel) {
-    this.messages.push(message);
+    // this._chatTypingService
+    //     .listen()
+    //     .subscribe((message) => {
+    //         this.typingMessage = message;
+    //         this._deleteMessageService.remove(this.typingMessage);
+    //     });
   }
 
   mentionClickHandler(m: MessageModel):void {

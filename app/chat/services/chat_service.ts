@@ -18,11 +18,19 @@ export class ChatService {
     return this._ee.toRx();
   }
 
+  listenToTyping():Rx.Observable<any> {
+    this._socket.on('typing', (info) => {
+      this._ee.next(new MessageModel(info));
+    });
+
+    return this._ee.toRx();
+  }
+
   send(info: string, user: string):void {
     return this._socket.emit(ChatService.MESSAGE, {info, user});
   }
 
-  sendEvent(ev:string, info:any):void {    
+  sendEvent(ev:string, info:any):void {
     return this._socket.emit(ev, info);
   }
 }

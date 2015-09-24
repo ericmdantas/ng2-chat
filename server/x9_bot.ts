@@ -31,7 +31,7 @@ export class X9Bot {
                 .possibleToRepeat(false)
                 .isBot(true);
 
-    io.emit(events.MESSAGE, _msg);
+    io.emit(events.TYPING, _msg);
   }
 
   static build():X9Bot {

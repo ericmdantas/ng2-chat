@@ -6,6 +6,7 @@ export class MessageModel {
   private _deleteTime: number;
   private _hash: string | number;
   private _canRepeat: boolean = true;
+  private _deleted: boolean = false;
 
   constructor({message, user, sentAt, bot, deleteTime, hash, canRepeat}
               :{message?: string, user?:string, sentAt?:string, bot?:boolean, deleteTime?:number, hash?:string|number, canRepeat?:boolean} = {}) {
@@ -72,5 +73,13 @@ export class MessageModel {
 
   get canRepeat():boolean {
     return this._canRepeat;
+  }
+
+  set deleted(d: boolean) {
+    this._deleted = d;
+  }
+
+  get deleted():boolean {
+    return this._deleted;
   }
 }

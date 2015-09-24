@@ -35,6 +35,7 @@
         "app/chat/chat_trash/chat_trash_cmp.ts",
         "app/chat/model/message_model.ts",
         "app/chat/services/chat_service.ts",
+        "app/chat/services/chat_typing_service.ts",
         "app/login/login_cmp.ts",
         "app/message_bus/interfaces.ts",
         "app/message_bus/user_status_bus.ts",
