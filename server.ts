@@ -60,7 +60,9 @@ io.on(events.CONNECTION, (socket) => {
     _.keys(_connections)
      .forEach((prop) => {
         if (_connections[prop].id === socket.id) {
-              return _x9.left(socket, prop);
+              _x9.left(socket, prop);
+              delete _connections[prop];
+              return;
         }
       });
 
