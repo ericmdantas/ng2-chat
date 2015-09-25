@@ -19,8 +19,10 @@ let _connections: {} = <any>{};
 
 let _peopleOnline: number = 0;
 let _messageCount: {num: number} = {num: 0}; // reference
+
 let _x9 = BotFactory.create("x9");
 let _fm = BotFactory.create("felipe.smith");
+let _porteiro = BotFactory.create("porteiro");
 
 app.use(express.static('./'));
 
@@ -58,7 +60,7 @@ io.on(events.CONNECTION, (socket) => {
     _.keys(_connections)
      .forEach((prop) => {
         if (_connections[prop].id === socket.id) {
-              return _x9.left(io, prop);
+              return _x9.left(socket, prop);
         }
       });
 
@@ -68,11 +70,12 @@ io.on(events.CONNECTION, (socket) => {
   socket.on(events.LOGIN, ({user}) => {
     _connections[user] = socket;
 
-    _x9.entered(io, user);
+    _x9.entered(socket, user, _connections);
+    _porteiro.talk(socket, user);
   });
 
   socket.on(events.TYPING, ({user}) => {
-    _x9.isTyping(io, user);
+    _x9.isTyping(socket, user);
   });
 
   io.emit(events.PEOPLE_ONLINE, _peopleOnline);

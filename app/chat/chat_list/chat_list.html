@@ -2,17 +2,30 @@
   <div *ng-for="#m of messages" blink-message scroll-bottom>
     <p class="message" [class.mentioned]="m.mentioned">
       <span class="user" [class.user-online-message]="m.userOnline"
-                         [class.not-user-online-message]="!m.userOnline"
-                         [class.bot-message]="m.bot"
-                         [text-content]="m.user"
-                         [class.bot]="m.bot"
-                         (click)="mentionClickHandler(m)"></span>
+      [class.not-user-online-message]="!m.userOnline"
+      [class.bot-message]="m.bot"
+      [text-content]="m.user"
+      [class.bot]="m.bot"
+      (click)="mentionClickHandler(m)"></span>
 
       <span class="sent-time">
         <small>(<span [text-content]="m.sentAt"></span>)</small>:
       </span>
 
       <span class="info" [text-content]="m.message"></span>
+    </p>
+  </div>
+
+  <div scroll-bottom>
+    <p class="message user-is-typing" *ng-if="tMsg.typing">
+      <span class="user not-user-online-message bot-message bot"
+      [text-content]="tMsg.user"></span>
+
+      <span class="sent-time">
+        <small>(<span [text-content]="tMsg.sentAt"></span>)</small>:
+      </span>
+
+      <span class="info" [text-content]="tMsg.message"></span>
     </p>
   </div>
 

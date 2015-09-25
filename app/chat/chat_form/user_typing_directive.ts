@@ -18,6 +18,6 @@ export class UserTypingDirective {
   }
 
   inputHandler():void {
-    //this._chatService.sendEvent('typing', {user: this._userStorageService.getUserName()});
+    this._chatTypingService.send({user: this._userStorageService.getUserName()});
   }
 }

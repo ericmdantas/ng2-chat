@@ -3,7 +3,7 @@ import {events} from './events.js';
 
 export class FelipeSmithBot {
   public static NAME: string = 'felipe.smith';
-  private static TALK_TIME: number = 1000 * 60 * 30; // meia hora
+  private static TALK_TIME: number = 1000 * 60 * 60; // 1 hour
 
   private static BOT_MESSAGES: string[] = [
     "JULIANA?!",
@@ -60,6 +60,11 @@ export class FelipeSmithBot {
     'oi',
     'não',
     'sim',
+    'calma',
+    'partiu almoço',
+    ':D',
+    ':(',
+    ':´(',
     'depende.. ( ͡° ͜ʖ ͡°)',
     '25 reais é 25 reais.. ( ͡° ͜ʖ ͡°)'
   ];

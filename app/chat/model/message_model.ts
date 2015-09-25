@@ -7,12 +7,13 @@ export class MessageModel {
   private _hash: string | number;
   private _canRepeat: boolean = true;
   private _deleted: boolean = false;
+  private _typing: boolean = false;
 
   constructor({message, user, sentAt, bot, deleteTime, hash, canRepeat}
               :{message?: string, user?:string, sentAt?:string, bot?:boolean, deleteTime?:number, hash?:string|number, canRepeat?:boolean} = {}) {
     this.message = message;
     this.user = user;
-    this.sentAt = sentAt.substring(16, 24);
+    this.sentAt = sentAt ? sentAt.substring(16, 24) : '';
     this.bot = bot;
     this.deleteTime = deleteTime;
     this.hash = hash;
@@ -81,5 +82,13 @@ export class MessageModel {
 
   get deleted():boolean {
     return this._deleted;
+  }
+
+  set typing(b: boolean) {
+    this._typing = b;
+  }
+
+  get typing():boolean {
+    return this._typing;
   }
 }

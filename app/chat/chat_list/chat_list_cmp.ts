@@ -25,7 +25,7 @@ import {DeleteMessageService} from 'app/chat/chat_list/delete_message_service.js
 })
 export class ChatListCmp implements OnInit {
   public messages: MessageModel[] = [];
-  //public typingMessage: MessageModel = new MessageModel();
+  public tMsg: MessageModel = new MessageModel();
   clickMention: EventEmitter = new EventEmitter();
 
   constructor(@Inject(ChatService) private _chatService: ChatService,
@@ -47,12 +47,13 @@ export class ChatListCmp implements OnInit {
             this.messages.push(message);
         });
 
-    // this._chatTypingService
-    //     .listen()
-    //     .subscribe((message) => {
-    //         this.typingMessage = message;
-    //         this._deleteMessageService.remove(this.typingMessage);
-    //     });
+    this._chatTypingService
+        .listen()
+        .subscribe((message) => {
+            this.tMsg = message;
+            this.tMsg.typing = true;
+            this._deleteMessageService.remove(this.tMsg);
+        });
   }
 
   mentionClickHandler(m: MessageModel):void {

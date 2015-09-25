@@ -19,6 +19,7 @@
         "server/felipe_smith_bot.ts",
         "server/interfaces.ts",
         "server/message_model.ts",
+        "server/porteiro_bot.ts",
         "server/x9_bot.ts",
         "app/app_cmp.ts",
         "app/chat/chat.ts",
