@@ -43,15 +43,21 @@ io.on(events.CONNECTION, (socket) => {
                       .withUser(data.user)
                       .isBot(false);
 
+    if (_x9.wasMentioned(data.info)) {
+        return _x9.respondWhosOnline(socket, _connections);
+    }
+
     io.emit(events.MESSAGE, _message);
     io.emit(events.MESSAGE_COUNT, _messageCount.num++);
 
-    if (_fm.wasMentioned(data)) {
+    if (_fm.wasMentioned(data.info)) {
       setTimeout(() => {
         io.emit(events.MESSAGE, _fm.respond());
         io.emit(events.MESSAGE_COUNT, _messageCount.num++);
       }, 333);
     }
+
+
   });
 
   socket.on(events.DISCONNECT, () => {

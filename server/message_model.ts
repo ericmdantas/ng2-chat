@@ -1,6 +1,6 @@
 import {IMessage} from './interfaces.js';
 
-export class MessageModel implements IMessage {
+export class MessageModel implements MessageType {
   user: string;
   sentAt: string = new Date().toString();
   message: string;

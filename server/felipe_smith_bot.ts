@@ -59,11 +59,15 @@ export class FelipeSmithBot {
     'eae',
     'oi',
     'não',
+    'cê é o bichão memo, hein doido',
     'sim',
     'calma',
     'partiu almoço',
     ':D',
     ':(',
+    'valeu',
+    'nada a ver',
+    '¬¬',
     ':´(',
     'depende.. ( ͡° ͜ʖ ͡°)',
     '25 reais é 25 reais.. ( ͡° ͜ʖ ͡°)'
@@ -104,8 +108,8 @@ export class FelipeSmithBot {
             .isBot(true);
   }
 
-  public wasMentioned(data: {info: string, user: string}):boolean {
-    return (data.info.indexOf("felipe") > -1) || (data.info.indexOf("smith") > -1);
+  public wasMentioned(info: string):boolean {
+    return (info.indexOf("felipe") > -1) || (info.indexOf("smith") > -1);
   }
 
   static build():FelipeSmithBot {

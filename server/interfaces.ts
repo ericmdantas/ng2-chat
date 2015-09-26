@@ -1,4 +1,4 @@
-interface IMessage {
+type MessageType = {
   message: string;
   user: string;
   sentAt: string;

@@ -1,14 +1,23 @@
 /// <reference path="../../typings/tsd.d.ts" />
 
-import {Directive, OnInit} from 'angular2/angular2';
+import {Directive, Inject, OnInit} from 'angular2/angular2';
+
+export class ChatScrollBottomService {
+  pullDown():void {
+    window.scrollTo(0, document.body.scrollHeight);
+  }
+}
 
 @Directive({
-  selector: '[scroll-bottom]'
+  selector: '[scroll-bottom]',
+  bindings: [ChatScrollBottomService]
 })
 export class ChatScrollBottomDirective implements OnInit {
-  static TIME_TO_SCROLL: number = 555;
+  constructor(@Inject(ChatScrollBottomService) private _chatScrollBottomService:ChatScrollBottomService) {
+
+  }
 
   onInit() {
-    window.scrollTo(0, document.body.scrollHeight);
+    this._chatScrollBottomService.pullDown();
   }
 }
