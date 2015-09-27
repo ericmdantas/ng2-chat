@@ -15,7 +15,7 @@ const app = express();
 const server = app.listen(PORT);
 const io = socketIo(server);
 
-let _connections: {} = <any>{};
+let _connections: Map = new Map();
 
 let _peopleOnline: number = 0;
 let _messageCount: {num: number} = {num: 0}; // reference
@@ -36,7 +36,7 @@ io.on(events.CONNECTION, (socket) => {
 
   socket.on(events.MESSAGE, (data: {info: string, user: string}) => {
 
-    _connections[data.user] = socket;
+    _connections.set(data.user, socket);
 
     let _message = new MessageModel()
                       .withMessage(data.info)
@@ -63,12 +63,12 @@ io.on(events.CONNECTION, (socket) => {
   socket.on(events.DISCONNECT, () => {
     _peopleOnline--;
 
-    _.keys(_connections)
-     .forEach((prop) => {
-        if (_connections[prop].id === socket.id) {
-              _x9.left(socket, prop);
-              delete _connections[prop];
-              return;
+    _connections
+      .forEach((value, prop) => {
+        if (_connections.get(prop).id === socket.id) {
+          _x9.left(socket, prop);
+          _connections.delete(prop);
+          return;
         }
       });
 
@@ -76,7 +76,7 @@ io.on(events.CONNECTION, (socket) => {
   });
 
   socket.on(events.LOGIN, ({user}) => {
-    _connections[user] = socket;
+    _connections.set(user, socket);
 
     _x9.entered(socket, user, _connections);
     _porteiro.talk(socket, user);

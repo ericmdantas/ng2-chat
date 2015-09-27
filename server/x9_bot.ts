@@ -44,12 +44,19 @@ export class X9Bot {
     socket.emit(events.MESSAGE, this._usersOnline(conn));
   }
 
-  private _usersOnline(conn: Object):MessageModel {
-    var _users = _.keys(conn).join().replace(',', ', ');
+  private _usersOnline(conn: Map):MessageModel {
+    let connIterator = conn.keys();
+    let _usersTmp = [];
+
+    for (var c of conn) {
+      _usersTmp.push(c);
+    }
+
+    let _usersStringified = _usersTmp.join().replace(',', ', ');
 
     return new MessageModel()
             .withUser(X9Bot.NAME)
-            .withMessage(`${_users} estão no chat`)
+            .withMessage(`${_usersStringified} estão no chat`)
             .isBot(true);
   }
 
