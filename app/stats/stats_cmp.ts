@@ -2,6 +2,7 @@
 
 import {Component, View, ViewEncapsulation, OnInit} from 'angular2/angular2';
 import {Inject} from 'angular2/di';
+import {ChatTipsCmp} from 'app/chat/chat_tips/chat_tips_cmp.js';
 import {StatsSocketListenerService} from 'app/stats/stats_socket_listener_service.js';
 
 @Component({
@@ -10,7 +11,8 @@ import {StatsSocketListenerService} from 'app/stats/stats_socket_listener_servic
 })
 @View({
   templateUrl: 'app/stats/stats.html',
-  styleUrls: ['app/stats/stats.css']
+  styleUrls: ['app/stats/stats.css'],
+  directives: [ChatTipsCmp]
 })
 export class StatsCmp implements OnInit {
   public msgCount: number = 0;

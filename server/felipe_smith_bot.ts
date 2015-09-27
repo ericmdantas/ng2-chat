@@ -109,7 +109,7 @@ export class FelipeSmithBot {
   }
 
   public wasMentioned(info: string):boolean {
-    return (info.indexOf("felipe") > -1) || (info.indexOf("smith") > -1);
+    return (info.toLowerCase().indexOf("felipe") > -1) || (info.toLowerCase().indexOf("smith") > -1);
   }
 
   static build():FelipeSmithBot {

@@ -33,6 +33,7 @@
         "app/chat/chat_list/delete_message_service.ts",
         "app/chat/chat_list/mention_service.ts",
         "app/chat/chat_logout/chat_logout_cmp.ts",
+        "app/chat/chat_tips/chat_tips_cmp.ts",
         "app/chat/chat_trash/chat_trash_cmp.ts",
         "app/chat/model/message_model.ts",
         "app/chat/services/chat_service.ts",

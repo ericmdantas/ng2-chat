@@ -12,7 +12,7 @@
   text-transform: uppercase;
 }
 
-@media(min-width: 60em) {
+@media(min-width: 85em) {
   .stats-container {
     display: block;
   }

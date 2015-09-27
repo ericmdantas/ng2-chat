@@ -37,7 +37,7 @@ export class X9Bot {
   }
 
   wasMentioned(message: string) {
-    return (message.indexOf('@x9 online') > -1);
+    return (message.toLowerCase().indexOf('@x9 on') > -1);
   }
 
   respondWhosOnline(socket: SocketIOStatic, conn: Object) {
