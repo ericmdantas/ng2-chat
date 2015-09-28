@@ -3,7 +3,7 @@ import {events} from './events.js';
 
 export class FelipeSmithBot {
   public static NAME: string = 'felipe.smith';
-  private static TALK_TIME: number = 1000 * 60 * 60; // 1 hour
+  private static TALK_TIME: number = 1000 * 60 * 30; // 30 minutes
 
   private static BOT_MESSAGES: string[] = [
     "JULIANA?!",
