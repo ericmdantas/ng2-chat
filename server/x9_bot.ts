@@ -37,7 +37,10 @@ export class X9Bot {
   }
 
   wasMentioned(message: string) {
-    return (message.toLowerCase().indexOf('@x9 on') > -1);
+    let _mentionedAt = message.toLowerCase().indexOf('@x9 on');
+    let _mentionedDash = message.toLowerCase().indexOf('/x9 on');
+
+    return !!(_mentionedAt > -1) || !!(_mentionedDash > -1);
   }
 
   respondWhosOnline(socket: SocketIOStatic, conn: Object) {
@@ -48,9 +51,9 @@ export class X9Bot {
     let connIterator = conn.keys();
     let _usersTmp = [];
 
-    for (var c of conn) {
-      _usersTmp.push(c);
-    }
+    conn.forEach((value, prop) => {
+        _usersTmp.push(prop);
+    });
 
     let _usersStringified = _usersTmp.join().replace(',', ', ');
 
