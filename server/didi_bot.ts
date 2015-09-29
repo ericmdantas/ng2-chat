@@ -6,6 +6,8 @@ export class DidiBot {
       'e morreu'
     ]
 
+    private static TIME_RESPONSE: number = 555;
+
     public static NAME: string = 'didi';
 
     wasMentioned(msg:string):boolean {
@@ -24,7 +26,9 @@ export class DidiBot {
                   .withMessage(DidiBot.MESSAGE)
                   .isBot(true);
 
-      io.emit(events.MESSAGE, _msg);
+      setTimeout(() => {
+        io.emit(events.MESSAGE, _msg);
+      }, DidiBot.TIME_RESPONSE);
     }
 
     static build():DidiBot {
