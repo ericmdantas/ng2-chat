@@ -15,6 +15,7 @@
         "client.ts",
         "server.ts",
         "server/bot_factory.ts",
+        "server/didi_bot.ts",
         "server/events.ts",
         "server/felipe_smith_bot.ts",
         "server/interfaces.ts",

@@ -23,6 +23,7 @@ let _messageCount: {num: number} = {num: 0}; // reference
 let _x9 = BotFactory.create("x9");
 let _fm = BotFactory.create("felipe.smith");
 let _porteiro = BotFactory.create("porteiro");
+let _didi = BotFactory.create("didi");
 
 app.use(express.static('./'));
 
@@ -35,8 +36,6 @@ io.on(events.CONNECTION, (socket) => {
   _peopleOnline++;
 
   socket.on(events.MESSAGE, (data: {info: string, user: string}) => {
-
-    _connections.set(data.user, socket);
 
     let _message = new MessageModel()
                       .withMessage(data.info)
@@ -57,6 +56,9 @@ io.on(events.CONNECTION, (socket) => {
       }, 333);
     }
 
+    if (_didi.wasMentioned(data.info)) {
+      _didi.respond(io);
+    }
 
   });
 
