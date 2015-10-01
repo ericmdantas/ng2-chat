@@ -8,6 +8,7 @@ import {
   FormBuilder,
   FORM_DIRECTIVES,
   Validators,
+  bind,
   ControlGroup
 } from 'angular2/angular2';
 
@@ -18,10 +19,12 @@ import {UserStorageService} from 'app/user/user_storage_service.js';
 import {MessageModel} from 'app/chat/model/message_model.js';
 import {MentionService} from 'app/chat/chat_list/mention_service.js';
 import {UserTypingDirective} from 'app/chat/chat_form/user_typing_directive.js';
+import {ChatListModel} from 'app/chat/chat_list/chat_list_model.js';
+import {PromptifyService} from 'app/chat/chat_form/promptify_directive.js';
 
 @Component({
   selector: 'chat-form-cmp',
-  bindings: [FormBuilder, forwardRef(() => ChatService), UserStorageService]
+  bindings: [FormBuilder, forwardRef(() => ChatService), UserStorageService, PromptifyService]
 })
 @View({
   templateUrl: 'app/chat/chat_form/chat_form.html',
@@ -34,6 +37,8 @@ export class ChatFormCmp {
 
   constructor(@Inject(forwardRef(() => ChatService)) private _chatService: ChatService,
               @Inject(FormBuilder) fb: FormBuilder,
+              @Inject(PromptifyService) private _promptifyService: PromptifyService,
+              @Inject(ChatListModel) private _chatList: ChatListModel,
               @Inject(UserStorageService) private _storage: UserStorageService) {
 
     this.chatForm = fb.group({
@@ -44,8 +49,19 @@ export class ChatFormCmp {
   sendMessage(message: string):void {
     let _username: string = this._storage.getUser().name;
 
-    this._chatService.send(message, _username);
     this.chatForm.controls.message.updateValue("");
+
+    if (this._promptifyService.isCls(message)) {
+      this._chatList.removeAll();
+      return;
+    }
+
+    if (this._promptifyService.isExit(message)) {
+      this._promptifyService.logout();
+      return;
+    }
+
+    this._chatService.send(message, _username);
   }
 
   mentionHandler(m: MessageModel):void {
@@ -63,5 +79,9 @@ export class ChatFormCmp {
     let _newValue = _oldValue.indexOf(_mention) === -1 ? `${_mention} ${_oldValue}` : _oldValue;
 
     this.chatForm.controls.message.updateValue(_newValue);
+  }
+
+  escHandler():void {
+    this.chatForm.controls.message.updateValue("");
   }
 }

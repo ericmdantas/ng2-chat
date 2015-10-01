@@ -12,6 +12,7 @@ import {NotificationNewMessagesService} from 'app/notifications/notifications_ne
 import {UserOnlineMessageService} from 'app/chat/chat_list/chat_user_online_message_service.js';
 import {MentionService} from 'app/chat/chat_list/mention_service.js';
 import {DeleteMessageService} from 'app/chat/chat_list/delete_message_service.js';
+import {ChatListModel} from 'app/chat/chat_list/chat_list_model.js';
 
 @Component({
   selector: 'chat-list-cmp',
@@ -26,7 +27,6 @@ import {DeleteMessageService} from 'app/chat/chat_list/delete_message_service.js
   directives: [CORE_DIRECTIVES, ChatBlinkDirective, ChatScrollBottomDirective]
 })
 export class ChatListCmp implements OnInit {
-  public messages: MessageModel[] = [];
   public tMsg: MessageModel = new MessageModel();
   clickMention: EventEmitter = new EventEmitter();
 
@@ -35,6 +35,7 @@ export class ChatListCmp implements OnInit {
               @Inject(UserOnlineMessageService) private _userOnlineMessageService: UserOnlineMessageService,
               @Inject(MentionService) private _mentionService: MentionService,
               @Inject(DeleteMessageService) private _deleteMessageService: DeleteMessageService,
+              @Inject(ChatListModel) public chatList: ChatListModel,
               @Inject(ChatScrollBottomService) private _chatScrollBottomService: ChatScrollBottomService,
               @Inject(NotificationNewMessagesService) private _notificationNewMessageService: NotificationNewMessagesService) {
 
@@ -47,7 +48,7 @@ export class ChatListCmp implements OnInit {
             this._userOnlineMessageService.markMessage(message);
             this._notificationNewMessageService.toggleTitle(message);
             this._mentionService.makeMention(message);
-            this.messages.push(message);
+            this.chatList.add(message);
         });
 
     this._chatTypingService
@@ -65,6 +66,6 @@ export class ChatListCmp implements OnInit {
   }
 
   clearMessages():void {
-    this.messages.length = 0;
+    this.chatList.removeAll();
   }
 }

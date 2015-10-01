@@ -6,6 +6,7 @@
                  id="main-input-chat"
                  ng-control="message"
                  user-typing
+                 (keyup.escape)="escHandler()"
                  placeholder="mensagem aqui"
                  autofocus />
 

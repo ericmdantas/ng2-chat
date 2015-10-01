@@ -5,9 +5,11 @@ import {ChatListCmp} from 'app/chat/chat_list/chat_list_cmp.js';
 import {ChatFormCmp} from 'app/chat/chat_form/chat_form_cmp.js';
 import {ChatTrashCmp} from 'app/chat/chat_trash/chat_trash_cmp.js';
 import {ChatLogoutCmp} from 'app/chat/chat_logout/chat_logout_cmp.js';
+import {ChatListModel} from 'app/chat/chat_list/chat_list_model.js';
 
 @Component({
-  selector: 'chat-cmp'
+  selector: 'chat-cmp',
+  viewBindings: [ChatListModel]
 })
 @View({
   template: `
