@@ -24,6 +24,19 @@
   position: relative;
 }
 
+
+.user-online-message {
+  border-bottom: 1px solid #fff;
+}
+
+.not-user-online-message {
+  border-bottom: 1px solid burlywood;
+}
+
+.bot-message {
+  border-bottom: 1px dashed #fff;
+}
+
 .message .not-user-online-message,
 .not-user-online-message:before {
   cursor: pointer;
