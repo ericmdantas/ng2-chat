@@ -10,11 +10,12 @@ import {UserOnlineMessageService} from 'app/chat/chat_list/chat_user_online_mess
 import {MentionService} from 'app/chat/chat_list/mention_service.js';
 import {DeleteMessageService} from 'app/chat/chat_list/delete_message_service.js';
 import {ChatListModel} from 'app/chat/chat_list/chat_list_model.js';
+import {ScrollBottomService} from 'app/chat/chat_list/scroll_bottom_service.js';
 
 @Component({
   selector: 'chat-list-cmp',
   bindings: [ChatService, UserOnlineMessageService, NotificationNewMessagesService,
-             ChatTypingService, MentionService, DeleteMessageService],
+             ChatTypingService, MentionService, DeleteMessageService, ScrollBottomService],
   events: ['clickMention']
 })
 @View({
@@ -32,6 +33,7 @@ export class ChatListCmp implements OnInit {
               @Inject(MentionService) private _mentionService: MentionService,
               @Inject(DeleteMessageService) private _deleteMessageService: DeleteMessageService,
               @Inject(ChatListModel) public chatList: ChatListModel,
+              @Inject(ScrollBottomService) private _scrollBottomService: ScrollBottomService,
               @Inject(NotificationNewMessagesService) private _notificationNewMessageService: NotificationNewMessagesService) {
 
   }
@@ -44,6 +46,7 @@ export class ChatListCmp implements OnInit {
             this._notificationNewMessageService.toggleTitle(message);
             this._mentionService.makeMention(message);
             this.chatList.add(message);
+            this._scrollBottomService.goDown();
         });
 
     this._chatTypingService
@@ -52,6 +55,7 @@ export class ChatListCmp implements OnInit {
             this.tMsg = message;
             this.tMsg.typing = true;
             this._deleteMessageService.remove(this.tMsg);
+            this._scrollBottomService.goDown();            
         });
   }
 

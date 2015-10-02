@@ -33,6 +33,7 @@
         "app/chat/chat_list/delete_message_service.ts",
         "app/chat/chat_list/linkify_directive.ts",
         "app/chat/chat_list/mention_service.ts",
+        "app/chat/chat_list/scroll_bottom_service.ts",
         "app/chat/chat_logout/chat_logout_service.ts",
         "app/chat/chat_promptify/promptify_helper.ts",
         "app/chat/chat_promptify/promptify_service.ts",

@@ -32,7 +32,7 @@
 .user-online-message:before,
 .not-user-online-message:before,
 .bot-message:before {
-  content: "C:\\users\\nimbus >";
+  content: "C:\\Users\\nimbus >";
   position: absolute;
   left: -150px;
   color: #fff;

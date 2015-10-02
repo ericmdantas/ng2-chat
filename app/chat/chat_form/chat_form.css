@@ -16,10 +16,11 @@ form input {
   padding: 5px;
   background-color: transparent;
   font-size: 17px;
+  margin-bottom: 50px;
 }
 
 form:before {
-  content: "C:\\users\\nimbus >";
+  content: "C:\\Users\\nimbus >";
   position: absolute;
   left: -145px;
   top: 5px;
