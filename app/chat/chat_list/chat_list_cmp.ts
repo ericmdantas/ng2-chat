@@ -5,9 +5,6 @@ import {Component, View, EventEmitter, OnInit, CORE_DIRECTIVES, Inject, ViewQuer
 import {ChatService} from 'app/chat/services/chat_service.js';
 import {ChatTypingService} from 'app/chat/services/chat_typing_service.js';
 import {MessageModel} from 'app/chat/model/message_model.js';
-import {ChatBlinkDirective} from 'app/chat/chat_list/chat_blink_directive.js';
-import {ChatScrollBottomDirective} from 'app/chat/chat_list/chat_scroll_bottom_directive.js';
-import {ChatScrollBottomService} from 'app/chat/chat_list/chat_scroll_bottom_directive.js';
 import {NotificationNewMessagesService} from 'app/notifications/notifications_new_messages_service.js';
 import {UserOnlineMessageService} from 'app/chat/chat_list/chat_user_online_message_service.js';
 import {MentionService} from 'app/chat/chat_list/mention_service.js';
@@ -17,14 +14,13 @@ import {ChatListModel} from 'app/chat/chat_list/chat_list_model.js';
 @Component({
   selector: 'chat-list-cmp',
   bindings: [ChatService, UserOnlineMessageService, NotificationNewMessagesService,
-             ChatTypingService, MentionService, DeleteMessageService,
-             ChatScrollBottomService],
+             ChatTypingService, MentionService, DeleteMessageService],
   events: ['clickMention']
 })
 @View({
   templateUrl: 'app/chat/chat_list/chat_list.html',
   styleUrls: ['app/chat/chat_list/chat_list.css'],
-  directives: [CORE_DIRECTIVES, ChatBlinkDirective, ChatScrollBottomDirective]
+  directives: [CORE_DIRECTIVES]
 })
 export class ChatListCmp implements OnInit {
   public tMsg: MessageModel = new MessageModel();
@@ -36,7 +32,6 @@ export class ChatListCmp implements OnInit {
               @Inject(MentionService) private _mentionService: MentionService,
               @Inject(DeleteMessageService) private _deleteMessageService: DeleteMessageService,
               @Inject(ChatListModel) public chatList: ChatListModel,
-              @Inject(ChatScrollBottomService) private _chatScrollBottomService: ChatScrollBottomService,
               @Inject(NotificationNewMessagesService) private _notificationNewMessageService: NotificationNewMessagesService) {
 
   }
@@ -57,7 +52,6 @@ export class ChatListCmp implements OnInit {
             this.tMsg = message;
             this.tMsg.typing = true;
             this._deleteMessageService.remove(this.tMsg);
-            this._chatScrollBottomService.pullDown();
         });
   }
 

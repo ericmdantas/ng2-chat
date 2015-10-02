@@ -1,5 +1,5 @@
 <div class="list-of-messages-container">
-  <div *ng-for="#m of chatList.messages" blink-message scroll-bottom>
+  <div *ng-for="#m of chatList.messages">
     <p class="message" [class.mentioned]="m.mentioned">
       <span class="user" [class.user-online-message]="m.userOnline"
       [class.not-user-online-message]="!m.userOnline"
@@ -27,9 +27,5 @@
 
       <span class="info" [text-content]="tMsg.message"></span>
     </p>
-  </div>
-
-  <div [hidden]="chatList.messages.length">
-    <h2 style="color: #777; text-align: center;">nada</h2>
   </div>
 </div>

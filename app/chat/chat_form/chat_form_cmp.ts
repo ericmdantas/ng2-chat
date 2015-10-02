@@ -20,7 +20,7 @@ import {MessageModel} from 'app/chat/model/message_model.js';
 import {MentionService} from 'app/chat/chat_list/mention_service.js';
 import {UserTypingDirective} from 'app/chat/chat_form/user_typing_directive.js';
 import {ChatListModel} from 'app/chat/chat_list/chat_list_model.js';
-import {PromptifyService} from 'app/chat/chat_form/promptify_directive.js';
+import {PromptifyService} from 'app/chat/chat_promptify/promptify_service.js';
 
 @Component({
   selector: 'chat-form-cmp',

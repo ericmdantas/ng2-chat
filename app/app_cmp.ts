@@ -3,32 +3,27 @@
 import {Component, View, OnInit} from 'angular2/angular2';
 import {Inject} from 'angular2/angular2';
 import {ChatCmp} from 'app/chat/chat.js';
-import {StatsCmp} from 'app/stats/stats_cmp.js';
 import {ModalLoginCmp} from 'app/modal_login/modal_login_cmp.js';
-import {UserStatusBus} from 'app/message_bus/user_status_bus.js';
+import {PromptHeaderCmp} from 'app/prompt_header/prompt_header_cmp.js';
 
 @Component({
-  selector: 'app',
-  bindings: [UserStatusBus]
+  selector: 'app'
 })
 @View({
   template: `
+    <prompt-header-cmp></prompt-header-cmp>
+    
     <main>
-      <stats></stats>
       <chat-cmp></chat-cmp>
     </main>
 
     <modal-login-cmp></modal-login-cmp>
   `,
-  directives: [ChatCmp, StatsCmp, ModalLoginCmp]
+  directives: [ChatCmp, ModalLoginCmp, PromptHeaderCmp]
 })
 
 export class AppCmp implements OnInit {
-  constructor(@Inject(UserStatusBus) private _userStatusBus: UserStatusBus) {
-
-  }
-
   onInit() {
-
+    console.log('app init');
   }
 }

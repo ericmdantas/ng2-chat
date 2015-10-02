@@ -1,17 +1,11 @@
 <div class="form-container">
-  <form [ng-form-model]="chatForm"
-        onsubmit="return false;"
-        (submit)="sendMessage(chatForm.value.message)">
+  <form [ng-form-model]="chatForm">
           <input type="text"
                  id="main-input-chat"
                  ng-control="message"
                  user-typing
                  (keyup.escape)="escHandler()"
-                 placeholder="mensagem aqui"
+                 (keyup.enter)="sendMessage(chatForm.value.message)"
                  autofocus />
-
-          <button type="submit"
-                  [disabled]="!chatForm.valid">go
-          </button>
   </form>
 </div>

@@ -4,54 +4,28 @@
 }
 
 form {
-  position: fixed;
-  margin-top: 30px;
-  bottom: 10px;
-  width: 70%;
+  position: relative;
+  max-width: 999px;
 }
 
 form input {
   border: none;
-  border-bottom: 2px solid steelblue;
   outline: none;
-  font-size: 17px;
-  width: 100%;
-  color: #444;
+  width: 98%;
+  color: #fff;
   padding: 5px;
+  background-color: transparent;
+  font-size: 17px;
 }
 
-form button[type=submit] {
+form:before {
+  content: "C:\\users\\nimbus >";
   position: absolute;
-  top: -10px;
-  right: -70px;
-  border: none;
-  background-color: #fff;
-  color: steelblue;
-  font-weight: bold;
-  border-radius: 5px;
-  padding: 10px 20px;
-  transition: all .2s;
-  cursor: pointer;
-  text-transform: uppercase;
-}
-
-form button[type=submit]:active {
-  background-color: #fff;
-  color: steelblue;
-  outline: none;
-}
-
-form button[type=submit]:disabled {
-  opacity: .7;
-  cursor: not-allowed;
+  left: -145px;
+  top: 5px;
+  color: #fff;
 }
 
 form input:focus {
   outline:none;
-}
-
-@media(min-width: 40em) {
-  .form-container, form {
-    max-width: 700px;
-  }
 }

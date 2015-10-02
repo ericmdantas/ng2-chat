@@ -1,0 +1,30 @@
+#header {
+  background: -webkit-linear-gradient(left, #207cca 19%,#207cca 19%,#2989d8 67%,#7db9e8 100%);
+  margin: -5px -5px 5px -5px;
+  padding: 2px;
+  border-bottom: 2px solid #ccc;
+  overflow: hidden;
+}
+
+.icons {
+  float: right;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.minimize,
+.maximize,
+.close {
+  background-color: #CDCBC3;
+  color: #000;
+  padding: 0 7px;
+  border: 2px outset #999;
+}
+
+.title {
+  color: #fff;
+  padding-left: 5px;
+  padding-top: 2px;
+  float: left;
+  margin: 0;
+}

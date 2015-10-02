@@ -8,14 +8,13 @@
   z-index: 2;
   padding: 10px 12px;
   overflow: hidden;
-  box-shadow: 0 -1px 0 #e5e5e5,0 0 2px rgba(0,0,0,.12),
-              0 2px 4px rgba(0,0,0,.24);
+  background-color: #fff;
 }
 
 .title-modal-login {
   margin-top: 0;
   padding-bottom: 5px;
-  color: #555;
+  color: #000;
   text-transform: uppercase;
 }
 
@@ -25,7 +24,7 @@
   left: 0;
   width: 100%;
   height: 100vh;
-  background-color: #fff;
+  background-color: #000;
   opacity: .85;
   z-index: 1;
 }
