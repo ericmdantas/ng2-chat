@@ -7,7 +7,7 @@ import {UserModel} from 'app/user/user_model.js';
 @Component({
   selector: 'login-cmp',
   bindings: [FormBuilder, UserModel, UserStorageService],
-  events: ['loginOk']
+  outputs: ['loginOk']
 })
 @View({
   templateUrl: 'app/login/login.html',
