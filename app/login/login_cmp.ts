@@ -1,6 +1,6 @@
 /// <reference path="../../typings/tsd.d.ts" />
 
-import {Component, View, Inject, FormBuilder, FORM_DIRECTIVES, ControlGroup, Validators, EventEmitter, OnInit} from 'angular2/angular2';
+import {Component, View, Inject, FormBuilder, FORM_DIRECTIVES, ControlGroup, Output, Validators, EventEmitter, OnInit} from 'angular2/angular2';
 import {UserStorageService} from 'app/user/user_storage_service.js';
 import {UserModel} from 'app/user/user_model.js';
 
@@ -16,7 +16,7 @@ import {UserModel} from 'app/user/user_model.js';
 })
 export class LoginCmp implements OnInit {
   loginForm: ControlGroup;
-  loginOk: EventEmitter = new EventEmitter();
+  @Output() loginOk: EventEmitter = new EventEmitter();
 
   constructor(@Inject(UserModel) private _user: UserModel,
               @Inject(UserStorageService) private _userStorageService: UserStorageService,
