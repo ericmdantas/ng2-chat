@@ -1,6 +1,5 @@
 /// <reference path="../../typings/tsd.d.ts" />
 
-import {Injectable} from 'angular2/angular2';
 import {UserStorageService} from 'app/user/user_storage_service.js';
 import {MessageModel} from 'app/chat/model/message_model.js';
 import {MentionService} from 'app/chat/chat_list/mention_service.js';

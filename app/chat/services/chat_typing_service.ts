@@ -15,7 +15,7 @@ export class ChatTypingService {
       this._ee.next(new MessageModel(info));
     });
 
-    return this._ee.toRx();
+    return this._ee._subject;
   }
 
   send(info:any):void {

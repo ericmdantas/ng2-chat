@@ -15,15 +15,7 @@ export class ChatService {
       this._ee.next(new MessageModel(info));
     });
 
-    return this._ee.toRx();
-  }
-
-  listenToTyping():Rx.Observable<any> {
-    this._socket.on('typing', (info) => {
-      this._ee.next(new MessageModel(info));
-    });
-
-    return this._ee.toRx();
+    return this._ee._subject;
   }
 
   send(info: string, user: string):void {

@@ -1,6 +1,6 @@
 /// <reference path="../../typings/tsd.d.ts" />
 
-import {Component, View, ElementRef, OnInit} from 'angular2/angular2';
+import {Component, View, ElementRef, OnInit, Inject} from 'angular2/angular2';
 import {Inject} from 'angular2/di';
 import {LoginCmp} from 'app/login/login_cmp.js';
 import {UserStorageService} from 'app/user/user_storage_service.js';

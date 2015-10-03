@@ -9,10 +9,10 @@ import {
   FORM_DIRECTIVES,
   Validators,
   bind,
+  Inject,
+  forwardRef,
   ControlGroup
 } from 'angular2/angular2';
-
-import {Inject, forwardRef} from 'angular2/di';
 
 import {ChatService} from 'app/chat/services/chat_service.js';
 import {UserStorageService} from 'app/user/user_storage_service.js';

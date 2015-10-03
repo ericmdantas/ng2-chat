@@ -1,7 +1,6 @@
 /// <reference path="../typings/tsd.d.ts" />
 
-import {Component, View, OnInit} from 'angular2/angular2';
-import {Inject} from 'angular2/angular2';
+import {Component, View, OnInit, Inject} from 'angular2/angular2';
 import {ChatCmp} from 'app/chat/chat.js';
 import {ModalLoginCmp} from 'app/modal_login/modal_login_cmp.js';
 import {PromptHeaderCmp} from 'app/prompt_header/prompt_header_cmp.js';
@@ -12,7 +11,7 @@ import {PromptHeaderCmp} from 'app/prompt_header/prompt_header_cmp.js';
 @View({
   template: `
     <prompt-header-cmp></prompt-header-cmp>
-    
+
     <main>
       <chat-cmp></chat-cmp>
     </main>
