@@ -1,7 +1,7 @@
 /// <reference path="../../typings/tsd.d.ts" />
 
 import {Directive, Inject, ElementRef} from 'angular2/angular2';
-import {MessageModel} from 'app/chat/model/message_model.js';
+import {MessageModel} from 'app/chat/message/message_model.js';
 
 @Directive({
   selector: 'linkify'

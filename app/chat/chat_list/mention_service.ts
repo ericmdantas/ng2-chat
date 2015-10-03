@@ -1,6 +1,6 @@
 /// <reference path="../../../typings/tsd.d.ts" />
 
-import {MessageModel} from 'app/chat/model/message_model.js';
+import {MessageModel} from 'app/chat/message/message_model.js';
 import {UserStorageService} from 'app/user/user_storage_service.js';
 
 export class MentionService {

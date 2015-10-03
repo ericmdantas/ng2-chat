@@ -7,7 +7,7 @@ import * as _ from 'lodash';
 
 import {MessageModel} from './server/message_model.js';
 import {BotFactory} from './server/bot_factory.js';
-import {events} from './server/events.js';
+import {events} from './common.js';
 
 const PORT: number = 9999;
 

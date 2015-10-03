@@ -1,4 +1,4 @@
-export var events = {
+export const events = {
   CONNECTION: 'connection',
   DISCONNECT: 'disconnect',
   MESSAGE: 'msg',
@@ -8,4 +8,17 @@ export var events = {
   USER_CONNECTED: 'user_connected',
   USER_DISCONNECTED: 'user_disconnected',
   PEOPLE_ONLINE: 'people_online'
+}
+
+type MessageType = {
+  message: string;
+  user: string;
+  sentAt: string;
+  bot: boolean;
+}
+
+export const mention = {
+  AT: '@',
+  SLASH: '/',
+  EVERYBODY: 'all'
 }

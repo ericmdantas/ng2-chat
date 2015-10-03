@@ -1,5 +1,5 @@
 import * as _ from 'lodash';
-import {events} from './events.js';
+import {events} from '../common.js';
 import {MessageModel} from './message_model.js';
 
 export class X9Bot {
@@ -37,10 +37,9 @@ export class X9Bot {
   }
 
   wasMentioned(message: string) {
-    let _mentionedAt = message.toLowerCase().indexOf('@x9 on');
-    let _mentionedDash = message.toLowerCase().indexOf('/x9 on');
+    let _mentioned = message.toLowerCase().indexOf('ls');
 
-    return !!(_mentionedAt > -1) || !!(_mentionedDash > -1);
+    return (_mentioned > -1);
   }
 
   respondWhosOnline(socket: SocketIOStatic, conn: Object) {

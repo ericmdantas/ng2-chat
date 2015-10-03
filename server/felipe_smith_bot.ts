@@ -1,5 +1,5 @@
 import {MessageModel} from './message_model.js';
-import {events} from './events.js';
+import {events} from '../common.js';
 
 export class FelipeSmithBot {
   public static NAME: string = 'felipe.smith';

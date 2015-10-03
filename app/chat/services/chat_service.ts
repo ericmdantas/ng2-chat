@@ -1,7 +1,7 @@
 /// <reference path="../../../typings/tsd.d.ts" />
 
 import {EventEmitter} from 'angular2/angular2';
-import {MessageModel} from 'app/chat/model/message_model.js';
+import {MessageModel} from 'app/chat/message/message_model.js';
 
 export class ChatService {
   static MESSAGE: string = 'msg';

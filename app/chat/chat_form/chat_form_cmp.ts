@@ -16,7 +16,7 @@ import {Inject, forwardRef} from 'angular2/di';
 
 import {ChatService} from 'app/chat/services/chat_service.js';
 import {UserStorageService} from 'app/user/user_storage_service.js';
-import {MessageModel} from 'app/chat/model/message_model.js';
+import {MessageModel} from 'app/chat/message/message_model.js';
 import {MentionService} from 'app/chat/chat_list/mention_service.js';
 import {UserTypingDirective} from 'app/chat/chat_form/user_typing_directive.js';
 import {ChatListModel} from 'app/chat/chat_list/chat_list_model.js';

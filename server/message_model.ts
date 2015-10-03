@@ -1,4 +1,4 @@
-import {IMessage} from './interfaces.js';
+import {IMessage} from '../common.js';
 
 export class MessageModel implements MessageType {
   user: string;

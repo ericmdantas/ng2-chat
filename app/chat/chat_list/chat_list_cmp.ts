@@ -4,7 +4,7 @@ import * as _ from 'lodash.js';
 import {Component, View, EventEmitter, OnInit, CORE_DIRECTIVES, Inject, ViewQuery, QueryList, forwardRef} from 'angular2/angular2';
 import {ChatService} from 'app/chat/services/chat_service.js';
 import {ChatTypingService} from 'app/chat/services/chat_typing_service.js';
-import {MessageModel} from 'app/chat/model/message_model.js';
+import {MessageModel} from 'app/chat/message/message_model.js';
 import {NotificationNewMessagesService} from 'app/notifications/notifications_new_messages_service.js';
 import {UserOnlineMessageService} from 'app/chat/chat_list/chat_user_online_message_service.js';
 import {MentionService} from 'app/chat/chat_list/mention_service.js';
@@ -55,7 +55,7 @@ export class ChatListCmp implements OnInit {
             this.tMsg = message;
             this.tMsg.typing = true;
             this._deleteMessageService.remove(this.tMsg);
-            this._scrollBottomService.goDown();            
+            this._scrollBottomService.goDown();
         });
   }
 

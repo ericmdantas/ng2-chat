@@ -3,4 +3,5 @@ node_modules
 app/**/*.js
 server/*.js
 server.js
+common.js
 client.js
