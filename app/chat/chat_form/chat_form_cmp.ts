@@ -46,25 +46,29 @@ export class ChatFormCmp {
     });
   }
 
-  sendMessage(message: string):void {
+  public submitMessageHandler(msg: string) {
     let _username: string = this._storage.getUser().name;
 
     this.chatForm.controls.message.updateValue("");
 
-    if (this._promptifyService.isCls(message)) {
+    if (this._promptifyService.isCls(msg)) {
       this._chatList.removeAll();
       return;
     }
 
-    if (this._promptifyService.isExit(message)) {
+    if (this._promptifyService.isExit(msg)) {
       this._promptifyService.logout();
       return;
     }
 
-    this._chatService.send(message, _username);
+    this._sendMessage(msg, _username);
   }
 
-  mentionHandler(m: MessageModel):void {
+  private _sendMessage(message: string, username: string):void {
+    this._chatService.send(message, username);
+  }
+
+  public mentionHandler(m: MessageModel):void {
     let _bot = m.bot;
     let _you = this._storage.getUserName() === m.user;
 
@@ -81,7 +85,7 @@ export class ChatFormCmp {
     this.chatForm.controls.message.updateValue(_newValue);
   }
 
-  escHandler():void {
+  public escHandler():void {
     this.chatForm.controls.message.updateValue("");
   }
 }

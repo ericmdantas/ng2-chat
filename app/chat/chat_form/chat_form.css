@@ -5,26 +5,28 @@
 
 form {
   position: relative;
-  max-width: 999px;
+}
+
+.left {
+  float: left;
 }
 
 form input {
   border: none;
   outline: none;
-  width: 98%;
+  width: 88%;
   color: #fff;
   padding: 5px;
   background-color: transparent;
-  font-size: 17px;
+  font-size: 15px;
   margin-bottom: 50px;
 }
 
-form:before {
-  content: "C:\\Users\\nimbus >";
-  position: absolute;
-  left: -145px;
-  top: 5px;
+form .room {
   color: #fff;
+  font-size: 15px;
+  margin-top: 5px;
+  margin-left: 5px;
 }
 
 form input:focus {

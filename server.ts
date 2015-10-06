@@ -24,6 +24,7 @@ let _x9 = BotFactory.create("x9");
 let _fm = BotFactory.create("felipe.smith");
 let _porteiro = BotFactory.create("porteiro");
 let _didi = BotFactory.create("didi");
+let _helper = BotFactory.create("helper");
 
 app.use(express.static('./'));
 
@@ -43,7 +44,11 @@ io.on(events.CONNECTION, (socket) => {
                       .isBot(false);
 
     if (_x9.wasMentioned(data.info)) {
-        return _x9.respondWhosOnline(socket, _connections);
+      return _x9.respondWhosOnline(socket, _connections);
+    }
+
+    if (_helper.wasMentioned(data.info)) {
+      return _helper.talk(socket);
     }
 
     io.emit(events.MESSAGE, _message);

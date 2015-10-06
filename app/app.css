@@ -14,18 +14,5 @@ body {
 
 main {
   position: relative;
-  margin-top: 15px;
-  margin-bottom: 50px;
-}
-
-@media(min-width: 40em) {
-  main {
-    margin: 0 0 0 150px;
-  }
-}
-
-@media(min-width:50em) {
-  main {
-    padding: 0;
-  }
+  padding-bottom: 50px;
 }

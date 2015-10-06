@@ -1,9 +1,10 @@
 .user {
   color: #fff;
+  margin-left: 10px;
 }
 
 .info {
-  margin-left: 10px;
+  margin-left: 5px;
   word-break: break-work;
   display: block;
 }
@@ -42,14 +43,10 @@
   cursor: pointer;
 }
 
-.user-online-message:before,
-.not-user-online-message:before,
-.bot-message:before {
-  content: "C:\\Users\\nimbus >";
-  position: absolute;
-  left: -150px;
+.room {
   color: #fff;
-  transition: all .1s;
+  font-size: 15px;
+  margin-right: 10px;
 }
 
 .mentioned {

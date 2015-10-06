@@ -1,16 +1,18 @@
 <div class="list-of-messages-container">
   <div *ng-for="#m of chatList.messages">
     <p class="message" [class.mentioned]="m.mentioned">
+      <span class="room">C:\Users\nimbus ></span>
+
+      <span class="sent-time">
+        <small [text-content]="m.sentAt"></small>
+      </span>
+
       <span class="user" [class.user-online-message]="m.userOnline"
       [class.not-user-online-message]="!m.userOnline"
       [class.bot-message]="m.bot"
       [text-content]="m.user"
       [class.bot]="m.bot"
-      (click)="mentionClickHandler(m)"></span>
-
-      <span class="sent-time">
-        <small>(<span [text-content]="m.sentAt"></span>)</small>:
-      </span>
+      (click)="mentionClickHandler(m)"></span>:
 
       <span class="info" [text-content]="m.message"></span>
     </p>

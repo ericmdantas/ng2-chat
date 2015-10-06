@@ -37,9 +37,7 @@ export class X9Bot {
   }
 
   wasMentioned(message: string) {
-    let _mentioned = message.toLowerCase().indexOf('ls');
-
-    return (_mentioned > -1);
+    return message.toLowerCase() === ('ls');
   }
 
   respondWhosOnline(socket: SocketIOStatic, conn: Object) {
