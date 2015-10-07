@@ -21,16 +21,18 @@ import {MentionService} from 'app/chat/chat_list/mention_service.js';
 import {UserTypingDirective} from 'app/chat/chat_form/user_typing_directive.js';
 import {ChatListModel} from 'app/chat/chat_list/chat_list_model.js';
 import {PromptifyService} from 'app/chat/chat_promptify/promptify_service.js';
+import {ArrowsDirective} from 'app/chat/chat_form/arrows_directive.js';
+import {MessageStorageService} from 'app/chat/message/message_storage_service.js';
 
 @Component({
   selector: 'chat-form-cmp',
-  bindings: [FormBuilder, forwardRef(() => ChatService), UserStorageService, PromptifyService]
+  bindings: [FormBuilder, forwardRef(() => ChatService), UserStorageService, PromptifyService, MessageStorageService]
 })
 @View({
   templateUrl: 'app/chat/chat_form/chat_form.html',
   styleUrls: ['app/chat/chat_form/chat_form.css'],
   encapsulation: ViewEncapsulation.Native,
-  directives: [FORM_DIRECTIVES, UserTypingDirective]
+  directives: [FORM_DIRECTIVES, UserTypingDirective, ArrowsDirective]
 })
 export class ChatFormCmp {
   chatForm: ControlGroup;
@@ -39,6 +41,7 @@ export class ChatFormCmp {
               @Inject(FormBuilder) fb: FormBuilder,
               @Inject(PromptifyService) private _promptifyService: PromptifyService,
               @Inject(ChatListModel) private _chatList: ChatListModel,
+              @Inject(MessageStorageService) private _messageStorageService: MessageStorageService,
               @Inject(UserStorageService) private _storage: UserStorageService) {
 
     this.chatForm = fb.group({
@@ -62,6 +65,7 @@ export class ChatFormCmp {
     }
 
     this._sendMessage(msg, _username);
+    this._messageStorageService.save(msg);
   }
 
   private _sendMessage(message: string, username: string):void {
@@ -75,6 +79,18 @@ export class ChatFormCmp {
     if (!_bot && !_you) {
       this._mentionForm(m.user);
     }
+  }
+
+  arrowUpHandler() {
+    let _msg = this._messageStorageService.getPrevious();
+
+    this.chatForm.controls.message.updateValue(_msg);
+  }
+
+  arrowDownHandler() {
+    let _msg = this._messageStorageService.getNext();
+
+    this.chatForm.controls.message.updateValue(_msg)
   }
 
   private _mentionForm(n: string):void {

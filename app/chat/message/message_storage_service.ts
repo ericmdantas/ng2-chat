@@ -5,12 +5,19 @@ import {Xtorage} from 'node_modules/xtorage/dist/system/xtorage.js';
 export class MessageStorageService {
   private _xtorage: Xtorage = new Xtorage();
   private static KEY: string = 'm';
+  private _position: number = 0;
 
   save(message: string) {
-    this._xtorage.save(MessageStorageService.KEY, message);
+    this._xtorage.saveInLastPosition(MessageStorageService.KEY, message);
   }
 
-  get():string[] {
-    return this._xtorage.get(MessageStorageService.KEY);
+  getNext():string {
+    this._position--;
+    return this._xtorage.get(MessageStorageService.KEY)[this._position];
+  }
+
+  getPrevious():string {
+    this._position++;
+    return this._xtorage.get(MessageStorageService.KEY)[this._position];
   }
 }

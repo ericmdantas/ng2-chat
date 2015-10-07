@@ -27,6 +27,7 @@
         "app/app_cmp.ts",
         "app/chat/chat.ts",
         "app/chat/chat_cmp.ts",
+        "app/chat/chat_form/arrows_directive.ts",
         "app/chat/chat_form/chat_form_cmp.ts",
         "app/chat/chat_form/user_typing_directive.ts",
         "app/chat/chat_list/chat_list_cmp.ts",
