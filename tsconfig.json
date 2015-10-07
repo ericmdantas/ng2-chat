@@ -41,7 +41,6 @@
         "app/chat/chat_promptify/promptify_helper.ts",
         "app/chat/chat_promptify/promptify_service.ts",
         "app/chat/message/message_model.ts",
-        "app/chat/message/message_storage_directive.ts",
         "app/chat/message/message_storage_service.ts",
         "app/chat/services/chat_service.ts",
         "app/chat/services/chat_typing_service.ts",

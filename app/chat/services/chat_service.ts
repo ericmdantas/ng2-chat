@@ -15,7 +15,7 @@ export class ChatService {
       this._ee.next(new MessageModel(info));
     });
 
-    return this._ee._subject;
+    return this._ee.toRx();
   }
 
   send(info: string, user: string):void {
