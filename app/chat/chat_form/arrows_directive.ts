@@ -22,7 +22,7 @@ export class ArrowsDirective implements OnInit {
 
   inputHandler(ev) {
     if (ev.which === ArrowsDirective.UP) {
-      return this.arrowUp.next({arrow: 'up'});
+      return this.arrowUp.next({arrow: 'up'})
     }
 
     if (ev.which === ArrowsDirective.DOWN) {
