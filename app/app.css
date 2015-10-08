@@ -4,12 +4,16 @@ html {
 }
 
 body {
-  font-family: "Roboto";
+  font-family: monospace;
   background-color: rgba(0, 0, 0, .93);
   border: 3px solid #ccc;
   margin: 2px;
   padding: 5px;
   min-height: 97%;
+}
+
+small {
+  font-size: 13px;
 }
 
 main {

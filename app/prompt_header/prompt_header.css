@@ -10,6 +10,7 @@
   float: right;
   cursor: pointer;
   font-weight: bold;
+  margin-top: 2px;
 }
 
 .minimize,
@@ -17,8 +18,9 @@
 .close {
   background-color: #CDCBC3;
   color: #000;
-  padding: 0 7px;
+  padding: 1px 7px;
   border: 2px outset #999;
+  min-height: 35px;
 }
 
 .title {
@@ -26,5 +28,6 @@
   padding-left: 5px;
   padding-top: 2px;
   float: left;
+  font-size: 14px;
   margin: 0;
 }
