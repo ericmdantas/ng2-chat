@@ -1,9 +1,9 @@
 /// <reference path="../../../typings/tsd.d.ts" />
 
 export class ScrollBottomService {
-  private _w: Window = window;
+  private _chatContainer: Element = document.getElementById("chat");
 
   goDown() {
-    this._w.scrollTo(0, document.body.scrollHeight);
+    this._chatContainer.scrollTop = this._chatContainer.scrollHeight;
   }
 }
