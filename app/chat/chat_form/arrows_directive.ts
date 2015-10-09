@@ -10,8 +10,8 @@ import {Directive, OnInit, Output, EventEmitter} from 'angular2/angular2';
   }
 })
 export class ArrowsDirective implements OnInit {
-  @Output() arrowUp: EventEmitter = new EventEmitter();
-  @Output() arrowDown: EventEmitter = new EventEmitter();
+  arrowUp: EventEmitter = new EventEmitter();
+  arrowDown: EventEmitter = new EventEmitter();
 
   private static UP: number = 38;
   private static DOWN: number = 40;

@@ -16,7 +16,7 @@ import {UserModel} from 'app/user/user_model.js';
 })
 export class LoginCmp implements OnInit {
   loginForm: ControlGroup;
-  @Output() loginOk: EventEmitter = new EventEmitter();
+  loginOk: EventEmitter = new EventEmitter();
 
   constructor(@Inject(UserModel) private _user: UserModel,
               @Inject(UserStorageService) private _userStorageService: UserStorageService,
