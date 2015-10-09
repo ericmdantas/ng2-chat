@@ -1,7 +1,7 @@
 /// <reference path="../../../typings/tsd.d.ts" />
 
 import * as _ from 'lodash.js';
-import {Component, View, EventEmitter, OnInit, CORE_DIRECTIVES, Inject, ViewQuery, QueryList, forwardRef} from 'angular2/angular2';
+import {Component, EventEmitter, OnInit, CORE_DIRECTIVES, Inject, forwardRef} from 'angular2/angular2';
 import {ChatService} from 'app/chat/services/chat_service.js';
 import {ChatTypingService} from 'app/chat/services/chat_typing_service.js';
 import {MessageModel} from 'app/chat/message/message_model.js';
@@ -16,9 +16,7 @@ import {ScrollBottomService} from 'app/chat/chat_list/scroll_bottom_service.js';
   selector: 'chat-list-cmp',
   bindings: [ChatService, UserOnlineMessageService, NotificationNewMessagesService,
              ChatTypingService, MentionService, DeleteMessageService, ScrollBottomService],
-  events: ['clickMention']
-})
-@View({
+  events: ['clickMention'],
   templateUrl: 'app/chat/chat_list/chat_list.html',
   styleUrls: ['app/chat/chat_list/chat_list.css'],
   directives: [CORE_DIRECTIVES]

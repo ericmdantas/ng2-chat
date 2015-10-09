@@ -1,17 +1,15 @@
 /// <reference path="../../typings/tsd.d.ts" />
 
-import {Component, View, Inject, FormBuilder, FORM_DIRECTIVES, ControlGroup, Output, Validators, EventEmitter, OnInit} from 'angular2/angular2';
+import {Component, Inject, FormBuilder, FORM_DIRECTIVES, ControlGroup, Output, Validators, EventEmitter, OnInit} from 'angular2/angular2';
 import {UserStorageService} from 'app/user/user_storage_service.js';
 import {UserModel} from 'app/user/user_model.js';
 
 @Component({
   selector: 'login-cmp',
-  bindings: [FormBuilder, UserModel, UserStorageService],
-  outputs: ['loginOk']
-})
-@View({
+  outputs: ['loginOk'],
   templateUrl: 'app/login/login.html',
   styleUrls: ['app/login/login.css'],
+  bindings: [FormBuilder, UserModel, UserStorageService],
   directives: [FORM_DIRECTIVES]
 })
 export class LoginCmp implements OnInit {

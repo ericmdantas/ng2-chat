@@ -1,17 +1,15 @@
 /// <reference path="../../typings/tsd.d.ts" />
 
-import {Component, View, ElementRef, OnInit, Inject} from 'angular2/angular2';
+import {Component, ElementRef, OnInit, Inject} from 'angular2/angular2';
 import {LoginCmp} from 'app/login/login_cmp.js';
 import {UserStorageService} from 'app/user/user_storage_service.js';
 import {ChatService} from 'app/chat/services/chat_service.js';
 
 @Component({
   selector: 'modal-login-cmp',
-  bindings: [UserStorageService, ChatService]
-})
-@View({
   templateUrl: 'app/modal_login/modal_login.html',
   styleUrls: ['app/modal_login/modal_login.css'],
+  bindings: [UserStorageService, ChatService],
   directives: [LoginCmp]
 })
 export class ModalLoginCmp implements OnInit {

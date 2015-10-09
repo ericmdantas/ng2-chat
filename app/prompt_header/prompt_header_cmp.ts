@@ -5,9 +5,7 @@ import {LogoutService} from 'app/chat/chat_logout/chat_logout_service.js';
 
 @Component({
   selector: 'prompt-header-cmp',
-  viewBindings: [LogoutService]
-})
-@View({
+  viewBindings: [LogoutService],
   templateUrl: 'app/prompt_header/prompt_header.html',
   styleUrls: ['app/prompt_header/prompt_header.css']
 })
