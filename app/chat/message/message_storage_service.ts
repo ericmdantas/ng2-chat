@@ -5,6 +5,7 @@ export class MessageStorageService {
 
   save(message: string) {
     this._messages.unshift(message);
+    this._position = 0;
   }
 
   getNext():string {
