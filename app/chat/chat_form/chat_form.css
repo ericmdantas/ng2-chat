@@ -22,6 +22,7 @@ form input {
   font-size: 15px;
   margin-bottom: 50px;
   font-family: monospace;
+  width: 75%;
 }
 
 form .room {
@@ -29,6 +30,7 @@ form .room {
   font-size: 15px;
   margin-top: 5px;
   margin-left: 5px;
+  width: 150px;
 }
 
 form input:focus {

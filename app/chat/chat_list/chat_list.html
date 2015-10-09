@@ -4,7 +4,7 @@
       <span class="room">C:\Users\nimbus ></span>
 
       <span class="sent-time">
-        <small [text-content]="m.sentAt"></small>
+        <small [text-content]="m.sentAt | date: 'hhmmss H'"></small>
       </span>
 
       <span class="user" [class.user-online-message]="m.userOnline"

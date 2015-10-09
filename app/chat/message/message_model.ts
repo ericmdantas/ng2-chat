@@ -1,7 +1,7 @@
 export class MessageModel {
   private _message: string;
   private _user: string;
-  private _sentAt: string;
+  private _sentAt: Date;
   private _bot: boolean;
   private _deleteTime: number;
   private _hash: string | number;
@@ -13,7 +13,7 @@ export class MessageModel {
               :{message?: string, user?:string, sentAt?:string, bot?:boolean, deleteTime?:number, hash?:string|number, canRepeat?:boolean} = {}) {
     this.message = message;
     this.user = user;
-    this.sentAt = sentAt ? sentAt.substring(16, 24) : '';
+    this.sentAt = new Date(sentAt);
     this.bot = bot;
     this.deleteTime = deleteTime;
     this.hash = hash;
@@ -37,10 +37,10 @@ export class MessageModel {
   }
 
   set sentAt(sa: string) {
-    this._sentAt = sa;
+    this._sentAt = new Date(sa);
   }
 
-  get sentAt():string {
+  get sentAt():Date {
     return this._sentAt;
   }
 

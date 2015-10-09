@@ -10,13 +10,11 @@ import {PromptHeaderCmp} from 'app/prompt_header/prompt_header_cmp.js';
 })
 @View({
   template: `
-    <prompt-header-cmp></prompt-header-cmp>
-
     <main>
+      <prompt-header-cmp></prompt-header-cmp>
+      <modal-login-cmp></modal-login-cmp>
       <chat-cmp></chat-cmp>
     </main>
-
-    <modal-login-cmp></modal-login-cmp>
   `,
   directives: [ChatCmp, ModalLoginCmp, PromptHeaderCmp]
 })

@@ -1,9 +1,10 @@
 #header {
   background: -webkit-linear-gradient(left, #207cca 19%,#207cca 19%,#2989d8 67%,#7db9e8 100%);
-  margin: -5px -5px 5px -5px;
   padding: 2px;
   border-bottom: 2px solid #ccc;
   overflow: hidden;
+  cursor: pointer;
+  -webkit-user-select: none
 }
 
 .icons {

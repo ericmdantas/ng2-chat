@@ -11,9 +11,12 @@ import {ChatListModel} from 'app/chat/chat_list/chat_list_model.js';
 })
 @View({
   template: `
-    <chat-list-cmp #clist (click-mention)="cform.mentionHandler($event)"></chat-list-cmp>
-    <chat-form-cmp #cform></chat-form-cmp>
+    <div id="chat">
+      <chat-list-cmp #clist (click-mention)="cform.mentionHandler($event)"></chat-list-cmp>
+      <chat-form-cmp #cform></chat-form-cmp>
+    </div>
   `,
+  styleUrls: ['app/chat/chat.css'],
   directives: [ChatListCmp, ChatFormCmp]
 })
 
