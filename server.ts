@@ -25,6 +25,7 @@ let _fm = BotFactory.create("felipe.smith");
 let _porteiro = BotFactory.create("porteiro");
 let _didi = BotFactory.create("didi");
 let _helper = BotFactory.create("helper");
+let _stats = BotFactory.create("stats");
 
 app.use(express.static('./'));
 

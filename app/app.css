@@ -1,6 +1,7 @@
 html {
   background: url('http://i.ytimg.com/vi/ax5eY_Y3A_c/maxresdefault.jpg') no-repeat;
   background-attachment: fixed;
+  background-size: cover;
   height: 100%;
 }
 
@@ -14,8 +15,4 @@ small {
 
 main {
   position: relative;
-  overflow-y: auto;
-  max-width: 999px;
-  border: 3px outset #ddd;
-  background-color: rgba(0, 0, 0, .98);
 }

@@ -1,0 +1,8 @@
+#prompt {
+  position: fixed;
+  overflow-y: auto;
+  max-width: 999px;
+  width: 97%;
+  border: 3px outset #ddd;
+  background-color: rgba(0, 0, 0, .98);  
+}

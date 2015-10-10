@@ -44,10 +44,13 @@
         "app/chat/message/message_storage_service.ts",
         "app/chat/services/chat_service.ts",
         "app/chat/services/chat_typing_service.ts",
+        "app/drag_drop/drag_directive.ts",
+        "app/drag_drop/drop_directive.ts",
         "app/login/login_cmp.ts",
         "app/modal_login/modal_login_cmp.ts",
         "app/notifications/notifications_new_messages_service.ts",
-        "app/prompt_header/prompt_header_cmp.ts",
+        "app/prompt/prompt_cmp.ts",
+        "app/prompt/prompt_header/prompt_header_cmp.ts",
         "app/user/user_model.ts",
         "app/user/user_storage_service.ts"
     ]

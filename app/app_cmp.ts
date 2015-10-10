@@ -1,22 +1,19 @@
 /// <reference path="../typings/tsd.d.ts" />
 
 import {Component, View, OnInit, Inject} from 'angular2/angular2';
-import {ChatCmp} from 'app/chat/chat.js';
-import {ModalLoginCmp} from 'app/modal_login/modal_login_cmp.js';
-import {PromptHeaderCmp} from 'app/prompt_header/prompt_header_cmp.js';
+import {PromptCmp} from 'app/prompt/prompt_cmp.js';
+import {DroppableDirective} from 'app/drag_drop/drop_directive.js';
 
 @Component({
   selector: 'app'
 })
 @View({
   template: `
-    <main>
-      <prompt-header-cmp></prompt-header-cmp>
-      <modal-login-cmp></modal-login-cmp>
-      <chat-cmp></chat-cmp>
+    <main super-droppable>
+      <prompt-cmp></prompt-cmp>
     </main>
   `,
-  directives: [ChatCmp, ModalLoginCmp, PromptHeaderCmp]
+  directives: [PromptCmp, DroppableDirective]
 })
 
 export class AppCmp implements OnInit {
