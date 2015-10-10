@@ -1,6 +1,6 @@
 /// <reference path="../../typings/tsd.d.ts" />
 
-import {Directive, Inject, ElementRef, OnInit} from 'angular2/angular2';
+import {Directive, Inject, OnInit} from 'angular2/angular2';
 
 @Directive({
   selector: '[super-draggable]',
@@ -9,10 +9,6 @@ import {Directive, Inject, ElementRef, OnInit} from 'angular2/angular2';
   }
 })
 export class DraggableDirective implements OnInit {
-  constructor(@Inject(ElementRef) private _el: ElementRef) {
-
-  }
-
   onInit() {
     console.log('draggable init');
   }
