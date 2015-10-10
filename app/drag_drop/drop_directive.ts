@@ -3,7 +3,10 @@
 import {Directive, Inject, ElementRef, OnInit} from 'angular2/angular2';
 
 @Directive({
-  selector: '[super-droppable]'
+  selector: '[super-droppable]',
+  host: {
+    '(dragover)': 'dragoverHandler($event)'
+  }
 })
 export class DroppableDirective implements OnInit {
   constructor(@Inject(ElementRef) private _el: ElementRef) {
@@ -12,9 +15,9 @@ export class DroppableDirective implements OnInit {
 
   onInit() {
     console.log('droppable init');
+  }
 
-    this._el.nativeElement.addEventListener('dragover', (ev) => {
-      ev.preventDefault();
-    });
+  dragoverHandler(ev: Event):void {
+    ev.preventDefault();
   }
 }
