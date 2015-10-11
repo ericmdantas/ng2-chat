@@ -17,7 +17,7 @@
 .minimize,
 .maximize,
 .close {
-  background-color: #CDCBC3;
+  background-color: #ddd;
   color: #000;
   padding: 1px 7px;
   border: 2px outset #999;

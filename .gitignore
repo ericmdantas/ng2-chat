@@ -1,7 +1,7 @@
 node_modules
 *.log
 app/**/*.js
-server/*.js
+server/**/*.js
 server.js
 common.js
 client.js

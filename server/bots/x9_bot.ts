@@ -1,18 +1,18 @@
 import * as _ from 'lodash';
-import {events} from '../common.js';
-import {MessageModel} from './message_model.js';
+import {events} from '../../common.js';
+import {MessageModel} from '../message_model.js';
 
 export class X9Bot {
   public static NAME: string = 'x9';
 
-  entered(socket:Object, user: string, conn:Object):void {
+  entered(socket:SocketIOStatic, user: string, conn:Object):void {
     let _newUserIn = new MessageModel()
                     .withUser(X9Bot.NAME)
                     .withMessage(`${user} entrou`)
                     .isBot(true);
 
     socket.broadcast.emit(events.MESSAGE, _newUserIn);
-    socket.emit(events.MESSAGE, this._usersOnline(conn));
+    this.respondWhosOnline(socket, conn);
   }
 
   left(socket: SocketIOStatic, user: string):void {
@@ -41,10 +41,17 @@ export class X9Bot {
   }
 
   respondWhosOnline(socket: SocketIOStatic, conn: Object) {
-    socket.emit(events.MESSAGE, this._usersOnline(conn));
+    socket.emit(events.MESSAGE, this._usersOnlineMsg(conn));
   }
 
-  private _usersOnline(conn: Map):MessageModel {
+  private _usersOnlineMsg(conn: Map):MessageModel {
+    return new MessageModel()
+            .withUser(X9Bot.NAME)
+            .withMessage(`${this.usersOnline(conn)} estão no chat`)
+            .isBot(true);
+  }
+
+  public usersOnline(conn: Map):string {
     let connIterator = conn.keys();
     let _usersTmp = [];
 
@@ -52,12 +59,11 @@ export class X9Bot {
         _usersTmp.push(prop);
     });
 
-    let _usersStringified = _usersTmp.join().replace(',', ', ');
+    return _usersTmp.join().replace(/,/, ', ');
+  }
 
-    return new MessageModel()
-            .withUser(X9Bot.NAME)
-            .withMessage(`${_usersStringified} estão no chat`)
-            .isBot(true);
+  public amountMsgs(msgs: {num: number}):number {
+    return msgs.num;
   }
 
   static build():X9Bot {

@@ -1,5 +1,5 @@
-import {events} from '../common.js';
-import {MessageModel} from './message_model.js';
+import {events} from '../../common.js';
+import {MessageModel} from '../message_model.js';
 
 export class DidiBot {
     private static MESSAGE: string[] = [

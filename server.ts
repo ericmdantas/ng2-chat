@@ -6,7 +6,7 @@ import * as socketIo from 'socket.io';
 import * as _ from 'lodash';
 
 import {MessageModel} from './server/message_model.js';
-import {BotFactory} from './server/bot_factory.js';
+import {BotFactory} from './server/bots/bot_factory.js';
 import {events} from './common.js';
 
 const PORT: number = 9999;
@@ -20,8 +20,8 @@ let _connections: Map = new Map();
 let _peopleOnline: number = 0;
 let _messageCount: {num: number} = {num: 0}; // reference
 
-let _x9 = BotFactory.create("x9");
 let _fm = BotFactory.create("felipe.smith");
+let _x9 = BotFactory.create("x9");
 let _porteiro = BotFactory.create("porteiro");
 let _didi = BotFactory.create("didi");
 let _helper = BotFactory.create("helper");
@@ -52,6 +52,10 @@ io.on(events.CONNECTION, (socket) => {
       return _helper.talk(socket);
     }
 
+    if (_stats.wasMentioned(data.info)) {
+      return _stats.respond(socket, _x9, _connections, _messageCount);
+    }
+
     io.emit(events.MESSAGE, _message);
     io.emit(events.MESSAGE_COUNT, _messageCount.num++);
 
@@ -75,8 +79,7 @@ io.on(events.CONNECTION, (socket) => {
       .forEach((value, prop) => {
         if (_connections.get(prop).id === socket.id) {
           _x9.left(socket, prop);
-          _connections.delete(prop);
-          return;
+          return _connections.delete(prop);
         }
       });
 
