@@ -1,15 +1,19 @@
 /// <reference path="../../typings/tsd.d.ts" />
 
-import {Directive, Inject, ElementRef, OnInit} from 'angular2/angular2';
+import {Directive, Inject, ElementRef, OnInit, Input} from 'angular2/angular2';
 
 @Directive({
   selector: '[super-draggable]',
+  inputs: ['elId'],
   host: {
     '(drag)': 'dragHandler($event)'
   }
 })
 export class DraggableDirective implements OnInit {
-  constructor(@Inject(ElementRef) private _el: ElementRef) {
+  private _doc: Document = document;
+  elId: string;
+
+  constructor() {
 
   }
 
@@ -18,7 +22,7 @@ export class DraggableDirective implements OnInit {
   }
 
   dragHandler(ev:Event):void {
-    this._el.nativeElement.style.left = `${ev.clientX - 400}px`;
-    this._el.nativeElement.style.top = `${ev.clientY}px`;
+    this._doc.querySelectorAll(this.elId)[0].style.left = `${ev.clientX - 400}px`;
+    this._doc.querySelectorAll(this.elId)[0].style.top = `${ev.clientY}px`;
   }
 }
