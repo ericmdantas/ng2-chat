@@ -1,6 +1,6 @@
 /// <reference path="../../typings/tsd.d.ts" />
 
-import {Directive, Inject, ElementRef, OnInit, Input} from 'angular2/angular2';
+import {Directive, Inject, OnInit} from 'angular2/angular2';
 
 @Directive({
   selector: '[super-draggable]',
