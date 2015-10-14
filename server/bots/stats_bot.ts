@@ -19,7 +19,7 @@ export class StatsBot {
   }
 
   public wasMentioned(msg: string):boolean {
-    return (msg.toLowerCase().indexOf("stat") > -1) || (msg.toLowerCase().indexOf("stats") > -1) || (msg.toLowerCase().indexOf("status") > -1);
+    return (msg.toLowerCase() === "stat") || (msg.toLowerCase() === "stats") || (msg.toLowerCase() === "status");
   }
 
   static build():StatsBot {

@@ -9,7 +9,7 @@ import {ChatService} from 'app/chat/services/chat_service.js';
   selector: 'modal-login-cmp',
   templateUrl: 'app/modal_login/modal_login.html',
   styleUrls: ['app/modal_login/modal_login.css'],
-  bindings: [UserStorageService, ChatService],
+  providers: [UserStorageService, ChatService],
   directives: [LoginCmp]
 })
 export class ModalLoginCmp implements OnInit {

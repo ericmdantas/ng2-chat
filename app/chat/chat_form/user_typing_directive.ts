@@ -6,7 +6,7 @@ import {UserStorageService} from 'app/user/user_storage_service.js';
 
 @Directive({
   selector: '[user-typing]',
-  bindings: [ChatTypingService, UserStorageService],
+  providers: [ChatTypingService, UserStorageService],
   host: {
     '(input)': 'inputHandler()'
   }

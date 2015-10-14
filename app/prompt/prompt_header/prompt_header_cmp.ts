@@ -6,7 +6,7 @@ import {DraggableDirective} from 'app/drag_drop/drag_directive.js';
 
 @Component({
   selector: 'prompt-header-cmp',
-  viewBindings: [LogoutService],
+  viewProviders: [LogoutService],
   directives: [DraggableDirective],
   templateUrl: 'app/prompt/prompt_header/prompt_header.html',
   styleUrls: ['app/prompt/prompt_header/prompt_header.css']

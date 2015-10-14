@@ -59,7 +59,7 @@ export class X9Bot {
         _usersTmp.push(prop);
     });
 
-    return _usersTmp.join().replace(/,/, ', ');
+    return _usersTmp.join().replace(/,/g, ', ');
   }
 
   public amountMsgs(msgs: {num: number}):number {

@@ -7,7 +7,7 @@ import {ChatListModel} from 'app/chat/chat_list/chat_list_model.js';
 
 @Component({
   selector: 'chat-cmp',
-  viewBindings: [ChatListModel]
+  viewProviders: [ChatListModel]
 })
 @View({
   template: `

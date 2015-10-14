@@ -24,7 +24,7 @@ import {MessageStorageService} from 'app/chat/message/message_storage_service.js
 
 @Component({
   selector: 'chat-form-cmp',
-  bindings: [FormBuilder, forwardRef(() => ChatService), UserStorageService, PromptifyService, MessageStorageService],
+  providers: [FormBuilder, forwardRef(() => ChatService), UserStorageService, PromptifyService, MessageStorageService],
   templateUrl: 'app/chat/chat_form/chat_form.html',
   styleUrls: ['app/chat/chat_form/chat_form.css'],
   directives: [FORM_DIRECTIVES, UserTypingDirective, ArrowsDirective]

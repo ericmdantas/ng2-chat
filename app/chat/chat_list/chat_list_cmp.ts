@@ -14,7 +14,7 @@ import {ScrollBottomService} from 'app/chat/chat_list/scroll_bottom_service.js';
 
 @Component({
   selector: 'chat-list-cmp',
-  bindings: [ChatService, UserOnlineMessageService, NotificationNewMessagesService,
+  providers: [ChatService, UserOnlineMessageService, NotificationNewMessagesService,
              ChatTypingService, MentionService, DeleteMessageService, ScrollBottomService],
   events: ['clickMention'],
   templateUrl: 'app/chat/chat_list/chat_list.html',

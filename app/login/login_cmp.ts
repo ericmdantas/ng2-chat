@@ -9,7 +9,7 @@ import {UserModel} from 'app/user/user_model.js';
   outputs: ['loginOk'],
   templateUrl: 'app/login/login.html',
   styleUrls: ['app/login/login.css'],
-  bindings: [FormBuilder, UserModel, UserStorageService],
+  providers: [FormBuilder, UserModel, UserStorageService],
   directives: [FORM_DIRECTIVES]
 })
 export class LoginCmp implements OnInit {
