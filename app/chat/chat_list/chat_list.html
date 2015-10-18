@@ -1,7 +1,7 @@
 <div class="list-of-messages-container">
   <div *ng-for="#m of chatList.messages">
     <p class="message" [class.mentioned]="m.mentioned">
-      <span class="room">C:\Users\nimbus ></span>
+      <span class="room">C:\ ></span>
 
       <span class="sent-time">
         <small [text-content]="m.sentAt | date: 'hhmmss H'"></small>
@@ -20,7 +20,7 @@
 
   <div>
     <p class="message user-is-typing" *ng-if="tMsg.typing">
-      <span class="room">C:\Users\nimbus ></span>
+      <span class="room">C:\ ></span>
 
       <span class="user not-user-online-message bot-message bot"
       [text-content]="tMsg.user"></span>
