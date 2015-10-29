@@ -3,6 +3,139 @@ import {MessageModel} from '../message_model.js';
 
 export class ScottyBot {
   static NAME: string = 'scotty';
+  static TP: string[] = [
+    '˙•.',
+    '⋰⋰⋰',
+    '⋱⋱⋱',
+    '⋮⋮⋮⋮',
+    '⋰⋰⋰',
+    '⋱⋱⋱',
+    '⋮⋮⋮⋮',
+    '⋰⋰⋰',
+    '⋱⋱⋱',
+    '⋮⋮⋮⋮',
+    '⋰⋰⋰',
+    '⋱⋱⋱',
+    '⋮⋮⋮⋮',
+    '⋰⋰⋰',
+    '⋱⋱⋱',
+    '⋮⋮⋮⋮',
+    '⋰⋰⋰',
+    '⋱⋱⋱',
+    '⋮⋮⋮⋮',
+    '⋰⋰⋰',
+    '⋱⋱⋱',
+    '⋮⋮⋮⋮',
+    '⋰⋰⋰',
+    '⋱⋱⋱',
+    '⋮⋮⋮⋮',
+    '⋰⋰⋰',
+    '⋱⋱⋱',
+    '⋮⋮⋮⋮',
+    '⋰⋰⋰',
+    '⋱⋱⋱',
+    '⋮⋮⋮⋮',
+    '⋰⋰⋰',
+    '⋱⋱⋱',
+    '⋮⋮⋮⋮',
+    '⋰⋰⋰',
+    '⋱⋱⋱',
+    '⋮⋮⋮⋮',
+    '  o',
+    ' /|\\',
+    ' /\\',
+    '⋰⋰⋰',
+    '⋱⋱⋱',
+    '⋮⋮⋮⋮',
+    '⋰⋰⋰',
+    '⋱⋱⋱',
+    '⋮⋮⋮⋮',
+    '⋰⋰⋰',
+    '⋰⋰⋰',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '⋱⋱⋱',
+    '⋮⋮⋮⋮',
+    '⋰⋰⋰',
+    '⋱⋱⋱',
+    '⋮⋮⋮⋮',
+    '⋰⋰⋰',
+    '⋱⋱⋱',
+    '⋮⋮⋮⋮',
+    '⋰⋰⋰',
+    '⋱⋱⋱',
+    '⋮⋮⋮⋮',
+    '⋱⋱⋱',
+    '⋮⋮⋮⋮',
+    '⋰⋰⋰',
+    '⋱⋱⋱',
+    '⋮⋮⋮⋮',
+    '⋰⋰⋰',
+    '⋱⋱⋱',
+    '⋮⋮⋮⋮',
+    '⋰⋰⋰',
+    '⋱⋱⋱',
+    '⋮⋮⋮⋮',
+    '⋱⋱⋱',
+    '⋮⋮⋮⋮',
+    '⋰⋰⋰',
+    '⋱⋱⋱',
+    '⋮⋮⋮⋮',
+    '⋰⋰⋰',
+    '⋱⋱⋱',
+    '⋮⋮⋮⋮',
+    '⋰⋰⋰',
+    '⋱⋱⋱',
+    '⋮⋮⋮⋮',
+    '⋱⋱⋱',
+    '⋮⋮⋮⋮',
+    '⋰⋰⋰',
+    '⋱⋱⋱',
+    '⋮⋮⋮⋮',
+    '⋰⋰⋰',
+    '⋱⋱⋱',
+    '⋮⋮⋮⋮',
+    '⋰⋰⋰',
+    '⋱⋱⋱',
+    '⋮⋮⋮⋮',
+    '⋱⋱⋱',
+    '⋮⋮⋮⋮',
+    '⋰⋰⋰',
+    '⋱⋱⋱',
+    '⋮⋮⋮⋮',
+    '⋰⋰⋰',
+    '⋱⋱⋱',
+    '⋮⋮⋮⋮',
+    '⋰⋰⋰',
+    '⋱⋱⋱',
+    '⋮⋮⋮⋮',
+    '⋰⋰⋰',
+    '⋱⋱⋱',
+    '⋮⋮⋮⋮',
+    '⋰⋰⋰',
+    '⋱⋱⋱',
+    '⋮⋮⋮⋮',
+    '⋰⋰⋰',
+    '⋱⋱⋱',
+    '⋮⋮⋮⋮',
+    '⋰⋰⋰',
+    '⋱⋱⋱',
+    '⋮⋮⋮⋮',
+    '⋰⋰⋰',
+    '⋱⋱⋱',
+    '⋮⋮⋮⋮',
+    '  o',
+    ' /|\\',
+    ' /\\',
+    ''
+  ];
 
   wasMentioned(message:string):boolean {
     let _msg = message.toLowerCase();
@@ -13,17 +146,18 @@ export class ScottyBot {
   beamUp(io: SocketIOStatic) {
     let _msg = new MessageModel()
                     .withUser(ScottyBot.NAME)
-                    .withMessage("")
                     .isBot(true);
 
     this._teletransport(io, _msg, events.MESSAGE);
   }
 
   private _teletransport(io, msg, event) {
-    const MAX_COUNT = 50;
+    const MAX_COUNT = ScottyBot.TP.length;
     let count = 0;
 
     let _idInterval = setInterval(() => {
+      msg.withMessage(ScottyBot.TP[count]);
+
       if (count >= MAX_COUNT) {
         return clearInterval(_idInterval);
       }
@@ -31,7 +165,7 @@ export class ScottyBot {
       io.emit(event, msg);
 
       count++;
-    }, 33);
+    }, 55);
   }
 
   static build():ScottyBot {
