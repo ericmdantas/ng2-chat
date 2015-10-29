@@ -4,6 +4,7 @@ import {PorteiroBot} from './porteiro_bot.js';
 import {DidiBot} from './didi_bot.js';
 import {HelperBot} from './helper_bot.js';
 import {StatsBot} from './stats_bot.js';
+import {ScottyBot} from './scotty_bot.js';
 
 export class BotFactory {
   static create(token):void {
@@ -14,6 +15,7 @@ export class BotFactory {
       case "didi": return DidiBot.build();
       case "helper": return HelperBot.build();
       case "stats": return StatsBot.build();
+      case "scotty": return ScottyBot.build();
     }
   }
 }

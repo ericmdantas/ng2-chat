@@ -22,6 +22,7 @@
         "server/bots/helper_bot.ts",
         "server/bots/interface_bot.ts",
         "server/bots/porteiro_bot.ts",
+        "server/bots/scotty_bot.ts",
         "server/bots/stats_bot.ts",
         "server/bots/x9_bot.ts",
         "server/message_model.ts",

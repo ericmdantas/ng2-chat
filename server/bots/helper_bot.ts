@@ -3,7 +3,7 @@ import {MessageModel} from '../message_model.js';
 
 export class HelperBot {
   private static NAME: string = 'helper';
-  private static HELP_STUFF: string = 'ls | exit | cls | stats | @nome';
+  private static HELP_STUFF: string = 'ls | exit | cls | stats | @nome | up';
 
   talk(socket: SocketIOStatic):void {
     let _msg = new MessageModel()

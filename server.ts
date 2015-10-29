@@ -26,6 +26,7 @@ let _porteiro = BotFactory.create("porteiro");
 let _didi = BotFactory.create("didi");
 let _helper = BotFactory.create("helper");
 let _stats = BotFactory.create("stats");
+let _scotty = BotFactory.create("scotty");
 
 app.use(express.static('./'));
 
@@ -58,6 +59,10 @@ io.on(events.CONNECTION, (socket) => {
 
     io.emit(events.MESSAGE, _message);
     io.emit(events.MESSAGE_COUNT, _messageCount.num++);
+
+    if (_scotty.wasMentioned(data.info)) {
+      _scotty.beamUp(io);
+    }
 
     if (_fm.wasMentioned(data.info)) {
       setTimeout(() => {

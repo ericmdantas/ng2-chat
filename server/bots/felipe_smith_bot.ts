@@ -13,6 +13,7 @@ export class FelipeSmithBot {
     "felipe!",
     "smith!",
     "16 18",
+    "seu cu",
     "JARBAS?!",
     "ADRIANO?",
     "Meu braço ta branco, velho!",
@@ -35,7 +36,6 @@ export class FelipeSmithBot {
     "arquitetura?",
     "( ͡° ͜ʖ ͡°)",
     "ᕦ( ͡° ͜ʖ ͡°)ᕤ",
-    "arquitetura?",
     "mata o papai"
   ];
 
@@ -52,7 +52,6 @@ export class FelipeSmithBot {
     'rs',
     'pera',
     'viaja não',
-    'dólar ta 7 reais, velho!',
     'sei lá',
     'não sei',
     'que?',
@@ -109,7 +108,8 @@ export class FelipeSmithBot {
   }
 
   public wasMentioned(info: string):boolean {
-    return (info.toLowerCase().indexOf("felipe") > -1) || (info.toLowerCase().indexOf("smith") > -1);
+    let _msg = info.toLowerCase();
+    return (_msg.indexOf("felipe") > -1) || (_msg.indexOf("smith") > -1);
   }
 
   static build():FelipeSmithBot {
