@@ -7,7 +7,7 @@ export class ScottyBot {
   wasMentioned(message:string):boolean {
     let _msg = message.toLowerCase();
 
-    return (_msg === "scotty") || (_msg === "beam me up") || (_msg === "up");
+    return (_msg === "scotty") || (_msg === "beam me up") || (_msg === "up") || (_msg === "arriba");
   }
 
   beamUp(io: SocketIOStatic) {
