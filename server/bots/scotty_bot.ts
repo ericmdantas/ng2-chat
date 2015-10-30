@@ -107,6 +107,7 @@ export class ScottyBot {
     '',
     ''
   ];
+  private _teletransporting: boolean = false;
 
   wasMentioned(message:string):boolean {
     let _msg = message.toLowerCase();
@@ -119,17 +120,22 @@ export class ScottyBot {
                     .withUser(ScottyBot.NAME)
                     .isBot(true);
 
-    this._teletransport(io, _msg, events.MESSAGE);
+    if (!this._teletransporting)
+         this._teletransport(io, _msg, events.MESSAGE);
   }
 
   private _teletransport(io, msg, event) {
     const MAX_COUNT = ScottyBot.TP.length;
     let count = 0;
 
+    this._teletransporting = true;
+
     let _idInterval = setInterval(() => {
+
       msg.withMessage(ScottyBot.TP[count]);
 
       if (count >= MAX_COUNT) {
+        this._teletransporting = false;
         return clearInterval(_idInterval);
       }
 
