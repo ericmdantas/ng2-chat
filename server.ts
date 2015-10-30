@@ -27,6 +27,7 @@ let _didi = BotFactory.create("didi");
 let _helper = BotFactory.create("helper");
 let _stats = BotFactory.create("stats");
 let _scotty = BotFactory.create("scotty");
+let _mib = BotFactory.create("mib");
 
 app.use(express.static('./'));
 
@@ -106,5 +107,6 @@ io.on(events.CONNECTION, (socket) => {
 });
 
 _fm.scheduleTalk(io, _messageCount);
+_mib.scheduleTalk(io);
 
 console.log(`listening on port: ${PORT}`);
