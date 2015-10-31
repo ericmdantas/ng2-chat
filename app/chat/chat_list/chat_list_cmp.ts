@@ -62,6 +62,7 @@ export class ChatListCmp implements OnInit {
         .listen()
         .subscribe(() => {
           this.clearMessages();
+          this._mib.flash();
         });
   }
 

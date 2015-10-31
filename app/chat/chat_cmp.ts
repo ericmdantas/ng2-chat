@@ -20,15 +20,7 @@ import {ChatListModel} from 'app/chat/chat_list/chat_list_model.js';
   directives: [ChatListCmp, ChatFormCmp]
 })
 export class ChatCmp implements OnInit {
-    constructor(@ViewQuery(ChatListCmp) private _chatList: QueryList<ChatListCmp>) {
-
-    }
-
     onInit() {
       console.log('chat-cmp init');
-    }
-
-    chatTrashedHandler(status:boolean):void {
-      this._chatList.first.clearMessages();
     }
 }

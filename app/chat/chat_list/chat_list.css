@@ -52,8 +52,6 @@
 
 .mentioned {
   background-color: rgb(82, 79, 63);
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
 }
 
 [blink-message] {

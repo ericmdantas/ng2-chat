@@ -1,4 +1,5 @@
 #chat {
   height: 750px;
   overflow-y: auto;
+  transition: all .5s;
 }
