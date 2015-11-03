@@ -19,9 +19,8 @@ export class Mib {
     _mibFlash.style.backgroundSize = 'cover';
 
     setTimeout(() => {
-      if (this._doc.hasFocus()) {
-        _mibFlash.style.background = 'none';
-      }
+      _mibFlash.style.background = 'none';
+      
     }, this.TIME_HIDES_BACKGROUND);
   }
 
