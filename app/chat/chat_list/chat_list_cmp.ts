@@ -1,5 +1,3 @@
-/// <reference path="../../../typings/tsd.d.ts" />
-
 import * as _ from 'lodash.js';
 import {Component, EventEmitter, OnInit, CORE_DIRECTIVES, Inject, forwardRef} from 'angular2/angular2';
 import {ChatService} from 'app/chat/services/chat_service.js';

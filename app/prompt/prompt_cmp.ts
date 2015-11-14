@@ -1,5 +1,3 @@
-/// <reference path="../../../typings/tsd.d.ts" />
-
 import {Component, OnInit} from 'angular2/angular2';
 import {ChatCmp} from 'app/chat/chat_cmp.js';
 import {ModalLoginCmp} from 'app/modal_login/modal_login_cmp.js';

@@ -1,5 +1,3 @@
-/// <reference path="../../typings/tsd.d.ts" />
-
 import {Component, View, OnInit} from 'angular2/angular2';
 import {LogoutService} from 'app/chat/chat_logout/chat_logout_service.js';
 import {DraggableDirective} from 'app/drag_drop/drag_directive.js';

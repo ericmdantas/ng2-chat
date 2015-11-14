@@ -1,13 +1,11 @@
-/// <reference path="../../typings/tsd.d.ts" />
-
 import {
   Component,
-  OnInit,
-  EventEmitter
+  OnInit
 } from 'angular2/angular2';
 
+import * as Rx from '@reactivex/rxjs/dist/cjs/Rx';
+
 export class Mib {
-  private _ee: EventEmitter = new EventEmitter();;
   private _socket: SocketIOStatic = io('');
   private _doc: Document = document;
   public TIME_HIDES_BACKGROUND: number = 1000;
@@ -19,17 +17,15 @@ export class Mib {
     _mibFlash.style.backgroundSize = 'cover';
 
     setTimeout(() => {
-      if (this._doc.hasFocus()) {
-        _mibFlash.style.background = 'none';
-      }
+      _mibFlash.style.background = 'none';
     }, this.TIME_HIDES_BACKGROUND);
   }
 
   listen() {
-    this._socket.on('amnesia', () => {
-      this._ee.next({});
-    })
-
-    return this._ee.toRx();
+    return Rx.Observable.create((o) => {
+      this._socket.on('amnesia', () => {
+            o.next(null);
+      });
+    });
   }
 }

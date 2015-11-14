@@ -1,5 +1,3 @@
-/// <reference path="../../node_modules/xtorage/dist/system/xtorage.d.ts" />
-
 import {Xtorage} from 'node_modules/xtorage/dist/system/xtorage.js';
 import {UserModel} from 'app/user/user_model.js';
 

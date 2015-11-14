@@ -1,5 +1,3 @@
-/// <reference path="../../../typings/tsd.d.ts" />
-
 import {UserStorageService} from 'app/user/user_storage_service.js';
 import {MessageModel} from 'app/chat/message/message_model.js';
 import {ChatService} from 'app/chat/services/chat_service.js'

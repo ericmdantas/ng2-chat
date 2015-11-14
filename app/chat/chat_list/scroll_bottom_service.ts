@@ -1,5 +1,3 @@
-/// <reference path="../../../typings/tsd.d.ts" />
-
 export class ScrollBottomService {
   private _chatContainer: Element = document.getElementById("chat");
 

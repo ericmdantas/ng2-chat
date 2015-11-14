@@ -1,5 +1,3 @@
-/// <reference path="../../typings/tsd.d.ts" />
-
 import {Component, Inject, FormBuilder, FORM_DIRECTIVES, ControlGroup, Output, Validators, EventEmitter, OnInit} from 'angular2/angular2';
 import {UserStorageService} from 'app/user/user_storage_service.js';
 import {UserModel} from 'app/user/user_model.js';

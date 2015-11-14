@@ -1,5 +1,3 @@
-/// <reference path="../../../typings/tsd.d.ts" />
-
 import {UserStorageService} from 'app/user/user_storage_service.js';
 
 export class LogoutService {

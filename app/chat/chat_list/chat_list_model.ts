@@ -1,5 +1,3 @@
-import {MessageModel} from 'app/chat/message/message_model.js';
-
 export class ChatListModel {
   public messages: MessageModel[] = [];
 

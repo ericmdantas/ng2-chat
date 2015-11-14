@@ -1,5 +1,3 @@
-/// <reference path="../../typings/tsd.d.ts" />
-
 import {Directive, OnInit, Output, EventEmitter} from 'angular2/angular2';
 
 @Directive({
