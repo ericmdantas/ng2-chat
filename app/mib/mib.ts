@@ -1,9 +1,8 @@
 import {
   Component,
+  Observable,
   OnInit
 } from 'angular2/angular2';
-
-import * as Rx from '@reactivex/rxjs/dist/cjs/Rx';
 
 export class Mib {
   private _socket: SocketIOStatic = io('');
@@ -21,8 +20,8 @@ export class Mib {
     }, this.TIME_HIDES_BACKGROUND);
   }
 
-  listen() {
-    return Rx.Observable.create((o) => {
+  listen():Observable {
+    return Observable.create((o) => {
       this._socket.on('amnesia', () => {
             o.next(null);
       });

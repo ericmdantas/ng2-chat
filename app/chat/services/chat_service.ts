@@ -1,5 +1,5 @@
 import {MessageModel} from 'app/chat/message/message_model.js';
-import * as Rx from '@reactivex/rxjs/dist/cjs/Rx';
+import {Observable} from 'angular2/angular2';
 
 export class ChatService {
   static MESSAGE: string = 'msg';
@@ -7,8 +7,8 @@ export class ChatService {
 
   _socket: SocketIOStatic = io(ChatService.URL_CONNECTION);
 
-  listen():Rx.Observable<any> {
-    return Rx.Observable.create((o) => {
+  listen():Observable {
+    return Observable.create((o) => {
       this._socket.on(ChatService.MESSAGE, (info) => {
         o.next(new MessageModel(info));
       });

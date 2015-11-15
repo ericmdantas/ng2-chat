@@ -1,5 +1,5 @@
 import {MessageModel} from 'app/chat/message/message_model.js';
-import * as Rx from '@reactivex/rxjs/dist/cjs/Rx'
+import {Observable} from 'angular2/angular2';
 
 export class ChatTypingService {
   static TYPING: string = 'typing';
@@ -7,10 +7,10 @@ export class ChatTypingService {
 
   _socket: SocketIOStatic = io(ChatTypingService.URL_CONNECTION);
 
-  listen():Rx.Observable<any> {
-    return Rx.Observable.create((o) => {
+  listen():Observable {
+    return Observable.create((o) => {
       this._socket.on(ChatTypingService.TYPING, (info) => {
-        this._ee.next(new MessageModel(info));
+        o.next(new MessageModel(info));
       });
     })
   }
