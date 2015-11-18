@@ -1,14 +1,18 @@
 {
-  "name": "ng2-tsc",
-  "version": "0.0.1",
-  "description": "",
+  "name": "ng2-chat",
+  "version": "1.0.0",
+  "description": "Real time chat built with Angular2",
   "main": "index.js",
   "scripts": {
+    "test": "karma start karma.conf.js",
     "start": "nodemon server.js --ignore app"
   },
-  "author": "Eric Mendes Dantas",
-  "license": "ISC",
-  "devDependencies": {},
+  "devDependencies": {
+    "jasmine": "^2.3.2",
+    "karma": "^0.13.15",
+    "karma-chrome-launcher": "^0.2.1",
+    "karma-jasmine": "^0.3.6"
+  },
   "dependencies": {
     "angular2": "^2.0.0-alpha.46",
     "express": "^4.13.3",
@@ -18,5 +22,15 @@
     "socket.io-client": "^1.3.6",
     "systemjs": "^0.18.9",
     "xtorage": "0.0.4"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ericmdantas/ng2-chat.git"
+  },
+  "author": "Eric Mendes Dantas <ericdantas0@gmail.com> (https://github.com/ericmdantas)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ericmdantas/ng2-chat/issues"
+  },
+  "homepage": "https://github.com/ericmdantas/ng2-chat#readme"
 }

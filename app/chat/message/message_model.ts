@@ -11,6 +11,7 @@ export class MessageModel {
 
   constructor({message, user, sentAt, bot, deleteTime, hash, canRepeat}
               :{message?: string, user?:string, sentAt?:string, bot?:boolean, deleteTime?:number, hash?:string|number, canRepeat?:boolean} = {}) {
+
     this.message = message;
     this.user = user;
     this.sentAt = new Date(sentAt);
