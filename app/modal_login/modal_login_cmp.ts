@@ -1,4 +1,10 @@
-import {Component, ElementRef, OnInit, Inject} from 'angular2/angular2';
+import {
+  Component,
+  ElementRef,
+  OnInit,
+  Inject
+} from 'angular2/angular2';
+
 import {LoginCmp} from 'app/login/login_cmp.js';
 import {UserStorageService} from 'app/user/user_storage_service.js';
 import {ChatService} from 'app/chat/services/chat_service.js';

@@ -1,16 +1,16 @@
-import {events} from '../../common.js';
-import {MessageModel} from '../message_model.js';
+import {events} from '../../common';
+import {MessageModel} from '../message_model';
 
 export class DidiBot {
-    private static MESSAGE: string[] = [
+    static MESSAGE = [
       'e morreu'
     ]
 
-    private static TIME_RESPONSE: number = 555;
+    static TIME_RESPONSE = 555;
 
-    public static NAME: string = 'didi';
+    static NAME = 'didi';
 
-    wasMentioned(msg:string):boolean {
+    wasMentioned(msg) {
       let _msg = msg.toLowerCase();
       let _pao = _msg.indexOf('pão') > -1;
       let _ceu = _msg.indexOf('céu') > -1;
@@ -20,7 +20,7 @@ export class DidiBot {
       return _pao || _ceu || _mamae || _crianca;
     }
 
-    respond(io: SocketIOStatic):void {
+    respond(io) {
       let _msg = new MessageModel()
                   .withUser(DidiBot.NAME)
                   .withMessage(DidiBot.MESSAGE)
@@ -31,7 +31,7 @@ export class DidiBot {
       }, DidiBot.TIME_RESPONSE);
     }
 
-    static build():DidiBot {
+    static build() {
       return new DidiBot();
     }
 }

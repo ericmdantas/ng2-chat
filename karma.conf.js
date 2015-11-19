@@ -8,6 +8,8 @@ module.exports = function(config) {
     files: [
       // paths loaded by Karma
       {pattern: 'node_modules/systemjs/dist/system.js', included: true, watched: true},
+      {pattern: 'node_modules/socket.io-client/socket.io.js', included: true, watched: true},
+      {pattern: 'node_modules/xtorage/dist/system/xtorage.js', included: true, watched: true},      
       {pattern: 'node_modules/angular2/bundles/angular2.js', included: true, watched: true},
       {pattern: 'node_modules/angular2/bundles/testing.js', included: true, watched: true},
       {pattern: 'karma-test-shim.js', included: true, watched: true},

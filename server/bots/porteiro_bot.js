@@ -1,10 +1,10 @@
-import {MessageModel} from '../message_model.js';
-import {events} from '../../common.js';
+import {MessageModel} from '../message_model';
+import {events} from '../../common';
 
 export class PorteiroBot {
-  public static NAME: string = 'porteiro';
+  static NAME = 'porteiro';
 
-  public talk(socket: WebSocket, user: string):void {
+  talk(socket, user) {
     let _hour = new Date().getHours();
 
     let _msg = new MessageModel()
@@ -24,7 +24,7 @@ export class PorteiroBot {
     }
   }
 
-  public static build():PorteiroBot {
+  static build() {
     return new PorteiroBot();
   }
 }

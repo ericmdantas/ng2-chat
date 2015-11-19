@@ -1,11 +1,11 @@
-import {events} from '../../common.js';
-import {MessageModel} from '../message_model.js';
+import {events} from '../../common';
+import {MessageModel} from '../message_model';
 
 export class HelperBot {
-  private static NAME: string = 'helper';
-  private static HELP_STUFF: string = 'ls | exit | cls | stats | @nome | up';
+  static NAME = 'helper';
+  static HELP_STUFF = 'ls | exit | cls | stats | @nome | up';
 
-  talk(socket: SocketIOStatic):void {
+  talk(socket) {
     let _msg = new MessageModel()
                     .withUser(HelperBot.NAME)
                     .withMessage(HelperBot.HELP_STUFF)
@@ -14,13 +14,13 @@ export class HelperBot {
     socket.emit(events.MESSAGE, _msg);
   }
 
-  wasMentioned(msg: string):boolean {
+  wasMentioned(msg) {
     let _msg = msg.toLowerCase()
 
     return (_msg === "help") || (_msg === "/help") || (_msg === "--help") || (msg === "--h");
   }
 
-  public static build():HelperBot {
+  static build() {
     return new HelperBot();
   }
 }

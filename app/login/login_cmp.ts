@@ -1,10 +1,21 @@
-import {Component, Inject, FormBuilder, FORM_DIRECTIVES, ControlGroup, Output, Validators, EventEmitter, OnInit} from 'angular2/angular2';
+import {
+  Component,
+  Inject,
+  Control,
+  FormBuilder,
+  FORM_DIRECTIVES,
+  ControlGroup,
+  Output,
+  Validators,
+  EventEmitter,
+  OnInit
+} from 'angular2/angular2';
+
 import {UserStorageService} from 'app/user/user_storage_service.js';
 import {UserModel} from 'app/user/user_model.js';
 
 @Component({
   selector: 'login-cmp',
-  outputs: ['loginOk'],
   templateUrl: 'app/login/login.html',
   styleUrls: ['app/login/login.css'],
   providers: [FormBuilder, UserModel, UserStorageService],
@@ -12,7 +23,7 @@ import {UserModel} from 'app/user/user_model.js';
 })
 export class LoginCmp implements OnInit {
   loginForm: ControlGroup;
-  loginOk: EventEmitter = new EventEmitter();
+  @Output() loginOk: EventEmitter = new EventEmitter();
 
   constructor(@Inject(UserModel) private _user: UserModel,
               @Inject(UserStorageService) private _userStorageService: UserStorageService,
@@ -29,7 +40,7 @@ export class LoginCmp implements OnInit {
 
   signIn(name: string):void {
     this._userStorageService.saveUser(name);
-    this.loginForm.controls.name.updateValue("");
+    (<Control>this.loginForm.controls['name']).updateValue("");
 
     this.loginOk.next('login-ok!');
   }

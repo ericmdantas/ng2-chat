@@ -1,9 +1,9 @@
-import {events} from '../../common.js';
-import {MessageModel} from '../message_model.js';
+import {events} from '../../common';
+import {MessageModel} from '../message_model';
 
 export class ScottyBot {
-  static NAME: string = 'scotty';
-  static TP: string[] = [
+  static NAME = 'scotty';
+  static TP = [
     '˙•.',
     '⋰⋰⋰',
     '⋱⋱⋱',
@@ -107,15 +107,15 @@ export class ScottyBot {
     '',
     ''
   ];
-  private _teletransporting: boolean = false;
+  _teletransporting = false;
 
-  wasMentioned(message:string):boolean {
+  wasMentioned(message) {
     let _msg = message.toLowerCase();
 
     return (_msg === "scotty") || (_msg === "beam me up") || (_msg === "up") || (_msg === "arriba");
   }
 
-  beamUp(io: SocketIOStatic) {
+  beamUp(io) {
     let _msg = new MessageModel()
                     .withUser(ScottyBot.NAME)
                     .isBot(true);
@@ -124,7 +124,7 @@ export class ScottyBot {
          this._teletransport(io, _msg, events.MESSAGE);
   }
 
-  private _teletransport(io, msg, event) {
+  _teletransport(io, msg, event) {
     const MAX_COUNT = ScottyBot.TP.length;
     let count = 0;
 
@@ -145,7 +145,7 @@ export class ScottyBot {
     }, 55);
   }
 
-  static build():ScottyBot {
+  static build() {
     return new ScottyBot();
   }
 }

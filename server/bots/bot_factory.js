@@ -1,14 +1,14 @@
-import {FelipeSmithBot} from './felipe_smith_bot.js';
-import {X9Bot} from './x9_bot.js';
-import {PorteiroBot} from './porteiro_bot.js';
-import {DidiBot} from './didi_bot.js';
-import {HelperBot} from './helper_bot.js';
-import {StatsBot} from './stats_bot.js';
-import {ScottyBot} from './scotty_bot.js';
-import {MibBot} from './mib_bot.js';
+import {FelipeSmithBot} from './felipe_smith_bot';
+import {X9Bot} from './x9_bot';
+import {PorteiroBot} from './porteiro_bot';
+import {DidiBot} from './didi_bot';
+import {HelperBot} from './helper_bot';
+import {StatsBot} from './stats_bot';
+import {ScottyBot} from './scotty_bot';
+import {MibBot} from './mib_bot';
 
 export class BotFactory {
-  static create(token):void {
+  static create(token) {
     switch(token) {
       case "felipe.smith": return FelipeSmithBot.build();
       case "x9": return X9Bot.build();

@@ -1,4 +1,3 @@
-import {UserStorageService} from 'app/user/user_storage_service.js';
 import {MessageModel} from 'app/chat/model/message_model.js';
 import {MentionService} from 'app/chat/chat_list/mention_service.js';
 
@@ -7,7 +6,6 @@ export class NotificationNewMessagesService {
   public static REPEATER: number = 555;
 
   private _doc: Document = document;
-  private _userStorageService: UserStorageService = new UserStorageService();
   private _mentionService: MentionService = new MentionService();
 
   constructor() {

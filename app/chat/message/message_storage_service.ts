@@ -1,7 +1,6 @@
 export class MessageStorageService {
-  private static KEY: string = 'm';
-  private _position: number = 0;
-  private _messages: string[] = [];
+  _position: number = 0;
+  _messages: string[] = [];
 
   save(message: string) {
     this._messages.unshift(message);

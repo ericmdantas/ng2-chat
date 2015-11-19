@@ -1,9 +1,6 @@
 node_modules
 *.log
 app/**/*.js
-server/**/*.js
 tests/**/*.js
 **/*.map
-server.js
-common.js
 client.js

@@ -1,11 +1,11 @@
-import {MessageModel} from '../message_model.js';
-import {events} from '../../common.js';
+import {MessageModel} from '../message_model';
+import {events} from '../../common';
 
 export class FelipeSmithBot {
-  public static NAME: string = 'felipe.smith';
-  private static TALK_TIME: number = 5 * 1000 * 60 * 60; // 5 hours
+  static NAME = 'felipe.smith';
+  static TALK_TIME = 5 * 1000 * 60 * 60; // 5 hours
 
-  private static BOT_MESSAGES: string[] = [
+  static BOT_MESSAGES = [
     "JULIANA?!",
     "Bruno? Embaixo da ponte?",
     "faz isso comigo não, velho",
@@ -39,7 +39,7 @@ export class FelipeSmithBot {
     "mata o papai"
   ];
 
-  private static BOT_MESSAGES_RESPONSE: string[] = [
+  static BOT_MESSAGES_RESPONSE = [
     'e daí?',
     'se eu to chamando?',
     'brigado',
@@ -72,11 +72,11 @@ export class FelipeSmithBot {
     '25 reais é 25 reais.. ( ͡° ͜ʖ ͡°)'
   ];
 
-  public scheduleTalk(io: SocketIOStatic, mCount: {num: number}):void {
+  scheduleTalk(io, mCount) {
     this._scheduleTalk(io, mCount, 1000);
   }
 
-  private _scheduleTalk(io, mCount, t: number) {
+  _scheduleTalk(io, mCount, t) {
     let _id = setTimeout(() => {
       io.emit(events.MESSAGE, this.talk());
       io.emit(events.MESSAGE_COUNT, mCount.num++);
@@ -87,7 +87,7 @@ export class FelipeSmithBot {
     }, t);
   }
 
-  public talk():MessageModel {
+  talk() {
     let _msg = FelipeSmithBot.BOT_MESSAGES[Math.floor(Math.random() * FelipeSmithBot.BOT_MESSAGES.length)];
     let _date = new Date().toString();
 
@@ -97,7 +97,7 @@ export class FelipeSmithBot {
             .isBot(true);
   }
 
-  public respond():MessageModel {
+  respond() {
     let _msg = FelipeSmithBot.BOT_MESSAGES_RESPONSE[Math.floor(Math.random() * FelipeSmithBot.BOT_MESSAGES_RESPONSE.length)];
     let _date = new Date().toString();
 
@@ -107,12 +107,12 @@ export class FelipeSmithBot {
             .isBot(true);
   }
 
-  public wasMentioned(info: string):boolean {
+  wasMentioned(info) {
     let _msg = info.toLowerCase();
     return (~_msg.indexOf("felipe")) || (~_msg.indexOf("smith"));
   }
 
-  static build():FelipeSmithBot {
+  static build() {
       return new FelipeSmithBot();
   }
 }

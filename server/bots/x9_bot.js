@@ -1,11 +1,11 @@
-import * as _ from 'lodash';
-import {events} from '../../common.js';
-import {MessageModel} from '../message_model.js';
+import _ from 'lodash';
+import {events} from '../../common';
+import {MessageModel} from '../message_model';
 
 export class X9Bot {
-  public static NAME: string = 'x9';
+  static NAME = 'x9';
 
-  entered(socket:SocketIOStatic, user: string, conn:Object):void {
+  entered(socket, user, conn) {
     let _newUserIn = new MessageModel()
                     .withUser(X9Bot.NAME)
                     .withMessage(`${user} entrou`)
@@ -15,7 +15,7 @@ export class X9Bot {
     this.respondWhosOnline(socket, conn);
   }
 
-  left(socket: SocketIOStatic, user: string):void {
+  left(socket, user) {
     let _msg = new MessageModel()
                     .withUser(X9Bot.NAME)
                     .withMessage(`${user} saiu`)
@@ -24,7 +24,7 @@ export class X9Bot {
     socket.broadcast.emit(events.MESSAGE, _msg);
   }
 
-  isTyping(socket: SocketIOStatic, user: string):void {
+  isTyping(socket, user) {
     let _msg = new MessageModel()
                 .withUser(X9Bot.NAME)
                 .withMessage(`${user} está digitando...`)
@@ -36,22 +36,22 @@ export class X9Bot {
     socket.broadcast.emit(events.TYPING, _msg);
   }
 
-  wasMentioned(message: string) {
+  wasMentioned(message) {
     return message.toLowerCase() === ('ls');
   }
 
-  respondWhosOnline(socket: SocketIOStatic, conn: Object) {
+  respondWhosOnline(socket, conn) {
     socket.emit(events.MESSAGE, this._usersOnlineMsg(conn));
   }
 
-  private _usersOnlineMsg(conn: Map):MessageModel {
+  _usersOnlineMsg(conn) {
     return new MessageModel()
             .withUser(X9Bot.NAME)
             .withMessage(`${this.usersOnline(conn)} estão no chat`)
             .isBot(true);
   }
 
-  public usersOnline(conn: Map):string {
+  usersOnline(conn) {
     let connIterator = conn.keys();
     let _usersTmp = [];
 
@@ -62,11 +62,11 @@ export class X9Bot {
     return _usersTmp.join().replace(/,/g, ', ');
   }
 
-  public amountMsgs(msgs: {num: number}):number {
+  amountMsgs(msgs) {
     return msgs.num;
   }
 
-  static build():X9Bot {
+  static build() {
     return new X9Bot();
   }
 }

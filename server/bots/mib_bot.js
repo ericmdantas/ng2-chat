@@ -1,11 +1,11 @@
-import {events} from '../../common.js';
-import {MessageModel} from '../message_model.js';
+import {events} from '../../common';
+import {MessageModel} from '../message_model';
 
 export class MibBot {
-  static NAME: string = 'mib';
-  static TIME: number = 5 * 1000 * 60 * 60; // 5 hours
+  static NAME = 'mib';
+  static TIME = 5 * 1000 * 60 * 60; // 5 hours
 
-  scheduleTalk(io: SocketIOStatic) {
+  scheduleTalk(io) {
     let _afterMsg = new MessageModel()
                     .withUser(MibBot.NAME)
                     .withMessage("<FLASH> não aconteceu nada, vida que segue")
@@ -14,7 +14,7 @@ export class MibBot {
     this._doTheJob(io, _afterMsg);
   }
 
-  private _doTheJob(io:SocketIOStatic, msg: MessageModel) {
+  _doTheJob(io, msg) {
     let idTimeout = setTimeout(() => {
       io.emit(events.AMNESIA);
       io.emit(events.MESSAGE, msg);
@@ -25,7 +25,7 @@ export class MibBot {
     }, Math.floor(Math.random() * MibBot.TIME));
   }
 
-  static build():MibBot {
+  static build() {
     return new MibBot();
   }
 }
