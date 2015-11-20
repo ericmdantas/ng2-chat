@@ -3,7 +3,7 @@ import {events} from '../../common';
 
 export class FelipeSmithBot {
   static NAME = 'felipe.smith';
-  static TALK_TIME = 5 * 1000 * 60 * 60; // 5 hours
+  static TALK_TIME = 8 * 1000 * 60 * 60; // 8 hours
 
   static BOT_MESSAGES = [
     "JULIANA?!",

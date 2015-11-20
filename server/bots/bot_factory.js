@@ -6,7 +6,7 @@ import {HelperBot} from './helper_bot';
 import {StatsBot} from './stats_bot';
 import {ScottyBot} from './scotty_bot';
 import {MibBot} from './mib_bot';
-import {FightBot} from './mib_bot';
+import {FightBot} from './fight_bot';
 
 export class BotFactory {
   static create(token) {

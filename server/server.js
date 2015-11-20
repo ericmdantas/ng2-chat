@@ -26,6 +26,7 @@ let _helper = BotFactory.create("helper");
 let _stats = BotFactory.create("stats");
 let _scotty = BotFactory.create("scotty");
 let _mib = BotFactory.create("mib");
+let _fight = BotFactory.create("fight");
 
 export function init() {
   app.use(express.static('./'));
@@ -41,9 +42,9 @@ export function init() {
     socket.on(events.MESSAGE, (data) => {
 
       let _message = new MessageModel()
-      .withMessage(data.info)
-      .withUser(data.user)
-      .isBot(false);
+                      .withMessage(data.info)
+                      .withUser(data.user)
+                      .isBot(false);
 
       if (_x9.wasMentioned(data.info)) {
         return _x9.respondWhosOnline(socket, _connections);
@@ -57,24 +58,27 @@ export function init() {
         return _stats.respond(socket, _x9, _connections, _messageCount);
       }
 
-      io.emit(events.MESSAGE, _message);
-      io.emit(events.MESSAGE_COUNT, _messageCount.num++);
+      if (_fight.wasMentioned(data.info)) {
+        return _fight.fight(io);
+      }
+
+      if (_didi.wasMentioned(data.info)) {
+        return _didi.respond(io);
+      }
 
       if (_scotty.wasMentioned(data.info)) {
-        _scotty.beamUp(io);
+        return _scotty.beamUp(io);
       }
 
       if (_fm.wasMentioned(data.info)) {
-        setTimeout(() => {
+        return setTimeout(() => {
           io.emit(events.MESSAGE, _fm.respond());
           io.emit(events.MESSAGE_COUNT, _messageCount.num++);
         }, 333);
       }
 
-      if (_didi.wasMentioned(data.info)) {
-        _didi.respond(io);
-      }
-
+      io.emit(events.MESSAGE, _message);
+      io.emit(events.MESSAGE_COUNT, _messageCount.num++);
     });
 
     socket.on(events.DISCONNECT, () => {
@@ -94,6 +98,7 @@ export function init() {
       _connections.set(user, socket);
 
       _x9.entered(socket, user, _connections);
+      _fight.init(user, _connections.get(user).id);
       _porteiro.talk(socket, user);
     });
 

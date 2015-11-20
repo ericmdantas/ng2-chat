@@ -3,7 +3,7 @@ import {MessageModel} from '../message_model';
 
 export class HelperBot {
   static NAME = 'helper';
-  static HELP_STUFF = 'ls | exit | cls | stats | @nome | up';
+  static HELP_STUFF = 'ls | exit | cls | stats | @nome | up | fight';
 
   talk(socket) {
     let _msg = new MessageModel()
