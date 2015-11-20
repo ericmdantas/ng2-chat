@@ -4,7 +4,7 @@ import {
   describe
 } from 'angular2/testing';
 
-import {MessageStorageService} from '../app/chat/message/message_storage_service';
+import {MessageStorageService} from '../../app/chat/message/message_storage_service';
 
 describe('message_storage_service', () => {
   describe('creation', () => {

@@ -6,7 +6,7 @@ import {
   xdescribe
 } from 'angular2/testing';
 
-/*import {UserStorageService} from '../app/user/user_storage_service';
+/*import {UserStorageService} from '../../app/user/user_storage_service';
 
 xdescribe('user_storage', () => {
   describe('creation', () => {

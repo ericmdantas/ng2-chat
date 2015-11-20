@@ -4,7 +4,8 @@
   "description": "Real time chat built with Angular2",
   "main": "index.js",
   "scripts": {
-    "test": "karma start karma.conf.js",
+    "test": "npm run test-client",
+    "test-client": "karma start karma.conf.js",
     "start": "nodemon --exec babel-node server.js"
   },
   "devDependencies": {

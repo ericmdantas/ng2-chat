@@ -6,7 +6,7 @@ import {
   TestComponentBuilder
 } from 'angular2/testing';
 
-import {PromptCmp} from '../app/prompt/prompt_cmp';
+import {PromptCmp} from '../../app/prompt/prompt_cmp';
 
 /*describe('prompt-cmp', () => {
   describe('creation', () => {

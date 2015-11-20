@@ -80,8 +80,7 @@ export function init() {
     socket.on(events.DISCONNECT, () => {
       _peopleOnline--;
 
-      _connections
-      .forEach((value, prop) => {
+      _connections.forEach((value, prop) => {
         if (_connections.get(prop).id === socket.id) {
           _x9.left(socket, prop);
           return _connections.delete(prop);

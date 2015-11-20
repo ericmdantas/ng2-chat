@@ -4,7 +4,7 @@ import {
   describe
 } from 'angular2/testing';
 
-import {UserModel} from '../app/user/user_model';
+import {UserModel} from '../../app/user/user_model';
 
 describe('user_model', () => {
   describe('creation', () => {

@@ -4,7 +4,7 @@ import {
   expect
 } from 'angular2/testing';
 
-import {Mib} from '../app/mib/mib';
+import {Mib} from '../../app/mib/mib';
 
 describe('mib', () => {
   describe('creation', () => {
@@ -20,7 +20,7 @@ describe('mib', () => {
 
       spyOn(_mib._doc, 'getElementById').and.returnValue({
         style: {
-          
+
         }
       })
 

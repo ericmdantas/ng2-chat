@@ -4,7 +4,7 @@ import {
   describe
 } from 'angular2/testing';
 
-import {MessageModel} from '../app/chat/message/message_model';
+import {MessageModel} from '../../app/chat/message/message_model';
 
 describe('message_model', () => {
   describe('creation', () => {

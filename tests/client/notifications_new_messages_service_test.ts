@@ -9,7 +9,7 @@ import {
   provide
 } from 'angular2/angular2';
 
-/*import {NotificationNewMessagesService} from '../app/notifications/notifications_new_messages_service';
+/*import {NotificationNewMessagesService} from '../../app/notifications/notifications_new_messages_service';
 import {MessageModel} from '../app/chat/message/message_model';
 import {MentionService} from '../app/chat/chat_list/mention_service';
 
