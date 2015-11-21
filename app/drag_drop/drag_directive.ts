@@ -1,8 +1,12 @@
-import {Directive, Inject, OnInit} from 'angular2/angular2';
+import {
+  Directive,
+  Inject,
+  Input,
+  OnInit
+} from 'angular2/angular2';
 
 @Directive({
   selector: '[super-draggable]',
-  inputs: ['elId'],
   host: {
     '(drag)': 'dragHandler($event)'
   }
@@ -11,7 +15,7 @@ export class DraggableDirective implements OnInit {
   private static CENTER_GRAB: number = 400;
   private static INIT_X: number = 0;
   private _doc: Document = document;
-  elId: string;
+  @Input() elId: string;
   private _lastPositionX: number;
   private _actualPosition: number;
 

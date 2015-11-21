@@ -9,8 +9,8 @@ module.exports = function(config) {
       // paths loaded by Karma
       {pattern: 'node_modules/systemjs/dist/system.js', included: true, watched: true},
       {pattern: 'node_modules/socket.io-client/socket.io.js', included: true, watched: true},
-      {pattern: 'node_modules/xtorage/dist/system/xtorage.js', included: true, watched: true},      
       {pattern: 'node_modules/angular2/bundles/angular2.js', included: true, watched: true},
+      {pattern: 'node_modules/xtorage/dist/system/xtorage.js', included: true, watched: true},
       {pattern: 'node_modules/angular2/bundles/testing.js', included: true, watched: true},
       {pattern: 'karma-test-shim.js', included: true, watched: true},
 
@@ -26,7 +26,7 @@ module.exports = function(config) {
       {pattern: 'app/**/*.ts', included: false, watched: false},
       {pattern: 'app/**/*.js.map', included: false, watched: false},
 
-      {pattern: 'tests/**/*_test.js', included: false, watched: false}
+      {pattern: 'tests/client/*_test.js', included: false, watched: false}
     ],
 
     // proxied base paths

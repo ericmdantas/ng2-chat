@@ -1,4 +1,8 @@
-import {Directive, Inject, OnInit} from 'angular2/angular2';
+import {
+  Directive,
+  Inject,
+  OnInit
+} from 'angular2/angular2';
 
 @Directive({
   selector: '[super-droppable]',

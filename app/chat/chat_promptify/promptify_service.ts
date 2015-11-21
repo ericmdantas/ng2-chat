@@ -1,4 +1,10 @@
-import {Directive, ElementRef, Inject, OnInit} from 'angular2/angular2';
+import {
+  Directive,
+  ElementRef,
+  Inject,
+  OnInit
+} from 'angular2/angular2';
+
 import {LogoutService} from 'app/chat/chat_logout/chat_logout_service.js';
 import {UserStorageService} from 'app/user/user_storage_service.js';
 

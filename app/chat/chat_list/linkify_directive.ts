@@ -1,4 +1,9 @@
-import {Directive, Inject, ElementRef} from 'angular2/angular2';
+import {
+  Directive,
+  Inject,
+  ElementRef
+} from 'angular2/angular2';
+
 import {MessageModel} from 'app/chat/message/message_model.js';
 
 @Directive({

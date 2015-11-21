@@ -1,3 +1,5 @@
+import {MessageModel} from '../message/message_model.js';
+
 export class DeleteMessageService {
   remove(message:MessageModel) {
     setTimeout(() => {

@@ -1,4 +1,6 @@
-import {UserStorageService} from 'app/user/user_storage_service.js';
+import {
+  UserStorageService
+} from 'app/user/user_storage_service.js';
 
 export class LogoutService {
   _w: Window = window;

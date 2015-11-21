@@ -1,4 +1,10 @@
-import {Component, View, OnInit, Inject} from 'angular2/angular2';
+import {
+  Component,
+  View,
+  OnInit,
+  Inject
+} from 'angular2/angular2';
+
 import {PromptCmp} from 'app/prompt/prompt_cmp.js';
 import {DroppableDirective} from 'app/drag_drop/drop_directive.js';
 

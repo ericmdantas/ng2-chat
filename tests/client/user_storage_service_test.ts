@@ -8,7 +8,7 @@ import {
 
 /*import {UserStorageService} from '../../app/user/user_storage_service';
 
-xdescribe('user_storage', () => {
+describe('user_storage', () => {
   describe('creation', () => {
     it('should be created correctly', () => {
       expect(new UserStorageService()).toBeDefined();

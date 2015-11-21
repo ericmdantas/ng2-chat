@@ -16,7 +16,7 @@ System.config({
       format: 'register',
       map: Object.keys(window.__karma__.files).
             filter(onlyAppFiles).
-            reduce(function createPathRecords(pathsMapping, appPath) {
+            reduce((pathsMapping, appPath) => {
               // creates local module name mapping to global path with karma's fingerprint in path, e.g.:
               // './hero.service': '/base/app/hero.service.js?f4523daf879cfb7310ef6242682ccf10b2041b3e'
               var moduleName = appPath.replace(/^\/base\/app\//, './').replace(/\.js$/, '');
@@ -29,9 +29,9 @@ System.config({
     }
 });
 
-System.import('angular2/src/core/dom/browser_adapter').then(function(browser_adapter) {
+System.import('angular2/src/core/dom/browser_adapter').then((browser_adapter) => {
   browser_adapter.BrowserDomAdapter.makeCurrent();
-}).then(function() {
+}).then(() => {
   return Promise.all(
     Object.keys(window.__karma__.files) // All files served by Karma.
     .filter(onlySpecFiles)
@@ -41,9 +41,9 @@ System.import('angular2/src/core/dom/browser_adapter').then(function(browser_ada
       return System.import(moduleName);
     }));
 })
-.then(function() {
+.then(() => {
   __karma__.start();
-}, function(error) {
+}, (error) => {
   __karma__.error(error.stack || error);
 });
 
