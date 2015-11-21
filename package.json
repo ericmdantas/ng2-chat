@@ -4,8 +4,9 @@
   "description": "Real time chat built with Angular2",
   "main": "index.js",
   "scripts": {
-    "test": "npm run test-client",
+    "test": "npm run test-client && npm run test-server",
     "test-client": "karma start karma.conf.js",
+    "test-server": "mocha tests/server/**/*_test.js --reporter min --require babel-core/register",
     "start": "nodemon --exec babel-node server.js"
   },
   "devDependencies": {
