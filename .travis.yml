@@ -4,4 +4,4 @@ node_js:
   - "stable"
 
 before_install:
-    - npm install -g typescript mocha karma babel-cli
+    - npm install -g typescript mocha karma
