@@ -1,5 +1,3 @@
-import {IMessage} from '../common';
-
 export class MessageModel {
   sentAt = new Date().toString();
   message = '';

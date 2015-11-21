@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import {events} from '../../common';
 import {MessageModel} from '../message_model';
 

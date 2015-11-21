@@ -1,7 +1,6 @@
 import express from 'express';
 import fs from 'fs';
 import socketIo from 'socket.io';
-import _ from 'lodash';
 
 import {MessageModel} from './message_model';
 import {BotFactory} from './bots/bot_factory';

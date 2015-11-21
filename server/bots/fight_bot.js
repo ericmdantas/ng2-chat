@@ -106,7 +106,7 @@ export class FightBot {
   }
 
   wasMentioned(msg) {
-    return ~msg.indexOf("fight") || ~msg.indexOf("time") || ~msg.toLowerCase().indexOf("it's time!");
+    return !!(~msg.indexOf("fight") || ~msg.indexOf("time") || ~msg.toLowerCase().indexOf("it's time!"));
   }
 
   static build() {

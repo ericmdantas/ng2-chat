@@ -109,7 +109,7 @@ export class FelipeSmithBot {
 
   wasMentioned(info) {
     let _msg = info.toLowerCase();
-    return (~_msg.indexOf("felipe")) || (~_msg.indexOf("smith"));
+    return !!(~_msg.indexOf("felipe") || ~_msg.indexOf("smith"));
   }
 
   static build() {
