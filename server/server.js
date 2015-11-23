@@ -32,44 +32,44 @@ export function init() {
 
   app.get('/', (req, res) => {
     fs.createReadStream(__dirname + '../index.html')
-    .pipe(res);
+      .pipe(res);
   });
 
   io.on(events.CONNECTION, (socket) => {
     _peopleOnline++;
 
-    socket.on(events.MESSAGE, (data) => {
+    socket.on(events.MESSAGE, ({user, info}) => {
 
       let _message = new MessageModel()
-                      .withMessage(data.info)
-                      .withUser(data.user)
+                      .withMessage(info)
+                      .withUser(user)
                       .isBot(false);
 
-      if (_x9.wasMentioned(data.info)) {
+      if (_x9.wasMentioned(info)) {
         return _x9.respondWhosOnline(socket, _connections);
       }
 
-      if (_helper.wasMentioned(data.info)) {
+      if (_helper.wasMentioned(info)) {
         return _helper.talk(socket);
       }
 
-      if (_stats.wasMentioned(data.info)) {
+      if (_stats.wasMentioned(info)) {
         return _stats.respond(socket, _x9, _connections, _messageCount);
       }
 
-      if (_fight.wasMentioned(data.info)) {
+      if (_fight.wasMentioned(info)) {
         return _fight.fight(io);
       }
 
-      if (_didi.wasMentioned(data.info)) {
+      if (_didi.wasMentioned(info)) {
         return _didi.respond(io);
       }
 
-      if (_scotty.wasMentioned(data.info)) {
+      if (_scotty.wasMentioned(info)) {
         return _scotty.beamUp(io);
       }
 
-      if (_fm.wasMentioned(data.info)) {
+      if (_fm.wasMentioned(info)) {
         return setTimeout(() => {
           io.emit(events.MESSAGE, _fm.respond());
           io.emit(events.MESSAGE_COUNT, _messageCount.num++);

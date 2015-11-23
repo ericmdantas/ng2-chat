@@ -18,7 +18,7 @@ export class StatsBot {
     socket.emit(events.MESSAGE, _msg);
   }
 
-  wasMentioned(msg) {
+  wasMentioned(msg = '') {
     return (msg.toLowerCase() === "stat") || (msg.toLowerCase() === "stats") || (msg.toLowerCase() === "status");
   }
 

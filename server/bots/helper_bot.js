@@ -14,7 +14,7 @@ export class HelperBot {
     socket.emit(events.MESSAGE, _msg);
   }
 
-  wasMentioned(msg) {
+  wasMentioned(msg = '') {
     let _msg = msg.toLowerCase()
 
     return (_msg === "help") || (_msg === "/help") || (_msg === "--help") || (msg === "--h");

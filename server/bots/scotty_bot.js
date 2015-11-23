@@ -109,7 +109,7 @@ export class ScottyBot {
   ];
   _teletransporting = false;
 
-  wasMentioned(message) {
+  wasMentioned(message = '') {
     let _msg = message.toLowerCase();
 
     return (_msg === "scotty") || (_msg === "beam me up") || (_msg === "up") || (_msg === "arriba");

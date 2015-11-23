@@ -107,7 +107,7 @@ export class FelipeSmithBot {
             .isBot(true);
   }
 
-  wasMentioned(info) {
+  wasMentioned(info = '') {
     let _msg = info.toLowerCase();
     return !!(~_msg.indexOf("felipe") || ~_msg.indexOf("smith"));
   }

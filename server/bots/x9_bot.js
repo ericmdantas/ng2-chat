@@ -35,7 +35,7 @@ export class X9Bot {
     socket.broadcast.emit(events.TYPING, _msg);
   }
 
-  wasMentioned(message) {
+  wasMentioned(message = '') {
     return message.toLowerCase() === ('ls');
   }
 
@@ -61,7 +61,7 @@ export class X9Bot {
     return _usersTmp.join().replace(/,/g, ', ');
   }
 
-  amountMsgs(msgs) {
+  amountMsgs(msgs = {}) {
     return msgs.num;
   }
 

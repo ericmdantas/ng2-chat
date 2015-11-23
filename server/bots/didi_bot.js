@@ -10,14 +10,14 @@ export class DidiBot {
 
     static NAME = 'didi';
 
-    wasMentioned(msg) {
+    wasMentioned(msg = '') {
       let _msg = msg.toLowerCase();
-      let _pao = _msg.indexOf('pão') > -1;
-      let _ceu = _msg.indexOf('céu') > -1;
-      let _mamae = _msg.indexOf('mamãe') > -1;
-      let _crianca = _msg.indexOf('criança') > -1;
+      let _pao = ~_msg.indexOf('pão');
+      let _ceu = ~_msg.indexOf('céu');
+      let _mamae = ~_msg.indexOf('mamãe');
+      let _crianca = ~_msg.indexOf('criança');
 
-      return _pao || _ceu || _mamae || _crianca;
+      return !!(_pao || _ceu || _mamae || _crianca);
     }
 
     respond(io) {

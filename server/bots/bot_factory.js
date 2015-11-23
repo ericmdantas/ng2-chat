@@ -10,7 +10,7 @@ import {FightBot} from './fight_bot';
 
 export class BotFactory {
   static create(token) {
-    switch(token) {
+    switch (token) {
       case "felipe.smith": return FelipeSmithBot.build();
       case "x9": return X9Bot.build();
       case "porteiro": return PorteiroBot.build();

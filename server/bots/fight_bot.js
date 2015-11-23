@@ -54,7 +54,7 @@ export class FightBot {
             f.hp = f.hp >= 0 ? f.hp : 0;
 
             if (_realResult <= 0) {
-              _msg.withMessage(`${f.name} blocks ${name} attack (${_atk} atk / ${_def} def) - ${f.name} still has ${f.hp} hp left`);
+              _msg.withMessage(`${name} misses ${f.name} (${_atk} atk / ${_def} def) - ${f.name} still has ${f.hp} hp left`);
             }
             else {
               _msg.withMessage(`${name} hits ${f.name} by ${_result} (${_atk} atk / ${_def} def) - ${f.name} has ${f.hp} hp left`);
@@ -105,7 +105,7 @@ export class FightBot {
     });
   }
 
-  wasMentioned(msg) {
+  wasMentioned(msg = '') {
     return !!(~msg.indexOf("fight") || ~msg.indexOf("time") || ~msg.toLowerCase().indexOf("it's time!"));
   }
 
