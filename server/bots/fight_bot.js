@@ -40,7 +40,7 @@ export class FightBot {
     _msg.withMessage(`!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!`);
     io.emit(events.MESSAGE, _msg);
 
-    while (!this._isOnlyOneAlive()) {
+    while (!this._isOnlyOneOrNoneAlive()) {
       for (let name of this.fighters.keys()) {
         this.fighters.forEach((f) => {
           if ((f.name !== name) && (f.hp > 0)) {
@@ -72,14 +72,14 @@ export class FightBot {
     this._isFightGoingOn = false;
   }
 
-  _isOnlyOneAlive() {
+  _isOnlyOneOrNoneAlive() {
     let _amountAlive = 0;
 
     this.fighters.forEach((f) => {
       _amountAlive += (f.hp > 0) ? 1 : 0;
     });
 
-    return _amountAlive === 1;
+    return (_amountAlive === 1) || (_amountAlive === 0);
   }
 
   _announceWinner(io, msg) {
