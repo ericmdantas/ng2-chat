@@ -2,22 +2,55 @@ import {events} from '../../common';
 import {MessageModel} from '../message_model';
 import {X9Bot} from './x9_bot';
 
+class Player {
+    id = '';
+    name = '';
+    kills = 0;
+    deaths = 0;
+    level = 1;
+    hp = FightBot.FULL_HP;
+
+    constructor({id, name, kills, deaths, level, hp}) {
+      this.id = id;
+      this.name = name;
+    }
+
+    isAlive() {
+      return this.hp > 0;
+    }
+
+    addKills() {
+      this.kills++;
+      this.level++;
+    }
+
+    addWins() {
+      this.level++;
+    }
+
+    dies() {
+      if (this.level > 1) {
+        this.level--;
+      }
+
+      this.deaths++;
+    }
+
+    resetHP() {
+      this.hp = FightBot.FULL_HP;
+    }
+}
+
 export class FightBot {
   static NAME = 'bruce.buffer';
   static MAX_ATTACK = 49;
   static FULL_HP = 100;
   _isFightGoingOn = false;
 
-  fighters = new Map();
+  players = new Map();
 
   init(user, connId) {
-    this.fighters.set(user, {
-      id: connId,
-      name: user,
-      kills: 0,
-      deaths: 0,
-      hp: FightBot.FULL_HP
-    });
+    this.players.set(user, new Player({id: connId, name: user}));
   }
 
   fight(io) {
@@ -27,70 +60,72 @@ export class FightBot {
 
     this._isFightGoingOn = true;
 
-    let _msg = new MessageModel()
-                .withUser(FightBot.NAME)
-                .isBot(true);
+    let _msg = new MessageModel().withUser(FightBot.NAME).isBot(true);
 
-    _msg.withMessage(`IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIT'S`);
-    io.emit(events.MESSAGE, _msg);
+    let _msgList = [];
 
-    _msg.withMessage(`TIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIME`);
-    io.emit(events.MESSAGE, _msg);
+    _msgList.push(`IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIT'S`);
+    _msgList.push(`TIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIME`);
+    _msgList.push(`!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!`);
 
-    _msg.withMessage(`!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!`);
-    io.emit(events.MESSAGE, _msg);
+    this._fight(_msgList);
+    this._announceWinner(io, _msg, _msgList);
+    this._sendMessages(io, _msg, _msgList);
+    this._resetHP();
 
-    while (!this._isOnlyOneOrNoneAlive()) {
-      for (let name of this.fighters.keys()) {
-        this.fighters.forEach((f) => {
-          if ((f.name !== name) && (f.hp > 0)) {
+    this._isFightGoingOn = false;
+  }
+
+  _fight(msgList) {
+    while (!this._isOnlyOneAlive()) {
+      for (let attacker of this.players.values()) {
+        this.players.forEach((victim) => {
+          if ((attacker.name !== victim.name) && (attacker.isAlive())) {
             let _atk = this._rollDice();
             let _def = this._rollDice();
             let _realResult = _atk - _def;
 
             let _result = _realResult >= 0 ? _realResult : 0;
 
-            f.hp -= _result;
-            f.hp = f.hp >= 0 ? f.hp : 0;
+            victim.hp -= _result;
+            victim.hp = victim.hp >= 0 ? victim.hp : 0;
 
             if (_realResult <= 0) {
-              _msg.withMessage(`${name} misses ${f.name} (${_atk} atk / ${_def} def) - ${f.name} still has ${f.hp} hp left`);
+               msgList.push(`${attacker.name} misses ${victim.name} (${_atk} atk / ${_def} def) - ${victim.name} still has ${victim.hp} hp left`);
             }
             else {
-              _msg.withMessage(`${name} hits ${f.name} by ${_result} (${_atk} atk / ${_def} def) - ${f.name} has ${f.hp} hp left`);
+              if (victim.isAlive()) {
+                msgList.push(`${attacker.name} hits ${victim.name} by ${_result} (${_atk} atk / ${_def} def) - ${victim.name} has ${victim.hp} hp left`);
+              }
+              else {
+                attacker.addKills();
+                victim.dies();
+                msgList.push(`${attacker.name} killed ${victim.name}! (${_atk} atk / ${_def} def)`);
+              }
             }
-
-            io.emit(events.MESSAGE, _msg);
           }
         });
       }
     }
-
-    this._announceWinner(io, _msg);
-    this._resetHP();
-
-    this._isFightGoingOn = false;
   }
 
-  _isOnlyOneOrNoneAlive() {
+  _isOnlyOneAlive() {
     let _amountAlive = 0;
 
-    this.fighters.forEach((f) => {
-      _amountAlive += (f.hp > 0) ? 1 : 0;
+    this.players.forEach((p) => {
+      _amountAlive += (p.isAlive()) ? 1 : 0;
     });
 
-    return (_amountAlive === 1) || (_amountAlive === 0);
+    return (_amountAlive === 1);
   }
 
-  _announceWinner(io, msg) {
-    this.fighters.forEach((f) => {
-      if (f.hp > 0) {
-        f.kills += 1;
-        io.emit(events.MESSAGE, msg.withMessage(`${f.name.toUpperCase()} wins! (${f.kills} kills / ${f.deaths} deaths)`));
+  _announceWinner(io, msg, msgList) {
+    this.players.forEach((p) => {
+      if (p.isAlive()) {
+        msgList.push(`${p.name.toUpperCase()} wins! (level ${p.level} / ${p.kills} kills / ${p.deaths} deaths)`);
       }
       else {
-        f.deaths += 1;
-        io.emit(events.MESSAGE, msg.withMessage(`${f.name.toUpperCase()} died! (${f.kills} kills / ${f.deaths} deaths)`));
+        msgList.push(`${p.name.toUpperCase()} died! (level ${p.level} / ${p.kills} kills / ${p.deaths} deaths)`);
       }
     });
   }
@@ -100,13 +135,19 @@ export class FightBot {
   }
 
   _resetHP() {
-    this.fighters.forEach((f) => {
-      f.hp = FightBot.FULL_HP;
+    this.players.forEach((p) => {
+      p.resetHP();
+    });
+  }
+
+  _sendMessages(io, msg, msgList) {
+    msgList.forEach((m) => {
+      io.emit(events.MESSAGE, msg.withMessage(m));
     });
   }
 
   wasMentioned(msg = '') {
-    return !!(~msg.indexOf("fight") || ~msg.indexOf("time") || ~msg.toLowerCase().indexOf("it's time!"));
+    return !!(~msg.indexOf("fight") || ~msg.indexOf("time!") || ~msg.toLowerCase().indexOf("it's time!"));
   }
 
   static build() {

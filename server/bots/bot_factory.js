@@ -7,6 +7,7 @@ import {StatsBot} from './stats_bot';
 import {ScottyBot} from './scotty_bot';
 import {MibBot} from './mib_bot';
 import {FightBot} from './fight_bot';
+import {AdminBot} from './admin_bot';
 
 export class BotFactory {
   static create(token) {
@@ -20,6 +21,7 @@ export class BotFactory {
       case "scotty": return ScottyBot.build();
       case "mib": return MibBot.build();
       case "fight": return FightBot.build();
+      case "admin": return AdminBot.build();
     }
   }
 }

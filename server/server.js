@@ -26,6 +26,7 @@ let _stats = BotFactory.create("stats");
 let _scotty = BotFactory.create("scotty");
 let _mib = BotFactory.create("mib");
 let _fight = BotFactory.create("fight");
+let _admin = BotFactory.create("admin");
 
 export function init() {
   app.use(express.static('./'));
@@ -57,27 +58,37 @@ export function init() {
         return _stats.respond(socket, _x9, _connections, _messageCount);
       }
 
-      if (_fight.wasMentioned(info)) {
-        return _fight.fight(io);
-      }
+      if (_admin.wasMentioned(info)) {
+        if (_admin.isItReload(info)) {
+          return _admin.doReload(io);
+        }
 
-      if (_didi.wasMentioned(info)) {
-        return _didi.respond(io);
-      }
-
-      if (_scotty.wasMentioned(info)) {
-        return _scotty.beamUp(io);
-      }
-
-      if (_fm.wasMentioned(info)) {
-        return setTimeout(() => {
-          io.emit(events.MESSAGE, _fm.respond());
-          io.emit(events.MESSAGE_COUNT, _messageCount.num++);
-        }, 333);
+        if (_admin.isItClean(info)) {
+          return _admin.doClean(io);
+        }
       }
 
       io.emit(events.MESSAGE, _message);
       io.emit(events.MESSAGE_COUNT, _messageCount.num++);
+
+      if (_fight.wasMentioned(info)) {
+        _fight.fight(io);
+      }
+
+      if (_didi.wasMentioned(info)) {
+        _didi.respond(io);
+      }
+
+      if (_scotty.wasMentioned(info)) {
+        _scotty.beamUp(io);
+      }
+
+      if (_fm.wasMentioned(info)) {
+        setTimeout(() => {
+          io.emit(events.MESSAGE, _fm.respond());
+          io.emit(events.MESSAGE_COUNT, _messageCount.num++);
+        }, 333);
+      }
     });
 
     socket.on(events.DISCONNECT, () => {
@@ -86,7 +97,9 @@ export function init() {
       _connections.forEach((value, prop) => {
         if (_connections.get(prop).id === socket.id) {
           _x9.left(socket, prop);
-          return _connections.delete(prop);
+          _connections.delete(prop);
+          _fight.players.delete(prop);
+          return;
         }
       });
 
