@@ -19,6 +19,10 @@ class Player {
       return this.hp > 0;
     }
 
+    isDead() {
+      return !this.isAlive();
+    }
+
     addKills() {
       this.kills++;
       this.level++;
@@ -80,7 +84,7 @@ export class FightBot {
     while (!this._isOnlyOneAlive()) {
       for (let attacker of this.players.values()) {
         this.players.forEach((victim) => {
-          if ((attacker.name !== victim.name) && (attacker.isAlive())) {
+          if ((attacker.name !== victim.name) && (attacker.isAlive()) &&(victim.isAlive())) {
             let _atk = this._rollDice();
             let _def = this._rollDice();
             let _realResult = _atk - _def;
