@@ -18,7 +18,7 @@ export class ArrowsDirective implements OnInit {
   private static UP: number = 38;
   private static DOWN: number = 40;
 
-  onInit() {
+  ngOnInit() {
     console.log('arrows init');
   }
 

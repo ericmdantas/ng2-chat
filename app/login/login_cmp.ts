@@ -34,7 +34,7 @@ export class LoginCmp implements OnInit {
     });
   }
 
-  onInit() {
+  ngOnInit() {
     console.log('login-cmp init');
   }
 

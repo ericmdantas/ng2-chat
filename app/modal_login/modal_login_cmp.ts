@@ -27,7 +27,7 @@ export class ModalLoginCmp implements OnInit {
 
   }
 
-  onInit() {
+  ngOnInit() {
     if (this._userStorageService.isOnline()) {
       this._allowUser();
     }

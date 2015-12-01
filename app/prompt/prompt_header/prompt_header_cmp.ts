@@ -19,7 +19,7 @@ export class PromptHeaderCmp implements OnInit {
 
   }
 
-  onInit() {
+  ngOnInit() {
     console.log('prompt-header-cmp init');
   }
 

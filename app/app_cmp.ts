@@ -21,7 +21,7 @@ import {DroppableDirective} from 'app/drag_drop/drop_directive.js';
 })
 
 export class AppCmp implements OnInit {
-  onInit() {
+  ngOnInit() {
     console.log('app init');
   }
 }

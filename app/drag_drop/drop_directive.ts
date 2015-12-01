@@ -11,7 +11,7 @@ import {
   }
 })
 export class DroppableDirective implements OnInit {
-  onInit() {
+  ngOnInit() {
     console.log('droppable init');
   }
 

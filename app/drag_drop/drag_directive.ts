@@ -19,7 +19,7 @@ export class DraggableDirective implements OnInit {
   private _lastPositionX: number;
   private _actualPosition: number;
 
-  onInit() {
+  ngOnInit() {
     console.log('draggable init');
   }
 

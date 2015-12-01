@@ -46,7 +46,7 @@ export class ChatListCmp implements OnInit {
 
   }
 
-  onInit() {
+  ngOnInit() {
     this._chatService
         .listen()
         .subscribe((message) => {

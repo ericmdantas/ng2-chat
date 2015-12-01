@@ -10,7 +10,7 @@ import {PromptHeaderCmp} from 'app/prompt/prompt_header/prompt_header_cmp.js';
   directives: [ChatCmp, ModalLoginCmp, PromptHeaderCmp]
 })
 export class PromptCmp implements OnInit {
-  onInit() {
+  ngOnInit() {
     console.log('prompt-cmp init');
   }
 }
