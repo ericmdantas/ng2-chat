@@ -5,9 +5,6 @@
   "path": "typings",
   "bundle": "typings/tsd.d.ts",
   "installed": {
-    "angular2/angular2.d.ts": {
-      "commit": "a461a243e2e09b213bc49d12650f80d81047576d"
-    },
     "rx/rx-lite.d.ts": {
       "commit": "286c198898978cb6045076c3e47f823a02217b41"
     },
