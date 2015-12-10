@@ -1,15 +1,17 @@
 import {
   Component,
   Inject,
-  Control,
-  FormBuilder,
-  FORM_DIRECTIVES,
-  ControlGroup,
   Output,
-  Validators,
   EventEmitter,
   OnInit
-} from 'angular2/angular2';
+} from 'angular2/core';
+
+import {
+  Control,
+  FormBuilder,
+  ControlGroup,
+  Validators
+} from 'angular2/common';
 
 import {UserStorageService} from 'app/user/user_storage_service.js';
 import {UserModel} from 'app/user/user_model.js';
@@ -18,12 +20,11 @@ import {UserModel} from 'app/user/user_model.js';
   selector: 'login-cmp',
   templateUrl: 'app/login/login.html',
   styleUrls: ['app/login/login.css'],
-  providers: [FormBuilder, UserModel, UserStorageService],
-  directives: [FORM_DIRECTIVES]
+  providers: [FormBuilder, UserModel, UserStorageService]
 })
 export class LoginCmp implements OnInit {
   loginForm: ControlGroup;
-  @Output() loginOk: EventEmitter = new EventEmitter();
+  @Output() loginOk: EventEmitter<any> = new EventEmitter();
 
   constructor(@Inject(UserModel) private _user: UserModel,
               @Inject(UserStorageService) private _userStorageService: UserStorageService,

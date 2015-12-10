@@ -3,7 +3,7 @@ import {
   OnInit,
   Output,
   EventEmitter
-} from 'angular2/angular2';
+} from 'angular2/core';
 
 @Directive({
   selector: '[arrows]',
@@ -12,8 +12,8 @@ import {
   }
 })
 export class ArrowsDirective implements OnInit {
-  @Output() arrowUp: EventEmitter = new EventEmitter();
-  @Output() arrowDown: EventEmitter = new EventEmitter();
+  @Output() arrowUp: EventEmitter<any> = new EventEmitter();
+  @Output() arrowDown: EventEmitter<any> = new EventEmitter();
 
   private static UP: number = 38;
   private static DOWN: number = 40;

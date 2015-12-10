@@ -1,8 +1,7 @@
 import {
   Component,
-  Observable,
-  OnInit
-} from 'angular2/angular2';
+  Observable
+} from 'angular2/core';
 
 export class Mib {
   private _socket: SocketIOStatic = io('');
@@ -21,7 +20,7 @@ export class Mib {
   }
 
   listen():Observable {
-    return Observable.create((o) => {
+    return new Observable((o) => {
       this._socket.on('amnesia', () => {
             o.next(null);
       });

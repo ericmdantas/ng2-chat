@@ -2,7 +2,7 @@ import {
   Directive,
   Inject,
   OnInit
-} from 'angular2/angular2';
+} from 'angular2/core';
 
 @Directive({
   selector: '[super-droppable]',

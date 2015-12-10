@@ -1,5 +1,8 @@
+import {
+  Observable
+} from 'angular2/core';
+
 import {MessageModel} from 'app/chat/message/message_model.js';
-import {Observable} from 'angular2/angular2';
 
 export class ChatService {
   static MESSAGE: string = 'msg';
@@ -7,8 +10,8 @@ export class ChatService {
 
   _socket: SocketIOStatic = io(ChatService.URL_CONNECTION);
 
-  listen():Observable {
-    return Observable.create((o) => {
+  listen():Observable<any> {
+    return new Observable((o) => {
       this._socket.on(ChatService.MESSAGE, (info) => {
         o.next(new MessageModel(info));
       });

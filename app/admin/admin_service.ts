@@ -1,4 +1,4 @@
-import {Observable} from 'angular2/angular2';
+import {Observable} from 'angular2/core';
 
 export class AdminService {
   static RELOAD: string = 'reload';
@@ -8,7 +8,7 @@ export class AdminService {
   _socket: SocketIOStatic = io(AdminService.URL_CONNECTION);
 
   listenReload():Observable {
-    return Observable.create((o) => {
+    return new Observable((o) => {
       this._socket.on(AdminService.RELOAD, () => {
         o.next(null);
       });
@@ -16,7 +16,7 @@ export class AdminService {
   }
 
   listenClean():Observable {
-    return Observable.create((o) => {
+    return new Observable((o) => {
       this._socket.on(AdminService.CLEAN, () => {
         o.next(null);
       });

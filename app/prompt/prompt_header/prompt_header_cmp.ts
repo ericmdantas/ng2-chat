@@ -2,7 +2,7 @@ import {
   Component,
   View,
   OnInit
-} from 'angular2/angular2';
+} from 'angular2/core';
 
 import {LogoutService} from 'app/chat/chat_logout/chat_logout_service.js';
 import {DraggableDirective} from 'app/drag_drop/drag_directive.js';

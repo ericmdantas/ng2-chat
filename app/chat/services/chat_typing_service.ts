@@ -1,5 +1,8 @@
+import {
+  Observable
+} from 'angular2/core';
+
 import {MessageModel} from 'app/chat/message/message_model.js';
-import {Observable} from 'angular2/angular2';
 
 export class ChatTypingService {
   static TYPING: string = 'typing';

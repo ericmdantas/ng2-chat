@@ -2,10 +2,9 @@ import {
   Component,
   EventEmitter,
   OnInit,
-  CORE_DIRECTIVES,
   Inject,
   forwardRef
-} from 'angular2/angular2';
+} from 'angular2/core';
 
 import {ChatService} from 'app/chat/services/chat_service.js';
 import {ChatTypingService} from 'app/chat/services/chat_typing_service.js';
@@ -25,12 +24,11 @@ import {Mib} from 'app/mib/mib.js';
              ChatTypingService, MentionService, DeleteMessageService, ScrollBottomService, Mib, AdminService],
   events: ['clickMention'],
   templateUrl: 'app/chat/chat_list/chat_list.html',
-  styleUrls: ['app/chat/chat_list/chat_list.css'],
-  directives: [CORE_DIRECTIVES]
+  styleUrls: ['app/chat/chat_list/chat_list.css']
 })
 export class ChatListCmp implements OnInit {
   public tMsg: MessageModel = new MessageModel();
-  clickMention: EventEmitter = new EventEmitter();
+  clickMention: EventEmitter<any> = new EventEmitter();
   private _w: Window = window;
 
   constructor(@Inject(ChatService) private _chatService: ChatService,

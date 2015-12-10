@@ -1,4 +1,8 @@
-import {Component, OnInit} from 'angular2/angular2';
+import {
+  Component,
+  OnInit
+} from 'angular2/core';
+
 import {ChatCmp} from 'app/chat/chat_cmp.js';
 import {ModalLoginCmp} from 'app/modal_login/modal_login_cmp.js';
 import {PromptHeaderCmp} from 'app/prompt/prompt_header/prompt_header_cmp.js';

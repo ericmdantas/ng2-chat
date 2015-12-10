@@ -2,7 +2,7 @@ import {
   Directive,
   Inject,
   forwardRef
-} from 'angular2/angular2';
+} from 'angular2/core';
 
 import {ChatTypingService} from 'app/chat/services/chat_typing_service.js';
 import {UserStorageService} from 'app/user/user_storage_service.js';

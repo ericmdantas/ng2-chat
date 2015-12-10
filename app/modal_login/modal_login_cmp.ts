@@ -3,7 +3,7 @@ import {
   ElementRef,
   OnInit,
   Inject
-} from 'angular2/angular2';
+} from 'angular2/core';
 
 import {LoginCmp} from 'app/login/login_cmp.js';
 import {UserStorageService} from 'app/user/user_storage_service.js';

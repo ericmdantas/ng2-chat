@@ -3,7 +3,7 @@ import {
   View,
   OnInit,
   Inject
-} from 'angular2/angular2';
+} from 'angular2/core';
 
 import {PromptCmp} from 'app/prompt/prompt_cmp.js';
 import {DroppableDirective} from 'app/drag_drop/drop_directive.js';

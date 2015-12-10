@@ -1,14 +1,16 @@
 import {
   Component,
   OnInit,
-  FormBuilder,
-  FORM_DIRECTIVES,
-  Validators,
-  bind,
   Inject,
-  forwardRef,
-  ControlGroup
-} from 'angular2/angular2';
+  forwardRef
+} from 'angular2/core';
+
+import {
+  FormBuilder,
+  Validators,
+  ControlGroup,
+  Control
+} from 'angular2/common';
 
 import {ChatService} from 'app/chat/services/chat_service.js';
 import {UserStorageService} from 'app/user/user_storage_service.js';
@@ -25,7 +27,7 @@ import {MessageStorageService} from 'app/chat/message/message_storage_service.js
   providers: [FormBuilder, forwardRef(() => ChatService), UserStorageService, PromptifyService, MessageStorageService],
   templateUrl: 'app/chat/chat_form/chat_form.html',
   styleUrls: ['app/chat/chat_form/chat_form.css'],
-  directives: [FORM_DIRECTIVES, UserTypingDirective, ArrowsDirective]
+  directives: [UserTypingDirective, ArrowsDirective]
 })
 export class ChatFormCmp {
   chatForm: ControlGroup;
@@ -45,7 +47,7 @@ export class ChatFormCmp {
   public submitMessageHandler(msg: string) {
     let _username: string = this._storage.getUser().name;
 
-    this.chatForm.controls.message.updateValue("");
+    (<Control>this.chatForm.controls["message"]).updateValue("");
 
     if (this._promptifyService.isCls(msg)) {
       this._chatList.removeAll();
@@ -77,24 +79,24 @@ export class ChatFormCmp {
   arrowUpHandler() {
     let _msg = this._messageStorageService.getPrevious();
 
-    this.chatForm.controls.message.updateValue(_msg);
+    (<Control>this.chatForm.controls[_msg]).updateValue(_msg);
   }
 
   arrowDownHandler() {
     let _msg = this._messageStorageService.getNext();
 
-    this.chatForm.controls.message.updateValue(_msg)
+    (<Control>this.chatForm.controls["message"]).updateValue(_msg)
   }
 
   private _mentionForm(n: string):void {
     let _mention = MentionService.MENTION + n;
-    let _oldValue = this.chatForm.controls.message.value;
+    let _oldValue = (<Control>this.chatForm.controls["message"]).value;
     let _newValue = _oldValue.indexOf(_mention) === -1 ? `${_mention} ${_oldValue}` : _oldValue;
 
-    this.chatForm.controls.message.updateValue(_newValue);
+    (<Control>this.chatForm.controls["message"]).updateValue(_newValue);
   }
 
   public escHandler():void {
-    this.chatForm.controls.message.updateValue("");
+    (<Control>this.chatForm.controls["message"]).updateValue("");
   }
 }

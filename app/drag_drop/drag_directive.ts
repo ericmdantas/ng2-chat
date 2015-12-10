@@ -3,7 +3,7 @@ import {
   Inject,
   Input,
   OnInit
-} from 'angular2/angular2';
+} from 'angular2/core';
 
 @Directive({
   selector: '[super-draggable]',
@@ -23,7 +23,7 @@ export class DraggableDirective implements OnInit {
     console.log('draggable init');
   }
 
-  dragHandler(ev:Event):void {
+  dragHandler(ev: Event):void {
     this._actualPosition = ev.clientX === DraggableDirective.INIT_X ? this._lastPositionX - DraggableDirective.CENTER_GRAB
                                                                     : ev.clientX - DraggableDirective.CENTER_GRAB;
     this._lastPositionX = ev.clientX;
