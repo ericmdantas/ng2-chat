@@ -5,7 +5,7 @@ import {
 } from 'angular2/core';
 
 @Directive({
-  selector: '[super-droppable]',
+  selector: '[superDroppable]',
   host: {
     '(dragover)': 'dragoverHandler($event)'
   }

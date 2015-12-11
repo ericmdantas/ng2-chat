@@ -1,10 +1,10 @@
 <div>
-  <form [ng-form-model]="loginForm"
+  <form [ngFormModel]="loginForm"
         (submit)="signIn(loginForm.value.name)">
 
     <input type="text"
            class="login-input"
-           ng-control="name"
+           ngControl="name"
            placeholder="nome.setor"
            maxlength="20"
            autofocus />

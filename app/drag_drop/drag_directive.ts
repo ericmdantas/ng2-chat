@@ -6,7 +6,7 @@ import {
 } from 'angular2/core';
 
 @Directive({
-  selector: '[super-draggable]',
+  selector: '[superDraggable]',
   host: {
     '(drag)': 'dragHandler($event)'
   }

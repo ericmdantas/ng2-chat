@@ -11,7 +11,7 @@ import {ChatListModel} from 'app/chat/chat_list/chat_list_model.js';
   selector: 'chat-cmp',
   template: `
     <div id="chat">
-      <chat-list-cmp #clist (click-mention)="cform.mentionHandler($event)"></chat-list-cmp>
+      <chat-list-cmp #clist (clickMention)="cform.mentionHandler($event)"></chat-list-cmp>
       <chat-form-cmp #cform></chat-form-cmp>
     </div>
   `,

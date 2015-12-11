@@ -1,18 +1,18 @@
 <div class="form-container">
-  <form [ng-form-model]="chatForm">
+  <form [ngFormModel]="chatForm">
     <span class="room left">C:\ ></span>
 
     <input type="text"
            id="main-input-chat"
            class="left"
-           ng-control="message"
-           user-typing
+           ngControl="message"
+           userTyping
 
            autocomplete="off"
 
            arrows
-            (arrow-up)="arrowUpHandler()"
-            (arrow-down)="arrowDownHandler()"
+            (arrowUp)="arrowUpHandler()"
+            (arrowDown)="arrowDownHandler()"
 
            (keyup.escape)="escHandler()"
            (keyup.enter)="submitMessageHandler(chatForm.value.message)"

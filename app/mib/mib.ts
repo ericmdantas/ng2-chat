@@ -19,7 +19,7 @@ export class Mib {
     }, this.TIME_HIDES_BACKGROUND);
   }
 
-  listen():Observable {
+  listen():Observable<any> {
     return new Observable((o) => {
       this._socket.on('amnesia', () => {
             o.next(null);
