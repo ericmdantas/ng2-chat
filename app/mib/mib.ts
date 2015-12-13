@@ -1,7 +1,10 @@
 import {
-  Component,
-  Observable
+  Component
 } from 'angular2/core';
+
+import {
+  Observable
+} from 'rxjs/Observable';
 
 export class Mib {
   private _socket: SocketIOStatic = io('');

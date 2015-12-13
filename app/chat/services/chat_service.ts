@@ -1,6 +1,6 @@
 import {
   Observable
-} from 'angular2/core';
+} from 'rxjs/Observable';
 
 import {MessageModel} from 'app/chat/message/message_model.js';
 

@@ -1,4 +1,6 @@
-import {Observable} from 'angular2/core';
+import {
+  Observable
+} from 'rxjs/Observable';
 
 export class AdminService {
   static RELOAD: string = 'reload';

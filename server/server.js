@@ -15,7 +15,7 @@ const io = socketIo(server);
 let _connections = new Map();
 
 let _peopleOnline = 0;
-let _messageCount = {num: 0}; // reference
+let _messageCount = {num: 0};
 
 let _fm = BotFactory.create("felipe.smith");
 let _x9 = BotFactory.create("x9");
