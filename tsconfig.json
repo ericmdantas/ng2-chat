@@ -8,9 +8,5 @@
       "experimentalDecorators": true,
       "noImplicitAny": false
     },
-    "exclude": [
-        "node_modules",
-        "server",
-        "tests/server"
-    ]
+    "exclude": ["node_modules"]
 }
