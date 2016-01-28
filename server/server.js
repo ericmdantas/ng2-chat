@@ -66,6 +66,10 @@ export function init() {
         if (_admin.isItClean(info)) {
           return _admin.doClean(io);
         }
+
+        if (_admin.isItRoll(info)) {
+          return _admin.doRoll(io);
+        }
       }
 
       io.emit(events.MESSAGE, _message);
