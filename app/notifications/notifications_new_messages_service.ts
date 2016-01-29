@@ -71,7 +71,7 @@ export class NotificationNewMessagesService {
 		this.hasBeenNotified = true;
 	}
 	else {
-		checkAndRequestNotificationPermission();
+		this.checkAndRequestNotificationPermission();
 	}
   }
   
