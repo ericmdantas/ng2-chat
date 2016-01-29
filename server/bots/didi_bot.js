@@ -4,7 +4,7 @@ import {MessageModel} from '../message_model';
 export class DidiBot {
     static MESSAGE = [
       'e morreu'
-    ]
+    ];
 
     static TIME_RESPONSE = 555;
 

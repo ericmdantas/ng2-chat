@@ -10,7 +10,8 @@ exports.events = {
     USER_DISCONNECTED: 'user_disconnected',
     PEOPLE_ONLINE: 'people_online',
     RELOAD: 'reload',
-    CLEAN: 'clean'
+    CLEAN: 'clean',
+    ROLL: 'roll'
 };
 
 exports.mention = {

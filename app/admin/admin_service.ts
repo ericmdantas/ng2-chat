@@ -5,6 +5,7 @@ import {
 export class AdminService {
   static RELOAD: string = 'reload';
   static CLEAN: string = 'clean';
+  static ROLL: string = 'roll';
   static URL_CONNECTION: string = '';
 
   _socket: SocketIOStatic = io(AdminService.URL_CONNECTION);
@@ -20,6 +21,14 @@ export class AdminService {
   listenClean():Observable {
     return new Observable((o) => {
       this._socket.on(AdminService.CLEAN, () => {
+        o.next(null);
+      });
+    });
+  }
+
+  listenRoll():Observable {
+    return new Observable((o) => {
+      this._socket.on(AdminService.ROLL, () => {
         o.next(null);
       });
     });

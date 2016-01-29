@@ -3,7 +3,8 @@ import {events} from '../../common';
 export class AdminBot {
   _commands = [
     '/reload',
-    '/clean'
+    '/clean',
+    '/roll'
   ];
 
   doReload(io) {
@@ -14,12 +15,20 @@ export class AdminBot {
     io.emit(events.CLEAN);
   }
 
+  doRoll(io) {
+    io.emit(events.ROLL);
+  }
+
   isItReload(msg = '') {
     return msg.toLowerCase() === this._commands[0];
   }
 
   isItClean(msg = '') {
     return msg.toLowerCase() === this._commands[1];
+  }
+
+  isItRoll(msg = '') {
+    return msg.toLowerCase() === this._commands[2];
   }
 
   wasMentioned(msg = '') {
