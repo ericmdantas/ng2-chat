@@ -6,8 +6,10 @@ import {
   Observable
 } from 'rxjs/Observable';
 
+import {URL_CONNECTION} from '../chat/constants/url.js';
+
 export class Mib {
-  private _socket: SocketIOStatic = io('');
+  private _socket: SocketIOStatic = io(URL_CONNECTION);
   private _doc: Document = document;
   public TIME_HIDES_BACKGROUND: number = 1000;
 

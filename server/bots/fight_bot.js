@@ -12,7 +12,7 @@ class Player {
 
     constructor({id, name, kills, deaths, level, hp}) {
       this.id = id;
-      this.name = name;
+      this.name = String(name);
     }
 
     isAlive() {

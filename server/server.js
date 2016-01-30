@@ -110,8 +110,8 @@ export function init() {
       _connections.set(user, socket);
 
       _x9.entered(socket, user, _connections);
-      _fight.init(user, _connections.get(user).id);
       _porteiro.talk(socket, user);
+      _fight.init(user, _connections.get(user).id);
     });
 
     socket.on(events.TYPING, ({user}) => {

@@ -3,7 +3,7 @@ import {MessageModel} from '../message_model';
 
 export class MibBot {
   static NAME = 'mib';
-  static TIME = 3 * 1000 * 60 * 60; // 8 hours
+  static TIME = 24 * 1000 * 60 * 60; // 1 day
 
   scheduleTalk(io) {
     let _afterMsg = new MessageModel()
