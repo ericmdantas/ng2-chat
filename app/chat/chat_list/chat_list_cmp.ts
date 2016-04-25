@@ -17,11 +17,12 @@ import {ChatListModel} from 'app/chat/chat_list/chat_list_model.js';
 import {ScrollBottomService} from 'app/chat/chat_list/scroll_bottom_service.js';
 import {AdminService} from 'app/admin/admin_service.js';
 import {Mib} from 'app/mib/mib.js';
+import {Roll} from 'app/roll/roll.js';
 
 @Component({
   selector: 'chat-list-cmp',
   providers: [ChatService, UserOnlineMessageService, NotificationNewMessagesService,
-             ChatTypingService, MentionService, DeleteMessageService, ScrollBottomService, Mib, AdminService],
+             ChatTypingService, MentionService, DeleteMessageService, ScrollBottomService, Mib, Roll, AdminService],
   events: ['clickMention'],
   templateUrl: 'app/chat/chat_list/chat_list.html',
   styleUrls: ['app/chat/chat_list/chat_list.css']
@@ -39,6 +40,7 @@ export class ChatListCmp implements OnInit {
               @Inject(ChatListModel) public chatList: ChatListModel,
               @Inject(ScrollBottomService) private _scrollBottomService: ScrollBottomService,
               @Inject(Mib) private _mib: Mib,
+              @Inject(Roll) private _roll: Roll,
               @Inject(AdminService) private _admin: AdminService,
               @Inject(NotificationNewMessagesService) private _notificationNewMessageService: NotificationNewMessagesService) {
 
@@ -82,6 +84,12 @@ export class ChatListCmp implements OnInit {
         .subscribe(() => {
           this.clearMessages();
         });
+
+    this._admin
+        .listenRoll()
+        .subscribe(() => {
+          this.roll();
+        });
   }
 
   mentionClickHandler(m: MessageModel):void {
@@ -90,5 +98,9 @@ export class ChatListCmp implements OnInit {
 
   clearMessages():void {
     this.chatList.removeAll();
+  }
+
+  roll():void {
+    this._roll.roll();
   }
 }

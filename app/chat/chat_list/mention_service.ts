@@ -25,4 +25,9 @@ export class MentionService {
     let _name: string = this._storageService.getUserName();
     return ~m.message.indexOf(MentionService.MENTION + _name);
   }
+  
+  isSelfMention(m: MessageModel):boolean{
+	return this._storageService.getUserName() === m.user;
+  }
+  
 }
