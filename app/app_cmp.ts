@@ -1,6 +1,5 @@
 import {
   Component,
-  View,
   OnInit,
   Inject
 } from 'angular2/core';
@@ -9,9 +8,7 @@ import {PromptCmp} from 'app/prompt/prompt_cmp.js';
 import {DroppableDirective} from 'app/drag_drop/drop_directive.js';
 
 @Component({
-  selector: 'app'
-})
-@View({
+  selector: 'app',
   template: `
     <main super-droppable>
       <prompt-cmp></prompt-cmp>

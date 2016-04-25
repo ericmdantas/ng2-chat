@@ -4,6 +4,7 @@ export class AdminBot {
   _commands = [
     '/reload',
     '/clean',
+    '/clear',
     '/roll'
   ];
 
@@ -20,15 +21,15 @@ export class AdminBot {
   }
 
   isItReload(msg = '') {
-    return msg.toLowerCase() === this._commands[0];
+    return this._commands.indexOf(msg) === 0;
   }
 
   isItClean(msg = '') {
-    return msg.toLowerCase() === this._commands[1];
+    return (this._commands.indexOf(msg) === 1) || (this._commands.indexOf(msg) === 2);    
   }
 
   isItRoll(msg = '') {
-    return msg.toLowerCase() === this._commands[2];
+    return msg.toLowerCase() === this._commands[3];
   }
 
   wasMentioned(msg = '') {

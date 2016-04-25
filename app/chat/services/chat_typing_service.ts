@@ -3,12 +3,12 @@ import {
 } from 'rxjs/Observable';
 
 import {MessageModel} from 'app/chat/message/message_model.js';
+import {URL_CONNECTION} from '../constants/url.js';
 
 export class ChatTypingService {
   static TYPING: string = 'typing';
-  static URL_CONNECTION: string = '';
 
-  _socket: SocketIOStatic = io(ChatTypingService.URL_CONNECTION);
+  _socket: SocketIOStatic = io(URL_CONNECTION);
 
   listen():Observable {
     return Observable.create((o) => {

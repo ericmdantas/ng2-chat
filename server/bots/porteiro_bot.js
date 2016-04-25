@@ -15,7 +15,7 @@ export class PorteiroBot {
       return socket.emit(events.MESSAGE, _msg.withMessage(`Bom dia, ${user}! :D`));
     }
 
-    if ((_hour > 12) && (_hour < 18)) {
+    if ((_hour > 12) && (_hour < 18)) {      
       return socket.emit(events.MESSAGE, _msg.withMessage(`Boa tarde, ${user}! :D`));
     }
 

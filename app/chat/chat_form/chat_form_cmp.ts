@@ -27,7 +27,10 @@ import {MessageStorageService} from 'app/chat/message/message_storage_service.js
   providers: [FormBuilder, forwardRef(() => ChatService), UserStorageService, PromptifyService, MessageStorageService],
   templateUrl: 'app/chat/chat_form/chat_form.html',
   styleUrls: ['app/chat/chat_form/chat_form.css'],
-  directives: [UserTypingDirective, ArrowsDirective]
+  directives: [UserTypingDirective, ArrowsDirective],
+  host: {
+    '(window:keydown)': 'keyUpHandler($event)'
+  }
 })
 export class ChatFormCmp {
   chatForm: ControlGroup;
@@ -44,10 +47,14 @@ export class ChatFormCmp {
     });
   }
 
+  private _clearForm() {
+    (<Control>this.chatForm.controls["message"]).updateValue("");
+  }
+
   public submitMessageHandler(msg: string) {
     let _username: string = this._storage.getUser().name;
 
-    (<Control>this.chatForm.controls["message"]).updateValue("");
+    this._clearForm();
 
     if (this._promptifyService.isCls(msg)) {
       this._chatList.removeAll();
@@ -76,6 +83,13 @@ export class ChatFormCmp {
     }
   }
 
+  public keyUpHandler(ev: KeyboardEvent) {
+    if (ev.ctrlKey && ev.which === 76) {
+      ev.preventDefault();
+      this._chatList.removeAll();
+    }
+  }
+
   arrowUpHandler() {
     let _msg = this._messageStorageService.getPrevious();
 
@@ -85,7 +99,7 @@ export class ChatFormCmp {
   arrowDownHandler() {
     let _msg = this._messageStorageService.getNext();
 
-    (<Control>this.chatForm.controls["message"]).updateValue(_msg)
+    (<Control>this.chatForm.controls["message"]).updateValue(_msg);
   }
 
   private _mentionForm(n: string):void {
@@ -97,6 +111,6 @@ export class ChatFormCmp {
   }
 
   public escHandler():void {
-    (<Control>this.chatForm.controls["message"]).updateValue("");
+    this._clearForm();
   }
 }

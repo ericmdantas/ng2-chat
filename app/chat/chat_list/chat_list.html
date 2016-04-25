@@ -1,6 +1,6 @@
 <div class="list-of-messages-container">
   <div *ngFor="#m of chatList.messages">
-    <p class="message" [class.mentioned]="m.mentioned">
+    <div class="message" [class.mentioned]="m.mentioned">
       <span class="room">C:\ ></span>
 
       <span class="sent-time">
@@ -14,8 +14,8 @@
       [class.bot]="m.bot"
       (click)="mentionClickHandler(m)"></span>:
 
-      <span class="info" [textContent]="m.message"></span>
-    </p>
+      <p class="info" [textContent]="m.message"></p>
+    </div>
   </div>
 
   <div>
