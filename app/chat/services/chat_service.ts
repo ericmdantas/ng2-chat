@@ -7,7 +7,6 @@ import {URL_CONNECTION} from '../constants/url.js';
 
 export class ChatService {
   static MESSAGE: string = 'msg';
-
   _socket: SocketIOStatic = io(URL_CONNECTION);
 
   listen():Observable<any> {

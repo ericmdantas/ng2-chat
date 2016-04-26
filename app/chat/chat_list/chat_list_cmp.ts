@@ -11,6 +11,7 @@ import {ChatTypingService} from 'app/chat/services/chat_typing_service.js';
 import {MessageModel} from 'app/chat/message/message_model.js';
 import {NotificationNewMessagesService} from 'app/notifications/notifications_new_messages_service.js';
 import {UserOnlineMessageService} from 'app/chat/chat_list/chat_user_online_message_service.js';
+import {UserStorageService} from 'app/user/user_storage_service.js';
 import {MentionService} from 'app/chat/chat_list/mention_service.js';
 import {DeleteMessageService} from 'app/chat/chat_list/delete_message_service.js';
 import {ChatListModel} from 'app/chat/chat_list/chat_list_model.js';
@@ -22,7 +23,7 @@ import {Roll} from 'app/roll/roll.js';
 @Component({
   selector: 'chat-list-cmp',
   providers: [ChatService, UserOnlineMessageService, NotificationNewMessagesService,
-             ChatTypingService, MentionService, DeleteMessageService, ScrollBottomService, Mib, Roll, AdminService],
+             ChatTypingService, MentionService, DeleteMessageService, ScrollBottomService, Mib, Roll, AdminService, UserStorageService],
   events: ['clickMention'],
   templateUrl: 'app/chat/chat_list/chat_list.html',
   styleUrls: ['app/chat/chat_list/chat_list.css']
@@ -42,7 +43,8 @@ export class ChatListCmp implements OnInit {
               @Inject(Mib) private _mib: Mib,
               @Inject(Roll) private _roll: Roll,
               @Inject(AdminService) private _admin: AdminService,
-              @Inject(NotificationNewMessagesService) private _notificationNewMessageService: NotificationNewMessagesService) {
+              @Inject(NotificationNewMessagesService) private _notificationNewMessageService: NotificationNewMessagesService,
+              @Inject(UserStorageService) private _userStorageService: UserStorageService) {
 
   }
 
@@ -61,7 +63,7 @@ export class ChatListCmp implements OnInit {
         .listen()
         .subscribe((message) => {
             this.tMsg = message;
-            this.tMsg.typing = true;
+            this.tMsg.typing = !~this.tMsg.message.indexOf(`${this._userStorageService.getUser().name}:`);
             this._deleteMessageService.remove(this.tMsg);
             this._scrollBottomService.goDown();
         });

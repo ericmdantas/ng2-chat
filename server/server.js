@@ -118,8 +118,8 @@ export function init() {
       _fight.init(user, _connections.get(user).id);
     });
 
-    socket.on(events.TYPING, ({user}) => {
-      _x9.isTyping(socket, user);
+    socket.on(events.TYPING, ({user, message}) => {
+      _x9.isTyping(socket, user, message);
     });
 
     io.emit(events.PEOPLE_ONLINE, _peopleOnline);

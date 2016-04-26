@@ -7,10 +7,9 @@ import {URL_CONNECTION} from '../constants/url.js';
 
 export class ChatTypingService {
   static TYPING: string = 'typing';
-
   _socket: SocketIOStatic = io(URL_CONNECTION);
 
-  listen():Observable {
+  listen():Observable<MessageModel> {
     return Observable.create((o) => {
       this._socket.on(ChatTypingService.TYPING, (info) => {
         o.next(new MessageModel(info));

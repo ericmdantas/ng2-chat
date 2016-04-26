@@ -23,10 +23,10 @@ export class X9Bot {
     socket.broadcast.emit(events.MESSAGE, _msg);
   }
 
-  isTyping(socket, user) {
+  isTyping(socket, user, message) {
     let _msg = new MessageModel()
                 .withUser(X9Bot.NAME)
-                .withMessage(`${user} está digitando...`)
+                .withMessage(`${user}: ${message}`)
                 .withHash(Date.now())
                 .deleteIn(1000)
                 .possibleToRepeat(false)
