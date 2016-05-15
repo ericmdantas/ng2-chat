@@ -4,3 +4,4 @@ app/**/*.js
 tests/client/**/*.js
 **/*.map
 client.js
+config.js

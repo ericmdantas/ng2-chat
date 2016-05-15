@@ -1,7 +1,7 @@
 import {
   Component,
   OnInit
-} from 'angular2/core';
+} from '@angular/core';
 
 import {ChatListCmp} from 'app/chat/chat_list/chat_list_cmp.js';
 import {ChatFormCmp} from 'app/chat/chat_form/chat_form_cmp.js';

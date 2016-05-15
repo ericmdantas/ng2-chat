@@ -1,12 +1,12 @@
 import {
   Component
-} from 'angular2/core';
+} from '@angular/core';
 
 import {
   Observable
 } from 'rxjs/Observable';
 
-import {URL_CONNECTION} from '../chat/constants/url.js';
+import {URL_CONNECTION} from '../chat/constants/url';
 
 export class Mib {
   private _socket: SocketIOStatic = io(URL_CONNECTION);

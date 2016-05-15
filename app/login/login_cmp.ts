@@ -4,17 +4,17 @@ import {
   Output,
   EventEmitter,
   OnInit
-} from 'angular2/core';
+} from '@angular/core';
 
 import {
   Control,
   FormBuilder,
   ControlGroup,
   Validators
-} from 'angular2/common';
+} from '@angular/core';
 
-import {UserStorageService} from 'app/user/user_storage_service.js';
-import {UserModel} from 'app/user/user_model.js';
+import {UserStorageService} from 'app/user/user_storage_service';
+import {UserModel} from 'app/user/user_model';
 
 @Component({
   selector: 'login-cmp',

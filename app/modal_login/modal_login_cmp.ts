@@ -3,11 +3,11 @@ import {
   ElementRef,
   OnInit,
   Inject
-} from 'angular2/core';
+} from '@angular/core';
 
-import {LoginCmp} from 'app/login/login_cmp.js';
-import {UserStorageService} from 'app/user/user_storage_service.js';
-import {ChatService} from 'app/chat/services/chat_service.js';
+import {LoginCmp} from 'app/login/login_cmp';
+import {UserStorageService} from 'app/user/user_storage_service';
+import {ChatService} from 'app/chat/services/chat_service';
 
 @Component({
   selector: 'modal-login-cmp',

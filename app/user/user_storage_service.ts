@@ -1,5 +1,5 @@
-import {Xtorage} from 'node_modules/xtorage/dist/system/xtorage.js';
-import {UserModel} from 'app/user/user_model.js';
+import {Xtorage} from 'node_modules/xtorage/dist/commonjs/xtorage';
+import {UserModel} from 'app/user/user_model';
 
 export class UserStorageService {
   private static KEY_USER_ONLINE: string = 'user_online';

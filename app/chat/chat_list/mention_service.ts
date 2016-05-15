@@ -1,5 +1,5 @@
-import {MessageModel} from 'app/chat/message/message_model.js';
-import {UserStorageService} from 'app/user/user_storage_service.js';
+import {MessageModel} from 'app/chat/message/message_model';
+import {UserStorageService} from 'app/user/user_storage_service';
 
 export class MentionService {
   private _storageService: UserStorageService = new UserStorageService();
@@ -23,11 +23,11 @@ export class MentionService {
 
   wasUserOnlineMentioned(m: MessageModel):boolean {
     let _name: string = this._storageService.getUserName();
-    return ~m.message.indexOf(MentionService.MENTION + _name);
+    return !!~m.message.indexOf(MentionService.MENTION + _name);
   }
-  
+
   isSelfMention(m: MessageModel):boolean{
 	return this._storageService.getUserName() === m.user;
   }
-  
+
 }

@@ -2,7 +2,7 @@ import {
   Directive,
   Inject,
   ElementRef
-} from 'angular2/core';
+} from '@angular/core';
 
 import {MessageModel} from 'app/chat/message/message_model.js';
 

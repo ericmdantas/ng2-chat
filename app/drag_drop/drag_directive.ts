@@ -3,7 +3,7 @@ import {
   Inject,
   Input,
   OnInit
-} from 'angular2/core';
+} from '@angular/core';
 
 @Directive({
   selector: '[superDraggable]',

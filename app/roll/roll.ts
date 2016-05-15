@@ -1,6 +1,6 @@
 import {
     Component
-} from 'angular2/core';
+} from '@angular/core';
 
 import {
     Observable

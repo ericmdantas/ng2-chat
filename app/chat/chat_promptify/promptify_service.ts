@@ -3,7 +3,7 @@ import {
   ElementRef,
   Inject,
   OnInit
-} from 'angular2/core';
+} from '@angular/core';
 
 import {LogoutService} from 'app/chat/chat_logout/chat_logout_service.js';
 import {UserStorageService} from 'app/user/user_storage_service.js';

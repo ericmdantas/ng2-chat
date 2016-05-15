@@ -1,12 +1,12 @@
-﻿import {MessageModel} from 'app/chat/model/message_model.js';
-import {MentionService} from 'app/chat/chat_list/mention_service.js';
-import {UserStorageService} from 'app/user/user_storage_service.js';
+﻿import {MessageModel} from 'app/chat/model/message_model';
+import {MentionService} from 'app/chat/chat_list/mention_service';
+import {UserStorageService} from 'app/user/user_storage_service';
 
 export class NotificationNewMessagesService {
   public static DEFAULT_TITLE: string = '_';
   public static REPEATER: number = 555;
   public static DEFAULT_NOTIFICATION_MESSAGE: string = "<Não escreveu mensagem alguma ainda...>";//ainda nao usado
-  
+
   private _storageService: UserStorageService = new UserStorageService();
 
   private _doc: Document = document;
@@ -14,13 +14,13 @@ export class NotificationNewMessagesService {
 
   private notification: Notification = null;
   private hasBeenNotified: boolean = false;
-  
+
   constructor() {
     this._doc.title = NotificationNewMessagesService.DEFAULT_TITLE;
   }
 
   toggleTitle(m: MessageModel):void {
-  
+
     let _idInterval = setInterval(() => {
 
       let _warning = (this._mentionService.wasUserOnlineMentioned(m)) ? '@' : '!';
@@ -33,26 +33,26 @@ export class NotificationNewMessagesService {
 			this.notification.close();
 			this.hasBeenNotified = false;
 		  }
-			
+
           clearInterval(_idInterval);
       }
 
     }, NotificationNewMessagesService.REPEATER);
-	
+
 	if (
-		!!Notification && 
-		this._mentionService.wasUserOnlineMentioned(m) && 
+		!!Notification &&
+		this._mentionService.wasUserOnlineMentioned(m) &&
 		!this._mentionService.isSelfMention(m) &&
 		!this._doc.hasFocus() &&
 		!this.hasBeenNotified
 	)
 		this.sendNotificationYell(m);
   }
-  
+
   sendNotificationYell(m: MessageModel):void {
 	if (Notification.permission === "granted"){
 		let message = m.message.replace("@"+this._storageService.getUserName(), "");
-		
+
 		this.notification = new Notification(m.user + " esta carente e quer sua atenção!", {
 		  icon: './favicon.ico',
 		  body: message
@@ -66,7 +66,7 @@ export class NotificationNewMessagesService {
 			_input.focus();
 			_input.value = "@"+m.user+" ";
 			*/
-			
+
 		};
 		this.hasBeenNotified = true;
 	}
@@ -74,7 +74,7 @@ export class NotificationNewMessagesService {
 		this.checkAndRequestNotificationPermission();
 	}
   }
-  
+
   checkAndRequestNotificationPermission():void{
 	if (Notification.permission !== "granted")
 		Notification.requestPermission();

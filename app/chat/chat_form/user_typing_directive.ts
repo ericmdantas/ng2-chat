@@ -3,7 +3,7 @@ import {
   Inject,
   forwardRef,
   ElementRef
-} from 'angular2/core';
+} from '@angular/core';
 
 import {ChatTypingService} from 'app/chat/services/chat_typing_service.js';
 import {UserStorageService} from 'app/user/user_storage_service.js';

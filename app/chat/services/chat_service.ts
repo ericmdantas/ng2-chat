@@ -2,8 +2,8 @@ import {
   Observable
 } from 'rxjs/Observable';
 
-import {MessageModel} from 'app/chat/message/message_model.js';
-import {URL_CONNECTION} from '../constants/url.js';
+import {MessageModel} from 'app/chat/message/message_model';
+import {URL_CONNECTION} from '../constants/url';
 
 export class ChatService {
   static MESSAGE: string = 'msg';

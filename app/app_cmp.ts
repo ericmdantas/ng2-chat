@@ -2,10 +2,10 @@ import {
   Component,
   OnInit,
   Inject
-} from 'angular2/core';
+} from '@angular/core';
 
-import {PromptCmp} from 'app/prompt/prompt_cmp.js';
-import {DroppableDirective} from 'app/drag_drop/drop_directive.js';
+import {PromptCmp} from 'app/prompt/prompt_cmp';
+import {DroppableDirective} from 'app/drag_drop/drop_directive';
 
 @Component({
   selector: 'app',

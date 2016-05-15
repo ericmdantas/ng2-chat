@@ -2,7 +2,7 @@ import {
   Observable
 } from 'rxjs/Observable';
 
-import {URL_CONNECTION} from '../chat/constants/url.js';
+import {URL_CONNECTION} from '../chat/constants/url';
 
 export class AdminService {
   static RELOAD: string = 'reload';

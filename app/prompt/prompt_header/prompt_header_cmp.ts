@@ -1,11 +1,10 @@
 import {
   Component,
-  View,
   OnInit
-} from 'angular2/core';
+} from '@angular/core';
 
-import {LogoutService} from 'app/chat/chat_logout/chat_logout_service.js';
-import {DraggableDirective} from 'app/drag_drop/drag_directive.js';
+import {LogoutService} from 'app/chat/chat_logout/chat_logout_service';
+import {DraggableDirective} from 'app/drag_drop/drag_directive';
 
 @Component({
   selector: 'prompt-header-cmp',

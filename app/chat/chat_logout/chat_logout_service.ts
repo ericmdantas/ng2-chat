@@ -1,6 +1,6 @@
 import {
   UserStorageService
-} from 'app/user/user_storage_service.js';
+} from 'app/user/user_storage_service';
 
 export class LogoutService {
   _w: Window = window;

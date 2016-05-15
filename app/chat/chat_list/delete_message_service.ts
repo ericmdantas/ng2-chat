@@ -1,4 +1,4 @@
-import {MessageModel} from '../message/message_model.js';
+import {MessageModel} from '../message/message_model';
 
 export class DeleteMessageService {
   remove(message:MessageModel) {

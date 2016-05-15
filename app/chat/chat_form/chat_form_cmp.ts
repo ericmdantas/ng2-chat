@@ -3,14 +3,14 @@ import {
   OnInit,
   Inject,
   forwardRef
-} from 'angular2/core';
+} from '@angular/core';
 
 import {
   FormBuilder,
   Validators,
   ControlGroup,
   Control
-} from 'angular2/common';
+} from '@angular/core';
 
 import {ChatService} from 'app/chat/services/chat_service.js';
 import {UserStorageService} from 'app/user/user_storage_service.js';
