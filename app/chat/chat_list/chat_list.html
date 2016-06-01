@@ -4,17 +4,17 @@
       <span class="room">C:\ ></span>
 
       <span class="sent-time">
-        <small [textContent]="m.sentAt | date: 'hhmmss H'"></small>
+        <small [innerText]="m.sentAt | date: 'hhmmss H'"></small>
       </span>
 
       <span class="user" [class.user-online-message]="m.userOnline"
       [class.not-user-online-message]="!m.userOnline"
       [class.bot-message]="m.bot"
-      [textContent]="m.user"
+      [innerText]="m.user"
       [class.bot]="m.bot"
       (click)="mentionClickHandler(m)"></span>:
 
-      <p class="info" [textContent]="m.message"></p>
+      <p class="info" [innerText]="m.message"></p>
     </div>
   </div>
 
@@ -23,9 +23,9 @@
       <span class="room">C:\ ></span>
 
       <span class="user not-user-online-message bot-message bot"
-      [textContent]="tMsg.user"></span>
+        [innerText]="tMsg.user"></span>
 
-      <span class="info" [textContent]="tMsg.message"></span>
+      <span class="info" [innerText]="tMsg.message"></span>
     </p>
   </div>
 </div>

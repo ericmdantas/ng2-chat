@@ -1,4 +1,4 @@
-import {Xtorage} from 'node_modules/xtorage/dist/commonjs/xtorage';
+import {Xtorage} from 'xtorage';
 import {UserModel} from 'app/user/user_model';
 
 export class UserStorageService {

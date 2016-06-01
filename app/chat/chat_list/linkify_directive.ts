@@ -4,7 +4,7 @@ import {
   ElementRef
 } from '@angular/core';
 
-import {MessageModel} from 'app/chat/message/message_model.js';
+import {MessageModel} from 'app/chat/message/message_model';
 
 @Directive({
   selector: 'linkify'

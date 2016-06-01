@@ -28,7 +28,7 @@ export class AdminService {
     });
   }
 
-  listenRoll():Observable {
+  listenRoll():Observable<null> {
     return new Observable((o) => {
       this._socket.on(AdminService.ROLL, () => {
         o.next(null);

@@ -10,17 +10,17 @@ import {
   Validators,
   ControlGroup,
   Control
-} from '@angular/core';
+} from '@angular/common';
 
-import {ChatService} from 'app/chat/services/chat_service.js';
-import {UserStorageService} from 'app/user/user_storage_service.js';
-import {MessageModel} from 'app/chat/message/message_model.js';
-import {MentionService} from 'app/chat/chat_list/mention_service.js';
-import {UserTypingDirective} from 'app/chat/chat_form/user_typing_directive.js';
-import {ChatListModel} from 'app/chat/chat_list/chat_list_model.js';
-import {PromptifyService} from 'app/chat/chat_promptify/promptify_service.js';
-import {ArrowsDirective} from 'app/chat/chat_form/arrows_directive.js';
-import {MessageStorageService} from 'app/chat/message/message_storage_service.js';
+import {ChatService} from 'app/chat/services/chat_service';
+import {UserStorageService} from 'app/user/user_storage_service';
+import {MessageModel} from 'app/chat/message/message_model';
+import {MentionService} from 'app/chat/chat_list/mention_service';
+import {UserTypingDirective} from 'app/chat/chat_form/user_typing_directive';
+import {ChatListModel} from 'app/chat/chat_list/chat_list_model';
+import {PromptifyService} from 'app/chat/chat_promptify/promptify_service';
+import {ArrowsDirective} from 'app/chat/chat_form/arrows_directive';
+import {MessageStorageService} from 'app/chat/message/message_storage_service';
 
 @Component({
   selector: 'chat-form-cmp',

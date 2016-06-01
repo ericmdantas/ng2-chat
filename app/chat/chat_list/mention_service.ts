@@ -13,8 +13,8 @@ export class MentionService {
 
   makeMention(m: MessageModel):void {
       let _name: string = this._storageService.getUserName();
-      let _youWereMentioned: boolean = ~m.message.indexOf(MentionService.MENTION + _name);
-      let _everybodyWasMentioned: boolean = ~m.message.indexOf(MentionService.MENTION + MentionService.EVERYBODY);
+      let _youWereMentioned: boolean = !!~m.message.indexOf(MentionService.MENTION + _name);
+      let _everybodyWasMentioned: boolean = !!~m.message.indexOf(MentionService.MENTION + MentionService.EVERYBODY);
 
       if (_youWereMentioned || _everybodyWasMentioned) {
           m.mentioned = true;

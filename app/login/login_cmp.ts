@@ -11,7 +11,7 @@ import {
   FormBuilder,
   ControlGroup,
   Validators
-} from '@angular/core';
+} from '@angular/common';
 
 import {UserStorageService} from 'app/user/user_storage_service';
 import {UserModel} from 'app/user/user_model';

@@ -5,8 +5,8 @@ import {
   ElementRef
 } from '@angular/core';
 
-import {ChatTypingService} from 'app/chat/services/chat_typing_service.js';
-import {UserStorageService} from 'app/user/user_storage_service.js';
+import {ChatTypingService} from 'app/chat/services/chat_typing_service';
+import {UserStorageService} from 'app/user/user_storage_service';
 
 @Directive({
   selector: '[userTyping]',

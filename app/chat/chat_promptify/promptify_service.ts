@@ -5,8 +5,8 @@ import {
   OnInit
 } from '@angular/core';
 
-import {LogoutService} from 'app/chat/chat_logout/chat_logout_service.js';
-import {UserStorageService} from 'app/user/user_storage_service.js';
+import {LogoutService} from 'app/chat/chat_logout/chat_logout_service';
+import {UserStorageService} from 'app/user/user_storage_service';
 
 export class PromptifyService {
   private _logoutService: LogoutService = new LogoutService(new UserStorageService());
