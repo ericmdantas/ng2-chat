@@ -5,7 +5,7 @@
 
 form {
   position: relative;
-  font-size: 14px;
+  font-size: 13px;
 }
 
 .left {
@@ -19,7 +19,7 @@ form input {
   color: #fff;
   padding: 5px;
   background-color: transparent;
-  font-size: 14px;
+  font-size: 13px;
   margin-bottom: 50px;
   font-family: monospace;
   width: 75%;
@@ -27,7 +27,7 @@ form input {
 
 form .room {
   color: #fff;
-  font-size: 14px;
+  font-size: 13px;
   margin-top: 5px;
   margin-left: 5px;
   width: 50px;

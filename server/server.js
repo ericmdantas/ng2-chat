@@ -27,6 +27,7 @@ let _scotty = BotFactory.create("scotty");
 let _mib = BotFactory.create("mib");
 let _fight = BotFactory.create("fight");
 let _admin = BotFactory.create("admin");
+let _code = BotFactory.create("code");
 
 export function init() {
   app.use(express.static('./'));
@@ -38,6 +39,10 @@ export function init() {
 
   io.on(events.CONNECTION, (socket) => {
     _peopleOnline++;
+
+    socket.on(events.CODE, (info) => {
+      _code.respond(io, info);
+    });
 
     socket.on(events.MESSAGE, ({user, info}) => {
 

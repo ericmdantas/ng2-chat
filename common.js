@@ -11,7 +11,8 @@ exports.events = {
     PEOPLE_ONLINE: 'people_online',
     RELOAD: 'reload',
     CLEAN: 'clean',
-    ROLL: 'roll'
+    ROLL: 'roll',
+    CODE: 'code'    
 };
 
 exports.mention = {
