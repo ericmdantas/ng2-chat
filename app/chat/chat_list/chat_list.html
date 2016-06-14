@@ -1,5 +1,5 @@
 <div class="list-of-messages-container">
-  <div *ngFor="#m of chatList.messages">
+  <div *ngFor="let m of chatList.messages;">
     <div class="message" [class.mentioned]="m.mentioned">
       <span class="room">C:\ ></span>
 
