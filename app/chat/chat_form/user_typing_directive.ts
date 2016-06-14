@@ -16,9 +16,9 @@ import {UserStorageService} from 'app/user/user_storage_service';
   }
 })
 export class UserTypingDirective {
-  constructor(@Inject(ChatTypingService) private _chatTypingService: ChatTypingService,
-              @Inject(UserStorageService) private _userStorageService: UserStorageService,
-              @Inject(ElementRef) private _el: ElementRef) {
+  constructor(private _chatTypingService: ChatTypingService,
+              private _userStorageService: UserStorageService,
+              private _el: ElementRef) {
 
   }
 

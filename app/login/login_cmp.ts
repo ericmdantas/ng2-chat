@@ -26,8 +26,8 @@ export class LoginCmp implements OnInit {
   loginForm: ControlGroup;
   @Output() loginOk: EventEmitter<any> = new EventEmitter();
 
-  constructor(@Inject(UserModel) private _user: UserModel,
-              @Inject(UserStorageService) private _userStorageService: UserStorageService,
+  constructor(private _user: UserModel,
+              private _userStorageService: UserStorageService,
               @Inject(FormBuilder) fb: FormBuilder) {
 
     this.loginForm = fb.group({

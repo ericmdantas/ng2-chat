@@ -17,7 +17,7 @@ import {
 export class ChatCodeCmp implements OnInit {
   code: string = "";
 
-  constructor(@Inject(ChatCodeService) private _chatCodeService: ChatCodeService) {
+  constructor(private _chatCodeService: ChatCodeService) {
 
   }
 

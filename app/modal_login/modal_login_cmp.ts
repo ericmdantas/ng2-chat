@@ -21,9 +21,9 @@ export class ModalLoginCmp implements OnInit {
   public static MODAL_LOGIN: string = 'modal-login';
   private _doc: Document = document;
 
-  constructor(@Inject(ElementRef) private _el: ElementRef,
-              @Inject(UserStorageService) private _userStorageService: UserStorageService,
-              @Inject(ChatService) private _chatService: ChatService) {
+  constructor(private _el: ElementRef,
+              private _userStorageService: UserStorageService,
+              private _chatService: ChatService) {
 
   }
 

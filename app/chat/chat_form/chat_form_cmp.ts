@@ -37,10 +37,10 @@ export class ChatFormCmp {
 
   constructor(@Inject(forwardRef(() => ChatService)) private _chatService: ChatService,
               @Inject(FormBuilder) fb: FormBuilder,
-              @Inject(PromptifyService) private _promptifyService: PromptifyService,
-              @Inject(ChatListModel) private _chatList: ChatListModel,
-              @Inject(MessageStorageService) private _messageStorageService: MessageStorageService,
-              @Inject(UserStorageService) private _storage: UserStorageService) {
+              private _promptifyService: PromptifyService,
+              private _chatList: ChatListModel,
+              private _messageStorageService: MessageStorageService,
+              private _storage: UserStorageService) {
 
     this.chatForm = fb.group({
       "message": ["", Validators.required]
