@@ -35,8 +35,8 @@ import {MessageStorageService} from 'app/chat/message/message_storage_service';
 export class ChatFormCmp {
   chatForm: ControlGroup;
 
-  constructor(@Inject(forwardRef(() => ChatService)) private _chatService: ChatService,
-              @Inject(FormBuilder) fb: FormBuilder,
+  constructor(private _chatService: ChatService,
+              fb: FormBuilder,
               private _promptifyService: PromptifyService,
               private _chatList: ChatListModel,
               private _messageStorageService: MessageStorageService,

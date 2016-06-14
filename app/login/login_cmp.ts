@@ -28,7 +28,7 @@ export class LoginCmp implements OnInit {
 
   constructor(private _user: UserModel,
               private _userStorageService: UserStorageService,
-              @Inject(FormBuilder) fb: FormBuilder) {
+              fb: FormBuilder) {
 
     this.loginForm = fb.group({
       "name": [this._user.name, Validators.required]
