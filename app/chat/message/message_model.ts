@@ -1,3 +1,6 @@
+import {Injectable} from '@angular/core';
+
+@Injectable()
 export class MessageModel {
   private _message: string;
   private _user: string;

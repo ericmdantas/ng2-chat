@@ -4,7 +4,9 @@ import {
 
 import {MessageModel} from 'app/chat/message/message_model';
 import {URL_CONNECTION} from '../constants/url';
+import {Injectable} from '@angular/core';
 
+@Injectable()
 export class ChatTypingService {
   static TYPING: string = 'typing';
   _socket: SocketIOStatic = io(URL_CONNECTION);

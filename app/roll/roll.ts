@@ -1,11 +1,13 @@
 import {
-    Component
+    Component,
+    Injectable
 } from '@angular/core';
 
 import {
     Observable
 } from 'rxjs/Observable';
 
+@Injectable()
 export class Roll {
   private _socket: SocketIOStatic = io('');
   private _doc: Document = document;

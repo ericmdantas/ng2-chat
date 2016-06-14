@@ -1,11 +1,11 @@
-import {
-  Observable
-} from 'rxjs/Observable';
+import {Observable} from 'rxjs/Observable';
+import {Injectable} from '@angular/core';
 
 import {
   URL_CONNECTION
 } from 'app/chat/constants/url';
 
+@Injectable()
 export class ChatCodeService {
   private _socket = io(URL_CONNECTION);
 

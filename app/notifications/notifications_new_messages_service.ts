@@ -1,7 +1,9 @@
 ﻿import {MessageModel} from 'app/chat/model/message_model';
 import {MentionService} from 'app/chat/chat_list/mention_service';
 import {UserStorageService} from 'app/user/user_storage_service';
+import {Injectable} from '@angular/core';
 
+@Injectable()
 export class NotificationNewMessagesService {
   public static DEFAULT_TITLE: string = '_';
   public static REPEATER: number = 555;

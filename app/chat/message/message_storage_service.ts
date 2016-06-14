@@ -1,3 +1,6 @@
+import {Injectable} from '@angular/core';
+
+@Injectable()
 export class MessageStorageService {
   _position: number = 0;
   _messages: string[] = [];

@@ -7,7 +7,9 @@ import {
 
 import {LogoutService} from 'app/chat/chat_logout/chat_logout_service';
 import {UserStorageService} from 'app/user/user_storage_service';
+import {Injectable} from '@angular/core';
 
+@Injectable()
 export class PromptifyService {
   private _logoutService: LogoutService = new LogoutService(new UserStorageService());
 

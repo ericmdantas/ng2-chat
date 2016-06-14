@@ -1,6 +1,8 @@
 import {MessageModel} from 'app/chat/message/message_model';
 import {UserStorageService} from 'app/user/user_storage_service';
+import {Injectable} from '@angular/core';
 
+@Injectable()
 export class MentionService {
   private _storageService: UserStorageService = new UserStorageService();
   public static MENTION: string = '@';

@@ -1,5 +1,7 @@
 import {MessageModel} from '../message/message_model';
+import {Injectable} from '@angular/core';
 
+@Injectable()
 export class DeleteMessageService {
   remove(message:MessageModel) {
     setTimeout(() => {

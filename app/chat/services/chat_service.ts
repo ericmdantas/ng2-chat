@@ -2,9 +2,11 @@ import {
   Observable
 } from 'rxjs/Observable';
 
+import {Injectable} from '@angular/core';
 import {MessageModel} from 'app/chat/message/message_model';
 import {URL_CONNECTION} from '../constants/url';
 
+@Injectable()
 export class ChatService {
   static MESSAGE: string = 'msg';
   _socket: SocketIOStatic = io(URL_CONNECTION);

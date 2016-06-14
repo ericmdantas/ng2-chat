@@ -33,18 +33,18 @@ export class ChatListCmp implements OnInit {
   clickMention: EventEmitter<any> = new EventEmitter();
   private _w: Window = window;
 
-  constructor(@Inject(ChatService) private _chatService: ChatService,
-              @Inject(ChatTypingService) private _chatTypingService: ChatTypingService,
-              @Inject(UserOnlineMessageService) private _userOnlineMessageService: UserOnlineMessageService,
-              @Inject(MentionService) private _mentionService: MentionService,
-              @Inject(DeleteMessageService) private _deleteMessageService: DeleteMessageService,
-              @Inject(ChatListModel) public chatList: ChatListModel,
-              @Inject(ScrollBottomService) private _scrollBottomService: ScrollBottomService,
-              @Inject(Mib) private _mib: Mib,
-              @Inject(Roll) private _roll: Roll,
-              @Inject(AdminService) private _admin: AdminService,
-              @Inject(NotificationNewMessagesService) private _notificationNewMessageService: NotificationNewMessagesService,
-              @Inject(UserStorageService) private _userStorageService: UserStorageService) {
+  constructor(private _chatService: ChatService,
+              private _chatTypingService: ChatTypingService,
+              private _userOnlineMessageService: UserOnlineMessageService,
+              private _mentionService: MentionService,
+              private _deleteMessageService: DeleteMessageService,
+              public chatList: ChatListModel,
+              private _scrollBottomService: ScrollBottomService,
+              private _mib: Mib,
+              private _roll: Roll,
+              private _admin: AdminService,
+              private _notificationNewMessageService: NotificationNewMessagesService,
+              private _userStorageService: UserStorageService) {
 
   }
 

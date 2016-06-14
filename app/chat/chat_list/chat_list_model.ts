@@ -1,5 +1,7 @@
 import {MessageModel} from 'app/chat/message/message_model';
+import {Injectable} from '@angular/core';
 
+@Injectable()
 export class ChatListModel {
   public messages: MessageModel[] = [];
 

@@ -1,6 +1,8 @@
 import {Xtorage} from 'xtorage';
 import {UserModel} from 'app/user/user_model';
+import {Injectable} from '@angular/core';
 
+@Injectable()
 export class UserStorageService {
   private static KEY_USER_ONLINE: string = 'user_online';
   private _xtorage: Xtorage = new Xtorage();
