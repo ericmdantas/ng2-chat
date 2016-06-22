@@ -27,6 +27,9 @@ System.config({
       '@angular/platform-browser': {
         main: 'index'
       },
+      '@angular/forms': {
+        main: 'index'
+      },
       '@angular/router': {
         main: 'index'
       },

@@ -8,9 +8,10 @@ import {
 import {
   FormBuilder,
   Validators,
-  ControlGroup,
-  Control
-} from '@angular/common';
+  FormGroup,
+  FormControl,
+  REACTIVE_FORM_DIRECTIVES
+} from '@angular/forms';
 
 import {ChatService} from 'app/chat/services/chat_service';
 import {UserStorageService} from 'app/user/user_storage_service';
@@ -27,13 +28,13 @@ import {MessageStorageService} from 'app/chat/message/message_storage_service';
   providers: [FormBuilder, forwardRef(() => ChatService), UserStorageService, PromptifyService, MessageStorageService],
   templateUrl: 'app/chat/chat_form/chat_form.html',
   styleUrls: ['app/chat/chat_form/chat_form.css'],
-  directives: [UserTypingDirective, ArrowsDirective],
+  directives: [UserTypingDirective, ArrowsDirective, REACTIVE_FORM_DIRECTIVES],
   host: {
     '(window:keydown)': 'keyUpHandler($event)'
   }
 })
 export class ChatFormCmp {
-  chatForm: ControlGroup;
+  chatForm: FormGroup;
 
   constructor(private _chatService: ChatService,
               fb: FormBuilder,
@@ -48,7 +49,7 @@ export class ChatFormCmp {
   }
 
   private _clearForm() {
-    (<Control>this.chatForm.controls["message"]).updateValue("");
+    (<FormControl>this.chatForm.controls["message"]).updateValue("");
   }
 
   public submitMessageHandler(msg: string) {
@@ -93,21 +94,21 @@ export class ChatFormCmp {
   arrowUpHandler() {
     let _msg = this._messageStorageService.getPrevious();
 
-    (<Control>this.chatForm.controls[_msg]).updateValue(_msg);
+    (<FormControl>this.chatForm.controls[_msg]).updateValue(_msg);
   }
 
   arrowDownHandler() {
     let _msg = this._messageStorageService.getNext();
 
-    (<Control>this.chatForm.controls["message"]).updateValue(_msg);
+    (<FormControl>this.chatForm.FormControls["message"]).updateValue(_msg);
   }
 
   private _mentionForm(n: string):void {
     let _mention = MentionService.MENTION + n;
-    let _oldValue = (<Control>this.chatForm.controls["message"]).value;
+    let _oldValue = (<FormControl>this.chatForm.FormControls["message"]).value;
     let _newValue = _oldValue.indexOf(_mention) === -1 ? `${_mention} ${_oldValue}` : _oldValue;
 
-    (<Control>this.chatForm.controls["message"]).updateValue(_newValue);
+    (<FormControl>this.chatForm.FormControls["message"]).updateValue(_newValue);
   }
 
   public escHandler():void {

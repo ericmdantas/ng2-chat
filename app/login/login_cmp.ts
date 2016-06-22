@@ -7,11 +7,12 @@ import {
 } from '@angular/core';
 
 import {
-  Control,
+  FormControl,
   FormBuilder,
-  ControlGroup,
-  Validators
-} from '@angular/common';
+  FormGroup,
+  Validators,
+  REACTIVE_FORM_DIRECTIVES
+} from '@angular/forms';
 
 import {UserStorageService} from 'app/user/user_storage_service';
 import {UserModel} from 'app/user/user_model';
@@ -20,10 +21,11 @@ import {UserModel} from 'app/user/user_model';
   selector: 'login-cmp',
   templateUrl: 'app/login/login.html',
   styleUrls: ['app/login/login.css'],
+  directives: [REACTIVE_FORM_DIRECTIVES],
   providers: [FormBuilder, UserModel, UserStorageService]
 })
 export class LoginCmp implements OnInit {
-  loginForm: ControlGroup;
+  loginForm: FormGroup;
   @Output() loginOk: EventEmitter<any> = new EventEmitter();
 
   constructor(private _user: UserModel,
@@ -41,7 +43,7 @@ export class LoginCmp implements OnInit {
 
   signIn(name: string):void {
     this._userStorageService.saveUser(name);
-    (<Control>this.loginForm.controls['name']).updateValue("");
+    (<FormControl>this.loginForm.controls['name']).updateValue("");
 
     this.loginOk.next('login-ok!');
   }

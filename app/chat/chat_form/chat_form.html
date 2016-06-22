@@ -1,11 +1,11 @@
 <div class="form-container">
-  <form [ngFormModel]="chatForm">
+  <form [formGroup]="chatForm">
     <span class="room left">C:\ ></span>
 
     <input type="text"
            id="main-input-chat"
            class="left"
-           ngControl="message"
+           formControlName="message"
            userTyping
 
            autocomplete="off"
@@ -14,9 +14,9 @@
             (arrowUp)="arrowUpHandler()"
             (arrowDown)="arrowDownHandler()"
 
-           (keyup.escape)="escHandler()"
-           (keyup.enter)="submitMessageHandler(chatForm.value.message)"
-           
+            (keyup.escape)="escHandler()"
+            (keyup.enter)="submitMessageHandler(chatForm.value.message)"
+
            autofocus />
   </form>
 </div>
