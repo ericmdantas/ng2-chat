@@ -8,7 +8,13 @@
     "build": "tsc"
   },
   "devDependencies": {
-    "typescript": "^2.0.0"
+    "babel-loader": "^6.2.5",
+    "css-loader": "^0.25.0",
+    "html-loader": "^0.4.4",
+    "style-loader": "^0.13.1",
+    "typescript": "^2.0.0",
+    "webpack": "^2.1.0-beta.25",
+    "webpack-dev-server": "^1.16.1"
   },
   "dependencies": {
     "@angular/common": "^2.0.0-rc.4",
@@ -30,6 +36,8 @@
     "socket.io": "^1.4.5",
     "socket.io-client": "^1.4.5",
     "systemjs": "^0.19.29",
+    "ubus": "^1.0.3",
+    "vue": "^2.0.1",
     "xtorage": "0.0.4",
     "zone.js": "^0.6.12"
   },
